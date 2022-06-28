@@ -11,6 +11,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        modules: [ path.join(__dirname, './src') ]
     },
     output: {
         publicPath: '/build/',

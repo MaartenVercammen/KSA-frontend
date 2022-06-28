@@ -7,7 +7,12 @@ const Navbar: React.FC = () => {
         <ul className="nav justify-content-center">
             <li>
                 <Link to="/" className="nav-link px-4 fs-5 text-white">
-                    Overview
+                    Home
+                </Link>
+            </li>
+            <li>
+                <Link to="/user/overview" className="nav-link px-4 fs-5 text-white">
+                    User Overview
                 </Link>
             </li>
         </ul>

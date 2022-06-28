@@ -19,9 +19,4 @@ const formatUsersData = (users: Array<user>) =>{
     return newUsers
 }
 
-
-
-
-
-
 export { formatUsersData }

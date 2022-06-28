@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOverview from './userOverview';
+import AddUser from './adduser/addUser';
 
 const User: React.FC = () => {
     return (
@@ -9,6 +10,7 @@ const User: React.FC = () => {
             <main className="container mt-5">
                 <Routes>
                     <Route path='/overview' element={<UserOverview/>}/>
+                    <Route path='/add' element={<AddUser/>}/>
                 </Routes>
             </main>
         </>

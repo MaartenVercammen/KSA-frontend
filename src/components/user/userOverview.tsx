@@ -47,6 +47,7 @@ return(
                 
             </tbody>
         </table>
+        <Link to={'../add'} >Voeg gebruiker toe</Link>
     </>
 )
 }
