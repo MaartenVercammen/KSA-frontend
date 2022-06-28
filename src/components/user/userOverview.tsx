@@ -10,11 +10,20 @@ const UserOverview: React.FC = () =>{
 
     useEffect(() => {
         getAllUsers();
+        setInterval(getAllUsers, 5000);
     }, []);
 
-    const getAllUsers =async () => {    
+    const getAllUsers = async () => {    
         const res: AxiosResponse<Array<user>> = await UserService.getAllUsers();
-        setUsers(userModel.formatUsersData(res.data))
+        setUsers(userModel.formatUsersData(res.data).sort((user1, user2) => {
+            return user1.id - user2.id
+        }))
+    }
+
+    const handleDeletelclick = async (id: number) =>{
+        console.log("click", id)
+        await UserService.deleteUser(id)
+        getAllUsers();
     }
 
 
@@ -30,6 +39,7 @@ return(
                     <th>telefoonnummer</th>
                     <th>email</th>
                     <th>usertype</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +52,7 @@ return(
                         <td>{user.phone}</td>
                         <td>{user.email}</td>
                         <td>{user.typename}</td>
+                        <td><button className='button btn-danger' onClick={(event) => handleDeletelclick(user.id)}>Delete</button></td>
                     </tr>
                 )}
                 

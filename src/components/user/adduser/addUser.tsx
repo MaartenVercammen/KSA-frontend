@@ -31,9 +31,8 @@ const AddUser: React.FC = ()=>{
 
       const handleSubmit = async (event: any) =>{
         event.preventDefault()
-        console.log(user)
-        var res = await UserService.createUser(user);
-        console.log(res)
+        await UserService.createUser(user);
+        nav('../overview')
       }
 
 return(
