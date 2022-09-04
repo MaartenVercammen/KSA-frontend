@@ -1,0 +1,15 @@
+@import-normalize;
+
+*{
+    --primary-color: rgb(4, 21, 31);
+    --secondary-color: rgb(24, 58, 55);
+    --thirt-color: rgb(239, 214, 172);
+    --fourth-color: rgb(196, 73, 0);
+    --fifth-color: rgb(67, 37, 52);
+}
+
+html{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
