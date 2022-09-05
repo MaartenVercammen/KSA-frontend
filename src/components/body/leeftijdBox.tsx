@@ -1,18 +1,27 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
-    name: string
-}
+  name: string;
+  img: string;
+};
 
-const LeeftijdBox: React.FC<Props> = ({name}: Props) => {
+const LeeftijdBox: React.FC<Props> = ({ name, img }: Props) => {
   return (
-    <div className='leeftijdBox'>
-    <h2>{name}</h2>
-    <ul>
-        <li>Joke - 04856421525</li>
-    </ul>
+    <div className="leeftijdBox">
+      <div className="leeftijdBoxInner">
+        <div className="leeftijdBoxFront">
+          <img src={img}/>
+        </div>
+        <div className="leeftijdBoxback">
+            <ul>
+              <li>
+                <p>joke - <a href="/">tel: 115160464</a></p>
+              </li>
+            </ul>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LeeftijdBox
+export default LeeftijdBox;

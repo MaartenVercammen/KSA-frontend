@@ -10,7 +10,7 @@ const Braggel = () => {
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="shape-fill"></path>
       </svg>
     </div>
-    <div className='braggel'>
+    <div className='braggel' id='braggel'>
         <h2>Braggel</h2>
         <p><i>Braggel</i> is de naam van ons maandelijks tijdschriftje. Ben je lid bij KSA Aarschot, dan krijg je hem voor elke eerste zaterdag van de maand bij jou in de bus!</p>
         <p>Hieronder vind je een overzicht van de beschikbare digitale edities. Is een maand niet zichtbaar? Helaas, dan staat de editie voor die maand nog niet online. Naast de maandelijkse edities, kan je hier ook de speciallekes, zoals onze Startbraggel voor nieuwe KSA'(st)ers en onze Kampbraggel terugvinden. Alvast veel leesplezier!</p>
