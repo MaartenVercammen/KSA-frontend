@@ -8,8 +8,8 @@ const Index = () => {
   return (
     <div className='page'>
         <Header/>
-        <Body/>
         <NavBar/>
+        <Body/>
         <Footer/>
     </div>
   )

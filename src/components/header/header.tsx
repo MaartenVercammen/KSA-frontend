@@ -1,9 +1,12 @@
 import React from 'react'
+import image  from '../../public/images/groepsfoto.jpg'
+import logo from "../../public/images/logo.png"
 
 const Header = () => {
   return (
     <header>
-        <h1>Welkom By KSA Aarschot</h1>
+      <img src={image} className="headerImg" />
+      <img src={logo} className="logo"/>
     </header>
   )
 }
