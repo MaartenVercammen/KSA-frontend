@@ -3,11 +3,13 @@ import NewsItem from './newsItem'
 
 const News = () => {
   return (
-    <div>
+    <div className='news'>
         <h2>News</h2>
-        <NewsItem title='test'/>
-        <NewsItem title='Hallo'/>
-        <NewsItem title='klaar'/>
+        <ul>
+          <li><NewsItem title='test'/></li>
+          <li><NewsItem title='Hallo'/></li>
+          <li><NewsItem title='klaar'/></li>
+        </ul>
     </div>
   )
 }

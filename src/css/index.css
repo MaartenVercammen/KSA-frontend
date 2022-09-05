@@ -61,3 +61,45 @@ nav ul{
     margin-right: 2rem;
     list-style: none;
 }
+
+h2, h3{
+    text-align: center;   
+    margin: 1rem;
+}
+
+.news ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.news li{
+    max-width: 50%;
+}
+
+.newsItem{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 0.7rem;
+    background-color: var(--color-one);
+    border-radius: 2rem;
+}
+
+.newsItem h3{
+    border-bottom: var(--color-three) 1px solid;
+}
+
+.newsItemBody{
+}
+
+.newsItem i{
+    width: 100%;
+    text-align: right;
+    font-style: italic;
+    filter: opacity(0.8);
+    font-size: small;
+}
