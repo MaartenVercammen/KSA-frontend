@@ -3,7 +3,7 @@ import NewsItem from './newsItem'
 
 const News = () => {
   return (
-    <div className='news'>
+    <div className='news' id='news'>
         <h2>News</h2>
         <ul>
           <li><NewsItem title='test'/></li>
