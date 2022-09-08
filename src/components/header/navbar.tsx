@@ -17,7 +17,6 @@ const NavBar = () => {
           <li><HashLink smooth to="#braggel" scroll={scrollWithOffset}>Braggel</HashLink></li>
           <li><HashLink smooth to="#leeftijden" scroll={scrollWithOffset}>Leeftijden</HashLink></li>
           <li><HashLink smooth to="#contact" scroll={scrollWithOffset}>Contact</HashLink></li>
-          <li><HashLink smooth to="#contact" scroll={scrollWithOffset}>Contact</HashLink></li>
       </ul>
     </nav>
   )
