@@ -16,6 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag emvee/ksafrontend:latest
+      run: docker build -t emvee/ksafrontend .
     - name: Push the Docker image
       run: docker login -u emvee -p ${{ secrets.DOCKER_TOKEN }} && docker push emvee/ksafrontend:latest
