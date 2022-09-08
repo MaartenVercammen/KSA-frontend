@@ -1,8 +1,17 @@
 import React from 'react'
+import Braggel from './braggel'
+import Contact from './contact'
+import Leeftijden from './leeftijden'
+import News from './news'
 
 const Body = () => {
   return (
-    <main>Body</main>
+    <main>
+      <News/>
+      <Braggel/>
+      <Leeftijden/>
+      <Contact/>
+    </main>
   )
 }
 
