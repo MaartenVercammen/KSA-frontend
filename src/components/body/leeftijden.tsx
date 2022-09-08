@@ -5,7 +5,7 @@ import leeuwkesLogo from '../../public/images/leeuwkesLogo.png'
 import jongknapenLogo from '../../public/images/jongknapenLogo.png'
 import KnapenLogo from '../../public/images/knapenLogo.png'
 import jonghernieuwersLogo from '../../public/images/jonghernieuwersLogo.png'
-import HernieuwersLogo from '../../public/images/HernieuwersLogo.png'
+import HernieuwersLogo from '../../public/images/hernieuwersLogo.png'
 
 
 
