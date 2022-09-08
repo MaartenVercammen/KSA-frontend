@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           usernane: ${{ secrets.DOCKERHUB_USERNAME }}
-          token: ${{ DOCKERHUB_TOKEN }}
+          token: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: emvee/ksafrontend  
           tags: latest
