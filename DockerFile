@@ -2,7 +2,7 @@ FROM node:alpine as builder
 
 WORKDIR /frontend
 
-COPY ./package.json /frontend
+COPY ./package*.json /frontend
 
 RUN npm install
 
