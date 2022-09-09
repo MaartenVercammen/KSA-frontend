@@ -5,7 +5,7 @@ import ContactInfo from './contactInfo'
 const Contact = () => {
   return (
     <div className='contact'>
-        <h2>Contact</h2>
+        <h1>Contact</h1>
         <ContactInfo/>
         <ContactFrom/>
     </div>

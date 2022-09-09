@@ -13,7 +13,7 @@ import HernieuwersLogo from '../../public/images/hernieuwersLogo.png'
 const Leeftijden = () => {
   return (
     <div className='leeftijden' id="leeftijden">
-        <h2>Leeftijden</h2>
+        <h1>Leeftijden</h1>
         <div className='leeftijden-container'>
           <LeeftijdBox name='Rubskes' img={rubskesLogo} startAge="3de kleuterklas" endAge="1ste leerjaar"/>
           <LeeftijdBox name='Leeuwkes' img={leeuwkesLogo} startAge="2de leerjaar" endAge="3de leerjaar"/>

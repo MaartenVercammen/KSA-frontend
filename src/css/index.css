@@ -15,6 +15,18 @@ html {
   background-color: #f6f6f6;
 }
 
+h1, h2{
+  text-align: center;
+  margin: 1rem;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
   position: relative;
   width: 100%;
@@ -64,11 +76,7 @@ nav ul {
   list-style: none;
 }
 
-h2,
-h3 {
-  text-align: center;
-  margin: 1rem;
-}
+
 
 .news ul {
   padding: 0;
@@ -89,8 +97,9 @@ h3 {
   flex-direction: column;
   margin: 1rem;
   padding: 0.7rem;
-  background-color: var(--color-one);
+  background-color: var(--color-three);
   border-radius: 2rem;
+  color: white
 }
 
 .newsItem h3 {
@@ -101,7 +110,7 @@ h3 {
   margin: 0;
 }
 
-.newsItem p {
+.newsItem .publishedOn {
   text-align: right;
 }
 
