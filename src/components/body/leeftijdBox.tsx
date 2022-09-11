@@ -1,5 +1,6 @@
 import React from "react";
-import {useNavigate}  from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+
 
 type Props = {
   name: string;
@@ -9,9 +10,9 @@ type Props = {
 };
 
 const LeeftijdBox: React.FC<Props> = ({ name, img, startAge, endAge }: Props) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
-    <div className="leeftijdBox" onClick={e => navigate("/leiders/" + name)}>
+    <div className="leeftijdBox" onClick={e => navigate("/leiders/"+name)}>
         <img src={img}/>
         <div className="info">
           <h4>{name}</h4>

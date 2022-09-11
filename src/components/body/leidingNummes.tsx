@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { leidingNummer } from '../../types/index'
 import Footer from '../footer/footer';
 import NavBar from '../header/navbar';
@@ -9,6 +10,10 @@ type Props = {
 }
 
 const LeidingNummes = ({nummers, groep}: Props) => {
+  useEffect(() => {
+      window.scroll(0,0)
+  }, [])
+  
   return (
     <>
     <div className='leidingnummers'>
