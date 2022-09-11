@@ -21,9 +21,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: |
-          cd dev/KSA-frontend/ 
-          git pull
-          npm run prod
-          cd
-          rsync dev/KSA-frontend/dist/build/ www/  
+        script: bash deploy.sh
