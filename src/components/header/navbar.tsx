@@ -11,7 +11,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <HashLink smooth to="/#top">KSA Aarschot</HashLink>
+      <HashLink smooth to="/#top">KSA Diest</HashLink>
       <ul>
           <li><HashLink smooth to="/#news" scroll={scrollWithOffset}>News</HashLink></li>
           <li><HashLink smooth to="/#braggel" scroll={scrollWithOffset}>Braggel</HashLink></li>
