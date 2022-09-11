@@ -1,12 +1,10 @@
 import React from 'react'
-import image  from '../../public/images/groepsfoto.jpg'
-import logo from "../../public/images/logo.png"
 
 const Header = () => {
   return (
     <header>
-      <img src={image} className="headerImg" />
-      <img src={logo} className="logo"/>
+      <img src="/images/groepsfoto.jpg" className="headerImg" />
+      <img src="/images/logo.png" className="logo"/>
     </header>
   )
 }

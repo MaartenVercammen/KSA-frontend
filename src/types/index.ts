@@ -4,3 +4,9 @@ export interface user {
   password: string;
   email: string;
 }
+
+export interface leidingNummer {
+  naam: string;
+  number: string;
+  img: string;
+}
