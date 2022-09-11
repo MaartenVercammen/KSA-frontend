@@ -5,9 +5,11 @@ import ContactInfo from './contactInfo'
 const Contact = () => {
   return (
     <div className='contact'>
-        <h2>Contact</h2>
-        <ContactInfo/>
-        <ContactFrom/>
+        <h1>Contact</h1>
+        <div className='contact-container'>
+          <ContactInfo/>
+          <ContactFrom/>
+        </div>
     </div>
   )
 }

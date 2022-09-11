@@ -4,7 +4,7 @@ import NewsItem from './newsItem'
 const News = () => {
   return (
     <div className='news' id='news'>
-        <h2>News</h2>
+        <h1>News</h1>
         <ul>
           <li><NewsItem title='test'/></li>
           <li><NewsItem title='Hallo'/></li>
