@@ -15,7 +15,7 @@ module.exports = {
     output: {
         publicPath: '/build/',
         path: path.resolve(__dirname, './dist/build/'),
-        filename: '[name].[contenthash].js',
+        filename: '[name].js',
     },
     devServer: {
         historyApiFallback: { index: '/build/' },

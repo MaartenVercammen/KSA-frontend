@@ -9,8 +9,8 @@ function App() {
         <>
             <main>
                 <Routes>
-                    <Route path="/" element={<Index/>} />
-                    <Route path='/leiders/Rubskes' element={<LeidingNummes groep='Rubskes' nummers={[{naam: "joke", number:"048568247", img:"/images/rubskesLogo.png"}, {naam: "joke", number:"048568247",img:"/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/images/rubskesLogo.png"}]}/>} />
+                    <Route path="/*" element={<Index/>} />
+                    <Route path='/leiders/Rubskes' element={<LeidingNummes groep='Rubskes' nummers={[{naam: "joke", number:"048568247", img:"/public/images/rubskesLogo.png"}, {naam: "joke", number:"048568247",img:"/public/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/public/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/public/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/public/images/rubskesLogo.png"}, {naam: "joke", number:"048568247", img:"/public/images/rubskesLogo.png"}]}/>} />
                     <Route path='/leiders/Leeuwkes' element={<div>Leeuwkes</div>} />
                     <Route path='/leiders/Jonknapen' element={<div>Jonknapen</div>} />
                     <Route path='/leiders/Knapen' element={<div>Knapen</div>} />
