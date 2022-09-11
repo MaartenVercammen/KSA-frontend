@@ -15,4 +15,4 @@ jobs:
 
     steps:
     - name: executing remote ssh commands using ssh key
-      run: ssh {{ secrets.USERNAME}}@{{ secrets.HOST }} bash deploy.sh
+      run: ssh ${ { secrets.USERNAME } }@${ { secrets.HOST } } bash deploy.sh
