@@ -15,10 +15,4 @@ jobs:
 
     steps:
     - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: bash deploy.sh
+      run: ssh {{ secrets.USERNAME}}@{{ secrets.HOST }} bash deploy.sh
