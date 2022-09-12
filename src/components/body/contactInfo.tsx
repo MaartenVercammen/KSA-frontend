@@ -21,10 +21,6 @@ const ContactInfo: React.FC = () => {
           />
         </li>
       </ul>
-      <h3>Mail:</h3>
-      <p>
-        <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
-      </p>
     </div>
   );
 };

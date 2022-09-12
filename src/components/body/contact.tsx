@@ -1,6 +1,6 @@
 import React from 'react'
-import ContactFrom from './contactForm'
 import ContactInfo from './contactInfo'
+import GeneralInfo from './generalIfno'
 
 const Contact = () => {
   return (
@@ -8,7 +8,7 @@ const Contact = () => {
         <h1>Contact</h1>
         <div className='contact-container'>
           <ContactInfo/>
-          <ContactFrom/>
+          <GeneralInfo/>
         </div>
     </div>
   )
