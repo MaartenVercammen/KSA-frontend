@@ -27,7 +27,7 @@ Met vragen kan u steeds bij ons terecht."
 
 Hoe werkt dit?
 
-Bezoek onze pagina via deze link: <a href='https://trooper.be/ksa-aarschot'>https://trooper.be/ksa-aarschot</a>
+Bezoek onze pagina via deze link: <a href='https://www.trooper.be/nl/trooperverenigingen/ksaaarschot'>https://www.trooper.be/nl/trooperverenigingen/ksaaarschot</a>
 Kies de webshop waar je online wil shoppen en klik op de afbeelding, Trooper registreert dan dat je via onze link bent doorverwezen
 Doe je aankopen zoals gewoonlijk, zonder extra te betalen
 De webshop geeft KSA Aarschot gemiddeld 5% van de aankoopprijs.
