@@ -2,7 +2,7 @@
   --color-one: #8ecae6;
   --color-two: #219ebc;
   --color-three: #023047;
-  --color-four: #ffb703;
+  --color-four: #f4901d;
   --color-five: #fb8500;
   --color-fill: #f6f6f6;
   --card-with: 250px;
@@ -175,7 +175,7 @@ nav input[type=checkbox]{
   flex-direction: column;
   margin: 1rem;
   padding: 0.7rem;
-  background-color: var(--color-three);
+  background-color: var(--color-four);
   border-radius: 2rem;
   color: white;
 }
