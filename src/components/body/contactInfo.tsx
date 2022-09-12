@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect }, { useEffect } from "react";
+import Card from "./card";
 import Card from "./card";
 
-const ContactInfo: React.FC = () => {
+const ContactInfo: React.FC: React.FC = () => {
   return (
     <div className="contact-info">
       <h3>Hoofdleiding</h3>

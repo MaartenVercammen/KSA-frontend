@@ -40,7 +40,7 @@ h6 {
   font-family: "Times New Roman", Times, serif;
 }
 
-p {
+p  {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -82,9 +82,14 @@ nav p {
   text-align: center;
 }
 
+nav p {
+  text-align: center;
+}
+
 nav a {
   text-decoration: none;
   margin-left: 1rem;
+  margin-right: 1rem;
   margin-right: 1rem;
   color: white;
 }
@@ -219,6 +224,15 @@ nav input[type=checkbox]{
   color: var(--color-five);
 }
 
+.braggel a{
+  text-decoration: underline;
+  color: white;
+}
+
+.braggel a:hover{
+  color: var(--color-five);
+}
+
 .custom-shape-divider-top-1662392900 {
   position: absolute;
   left: 0;
@@ -332,6 +346,7 @@ nav input[type=checkbox]{
   background-color: var(--color-three);
   border-radius: 1rem;
   width: var(--card-with);
+  width: var(--card-with);
 }
 
 .card-container {
@@ -349,22 +364,23 @@ nav input[type=checkbox]{
   color: white;
 }
 
-.card .card-container p {
+.card .card-container p  {
   text-align: center;
   color: white;
   padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
-.card .card-container p a {
+.card .card-container p a  {
   color: white;
   text-decoration: none;
 }
 
-.card .card-container p a:hover {
+.card .card-container p a:hover  {
   color: var(--color-four);
 }
 
-.contact-container {
+.contact-container  {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -393,16 +409,21 @@ nav input[type=checkbox]{
   padding: 1rem;
 }
 
-.contact-info p {
+.contact-info li {
+  max-width: var(--card-with);
+  padding: 1rem;
+}
+
+.contact-info p  {
   text-align: center;
 }
 
-.contact-info p a {
+.contact-info p a  {
   text-decoration: none;
   color: black;
 }
 
-.contact-info p a:hover {
+.contact-info p a:hover  {
   color: var(--color-four);
 }
 
