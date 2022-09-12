@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { leidingNummer } from '../../types/index'
 import Footer from '../footer/footer';
 import NavBar from '../header/navbar';
+import Card from './card';
 
 type Props = {
     nummers: Array<leidingNummer>
@@ -19,19 +20,17 @@ const LeidingNummes = ({nummers, groep}: Props) => {
     <div className='leidingnummers'>
       <div className='groep-container'>
         <h1 className='groep'>{groep}</h1>
-        <img src={'/public/images/'+groep.toLocaleLowerCase()+"Logo.png"}/>
+        <img src={'/images/'+groep.toLocaleLowerCase()+"Logo.png"}/>
       </div>
       <NavBar/>
       <div className='groep-data'>
           <ul>
+            
               {nummers && nummers.map((value: leidingNummer, index: number) => (
-                <div className="card">
-                  <img src={value.img} alt="Avatar"/>
-                  <div className="card-container">
-                    <h3><b>{value.naam}</b></h3>
-                    <p>tel:<a href={'tel:' + value.number}>{value.number}</a></p>
-                  </div>
-               </div>
+                
+                <li>
+                  <Card nummer={value.number} img={value.img} naam={value.naam}/>
+               </li>
               ))}
               
           </ul>

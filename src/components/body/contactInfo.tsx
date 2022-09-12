@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Card from "./card";
 
-const ContactInfo = () => {
+const ContactInfo: React.FC = () => {
   return (
     <div className="contact-info">
-  
       <h3>Hoofdleiding</h3>
       <ul>
         <li>
-          <h4>Nele Hermans</h4>
-          <p>tel:<a>048465465</a></p>
+          <Card
+            naam="Nele Hermans"
+            nummer="0472064254"
+            img="/images/nele.jpg"
+          />
         </li>
         <li>
-          <h4>Kobe Holemans</h4>
-          <p>tel:<a>048465465</a></p>
+          <Card
+            naam="Kobe Holemens"
+            nummer="0499304012"
+            img="/images/kobe.jpg"
+          />
         </li>
       </ul>
-      <p>Mail: 
+      <h3>Mail:</h3>
+      <p>
         <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
       </p>
     </div>

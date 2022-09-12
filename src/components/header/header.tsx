@@ -3,8 +3,8 @@ import React from 'react'
 const Header = () => {
   return (
     <header>
-      <img src="/public/images/groepsfoto.jpg" className="headerImg" />
-      <img src="/public/images/logo.png" className="logo"/>
+      <img src="/images/groepsfoto.jpg" className="headerImg" />
+      <img src="/images/logo.png" className="logo"/>
     </header>
   )
 }
