@@ -5,6 +5,7 @@
   --color-four: #ffb703;
   --color-five: #fb8500;
   --color-fill: #f6f6f6;
+  --card-with: 350px;
 }
 
 body,
@@ -311,24 +312,24 @@ nav input[type=checkbox]{
 }
 
 .groep-data ul li {
-  max-width: 400px;
+  max-width: var(--card-with);
 }
 
 .card {
   background-color: var(--color-three);
   border-radius: 1rem;
-  width: 400px;
+  width: var(--card-with);
 }
 
 .card-container {
-  width: 400px;
+  width: var(--card-with);
   height: 100%;
 }
 
 .card img {
   object-fit: cover;
-  width: 400px;
-  height: 400px;
+  width: var(--card-with);
+  height: var(--card-with);
 }
 
 .card h3 {
@@ -372,7 +373,7 @@ nav input[type=checkbox]{
 }
 
 .contact-info li {
-  max-width: 400px;
+  max-width: var(--card-with);
   padding: 1rem;
 }
 
