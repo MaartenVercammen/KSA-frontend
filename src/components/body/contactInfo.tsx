@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./card";
 
 const ContactInfo = () => {
   return (
@@ -7,15 +8,13 @@ const ContactInfo = () => {
       <h3>Hoofdleiding</h3>
       <ul>
         <li>
-          <h4>Nele Hermans</h4>
-          <p>tel:<a>048465465</a></p>
+          <Card naam="Nele Hermans" nummer="0485681274" img="/images/rubskesLogo.png"/>
         </li>
         <li>
-          <h4>Kobe Holemans</h4>
-          <p>tel:<a>048465465</a></p>
+          <Card naam="Kobe Holemens" nummer="0485681274" img="/images/rubskesLogo.png"/>
         </li>
       </ul>
-      <p>Mail: 
+      <p><h3>Mail:</h3> 
         <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
       </p>
     </div>

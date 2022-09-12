@@ -355,9 +355,14 @@ nav input[type=checkbox]{
 .contact-info ul {
   display: flex;
   list-style: none;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   margin: 0;
   padding: 0;
+}
+
+.contact-info li {
+  max-width: 400px;
+  padding: 1rem;
 }
 
 .contact-info p {
@@ -375,13 +380,15 @@ nav input[type=checkbox]{
 
 .form-container {
   padding: 1rem;
-  max-width: 350px;
+  max-width: 500px;
+  width: 300%
 }
 
 form {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
+  padding: 1rem;
 }
 
 input {
