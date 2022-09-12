@@ -18,6 +18,11 @@ html {
   background-color: var(--color-fill);
 }
 
+a{
+  text-decoration: none;
+}
+
+
 .app {
   width: 100%;
 }
@@ -167,6 +172,14 @@ nav input[type=checkbox]{
   background-color: var(--color-three);
   border-radius: 2rem;
   color: white;
+}
+
+.newsItem a{
+  color: white;
+}
+
+.newsItem a:hover{
+  color: var(--color-five);
 }
 
 .newsItem h3 {
