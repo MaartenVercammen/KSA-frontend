@@ -15,7 +15,8 @@ const NavBar = () => {
           KSA Aarschot
         </HashLink>
       </p>
-
+      <label htmlFor="burger" className="hamburger">☰</label>
+      <input type="checkbox" name="burger" id="burger"/>
       <ul>
         <li>
           <HashLink smooth to="/#news" scroll={scrollWithOffset}>
@@ -38,6 +39,7 @@ const NavBar = () => {
           </HashLink>
         </li>
       </ul>
+      
     </nav>
   );
 };
