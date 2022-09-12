@@ -4,7 +4,6 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.tsx',
-    mode: 'development',
     watchOptions: {
         poll: 1000,
         ignored: '**/node_modules',
@@ -14,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist/build/'),
-        filename: '[name].js',
+        filename: 'main.js',
         publicPath: '/',
     },
     devServer: {
