@@ -18,8 +18,8 @@ module.exports = {
         publicPath: '/',
     },
     devServer: {
-        historyApiFallback: { index: '/build/' },
-    },
+        historyApiFallback: true,
+      },
     module: {
         rules: [
             {
