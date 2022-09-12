@@ -14,7 +14,7 @@ const News = () => {
           <NewsItem
           
             title="Welkom op de nieuwe website"
-            text="<p>Na lang wachten is eindelijk de nieuwer en werkende website er.</p><p> laat weten wat je er van vind</p>"
+            text="<p>Na lang wachten is eindelijk de nieuwer en werkende website er.</p><p> laat weten wat je er van vind.</p>"
             date="2022-09-12"
           />
         </li>
