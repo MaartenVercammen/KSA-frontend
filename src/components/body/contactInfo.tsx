@@ -15,7 +15,7 @@ const ContactInfo: React.FC = () => {
         </li>
         <li>
           <Card
-            naam="Kobe Holemens"
+            naam="Kobe Holemans"
             nummer="0499304012"
             img="/images/kobe.jpg"
           />
