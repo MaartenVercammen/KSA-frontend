@@ -264,7 +264,7 @@ nav input[type=checkbox]{
   object-fit: cover;
 }
 
-.leidingnummers ul {
+.leidingnummers .groep-data ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -297,6 +297,7 @@ nav input[type=checkbox]{
   flex-flow: row wrap;
   gap: 2rem;
   justify-content: space-evenly;
+  padding: 1rem;
 }
 
 .groep-data ul li {
