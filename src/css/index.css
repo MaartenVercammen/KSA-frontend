@@ -5,7 +5,7 @@
   --color-four: #ffb703;
   --color-five: #fb8500;
   --color-fill: #f6f6f6;
-  --card-with: 350px;
+  --card-with: 250px;
 }
 
 body,
@@ -17,6 +17,11 @@ html {
   display: inline-block;
   background-color: var(--color-fill);
 }
+
+a{
+  text-decoration: none;
+}
+
 
 .app {
   width: 100%;
@@ -35,7 +40,7 @@ h6 {
   font-family: "Times New Roman", Times, serif;
 }
 
-p {
+p  {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -77,9 +82,14 @@ nav p {
   text-align: center;
 }
 
+nav p {
+  text-align: center;
+}
+
 nav a {
   text-decoration: none;
   margin-left: 1rem;
+  margin-right: 1rem;
   margin-right: 1rem;
   color: white;
 }
@@ -169,6 +179,14 @@ nav input[type=checkbox]{
   color: white;
 }
 
+.newsItem a{
+  color: white;
+}
+
+.newsItem a:hover{
+  color: var(--color-five);
+}
+
 .newsItem h3 {
   border-bottom: var(--color-three) 1px solid;
 }
@@ -195,6 +213,15 @@ nav input[type=checkbox]{
 
 .braggel p {
   text-align: center;
+}
+
+.braggel a{
+  text-decoration: underline;
+  color: white;
+}
+
+.braggel a:hover{
+  color: var(--color-five);
 }
 
 .braggel a{
@@ -319,6 +346,7 @@ nav input[type=checkbox]{
   background-color: var(--color-three);
   border-radius: 1rem;
   width: var(--card-with);
+  width: var(--card-with);
 }
 
 .card-container {
@@ -336,25 +364,27 @@ nav input[type=checkbox]{
   color: white;
 }
 
-.card .card-container p {
+.card .card-container p  {
   text-align: center;
   color: white;
   padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
-.card .card-container p a {
+.card .card-container p a  {
   color: white;
   text-decoration: none;
 }
 
-.card .card-container p a:hover {
+.card .card-container p a:hover  {
   color: var(--color-four);
 }
 
-.contact-container {
+.contact-container  {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  padding-bottom: 2rem;
 }
 
 .contact-info {
@@ -368,6 +398,8 @@ nav input[type=checkbox]{
   display: flex;
   list-style: none;
   flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
@@ -377,73 +409,62 @@ nav input[type=checkbox]{
   padding: 1rem;
 }
 
-.contact-info p {
+.contact-info li {
+  max-width: var(--card-with);
+  padding: 1rem;
+}
+
+.contact-info p  {
   text-align: center;
 }
 
-.contact-info p a {
+.contact-info p a  {
   text-decoration: none;
   color: black;
 }
 
-.contact-info p a:hover {
+.contact-info p a:hover  {
   color: var(--color-four);
 }
 
-.form-container {
-  padding: 1rem;
-  max-width: 500px;
-  width: 300%
-}
 
-form {
+.generalinfo{
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
-  padding: 1rem;
+  justify-content: start;
+  align-items: center;
 }
 
-input {
-  background-color: var(--color-fill);
-  height: 2rem;
-}
-
-label{
-  display: none;
-}
-
-textarea {
-  background-color: var(--color-fill);
-  border: none;
-  border-bottom: var(--color-five) solid 2px;
-  height: 10rem;
-  outline: none;
-}
-
-form input[type="text"] {
-  border: none;
-  border-bottom: var(--color-five) 2px solid;
-}
-
-form input[type=submit] {
+.generalinfo div{
   width: 100%;
-  height: auto;
-  background-color: var(--color-five);
-  color: white;
-  padding: 1rem;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
+.generalinfo p{
+  text-align: center;
+}
+
+.generalinfo a{
+  color: black;
+  text-decoration: none;
+}
+
+.generalinfo a:hover{
+  color: var(--color-five);
+  text-decoration: none;
+}
 
 .map{
-  width: 100vw;
-  height: 20vh;
+  width: 100%;
+  height: 40vh;
+}
+
+.map-container{
+  width: 100%;
+  height: 100%;
 }
 
 footer{
+  clear: both;
   background-color: var(--color-three);
   height: 5vh;
 }
