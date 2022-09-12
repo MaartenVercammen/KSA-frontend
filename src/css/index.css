@@ -311,23 +311,24 @@ nav input[type=checkbox]{
 }
 
 .groep-data ul li {
-  max-width: 350px;
+  max-width: 400px;
 }
 
 .card {
   background-color: var(--color-three);
   border-radius: 1rem;
+  width: 400px;
 }
 
 .card-container {
-  width: 100%;
+  width: 400px;
   height: 100%;
 }
 
 .card img {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 400px;
 }
 
 .card h3 {

@@ -9,15 +9,15 @@ const ContactInfo: React.FC = () => {
         <li>
           <Card
             naam="Nele Hermans"
-            nummer="0485681274"
-            img="/images/rubskesLogo.png"
+            nummer="0472064254"
+            img="/images/nele.jpg"
           />
         </li>
         <li>
           <Card
             naam="Kobe Holemens"
-            nummer="0485681274"
-            img="/images/rubskesLogo.png"
+            nummer="0499304012"
+            img="/images/kobe.jpg"
           />
         </li>
       </ul>
