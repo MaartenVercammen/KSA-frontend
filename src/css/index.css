@@ -396,6 +396,10 @@ input {
   height: 2rem;
 }
 
+label{
+  display: none;
+}
+
 textarea {
   background-color: var(--color-fill);
   border: none;
@@ -409,11 +413,12 @@ form input[type="text"] {
   border-bottom: var(--color-five) 2px solid;
 }
 
-form input[type="submit"] {
+form input[type=submit] {
   width: 100%;
+  height: auto;
   background-color: var(--color-five);
   color: white;
-  padding: 14px 20px;
+  padding: 1rem;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
