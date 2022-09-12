@@ -163,7 +163,7 @@ nav ul {
 
 .leeftijdBox{
     width: calc(100%/3);
-    position: relative;
+    height: auto;
 }
 
 .leeftijdBox .info{
@@ -186,7 +186,8 @@ nav ul {
 
 .leeftijdBox img { 
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
 

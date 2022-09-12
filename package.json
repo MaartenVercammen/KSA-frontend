@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --port=8001 --config webpack.prod.js",
+    "start": "webpack serve --port=8001 --config webpack.dev.js",
     "build": "webpack --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js"
   },
