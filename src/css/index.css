@@ -224,6 +224,7 @@ nav input[type=checkbox]{
 .leeftijdBox {
   width: calc(100% / 3);
   height: auto;
+  position: relative;
 }
 
 @media (max-width: 1000px) {
