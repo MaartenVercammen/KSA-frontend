@@ -3,16 +3,17 @@ import parse from 'html-react-parser'
 
 type Props = {
     title: string;
-    content: string;
+    text: string;
+    date: string;
 }
 
-const NewsItem: React.FC<Props> = ({title, content}: Props) => {
+const NewsItem: React.FC<Props> = ({date, title, text}: Props) => {
   return (
     <div className='newsItem'>
         <h2>{title}</h2>
         <div className='newsItemBody'>
-          <p>{parse(content)}</p> </div>
-        <p className='publishedOn'><i>published on: 2022-2-16</i></p>
+          <p>{parse(text)}</p> </div>
+        <p className='publishedOn'><i>published on:{date}</i></p>
     </div>
   )
 }

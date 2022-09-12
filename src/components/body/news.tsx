@@ -8,22 +8,25 @@ const News = () => {
       <ul>
         <li>
           <NewsItem
+          
             title="Welkom op de nieuwe website"
-            content="Na lang wachten is eindelijk de nieuwer en werkende website er. laat weten wat je er van vind"
+            text="Na lang wachten is eindelijk de nieuwer en werkende website er. laat weten wat je er van vind"
+            date="2022-09-12"
           />
         </li>
         <li>
           <NewsItem
             title="Inschrijving van uw kind"
-            content="Krijgt u de Braggel niet per mail? Vraag dan zeker even na of uw kind ingeschreven is. De inschrijving is voltooid na het invullen van het inschrijvingsformulier en na het ontvangen van uw betaling. Een testperiode is mogelijk; er kan drie vergaderingen meegespeeld worden! Hierna is uw kind niet verzekerd, let hier zeker mee op!
+            text="Krijgt u de Braggel niet per mail? Vraag dan zeker even na of uw kind ingeschreven is. De inschrijving is voltooid na het invullen van het inschrijvingsformulier en na het ontvangen van uw betaling. Een testperiode is mogelijk; er kan drie vergaderingen meegespeeld worden! Hierna is uw kind niet verzekerd, let hier zeker mee op!
 
 Met vragen kan u steeds bij ons terecht."
+date="2022-09-12"
           />
         </li>
         <li>
           <NewsItem
             title="Trooper"
-            content="Vanaf nu kan je KSA Aarschot steunen door online te shoppen via Trooper
+            text="Vanaf nu kan je KSA Aarschot steunen door online te shoppen via Trooper
 
 Hoe werkt dit?
 
@@ -32,6 +35,7 @@ Kies de webshop waar je online wil shoppen en klik op de afbeelding, Trooper reg
 Doe je aankopen zoals gewoonlijk, zonder extra te betalen
 De webshop geeft KSA Aarschot gemiddeld 5% van de aankoopprijs.
 Zeg het door en wij danken je van harte!"
+date="2022-09-12"
           />
         </li>
       </ul>
