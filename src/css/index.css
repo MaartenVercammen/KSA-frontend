@@ -196,6 +196,15 @@ nav input[type=checkbox]{
   text-align: center;
 }
 
+.braggel a{
+  text-decoration: underline;
+  color: white;
+}
+
+.braggel a:hover{
+  color: var(--color-five);
+}
+
 .custom-shape-divider-top-1662392900 {
   position: absolute;
   left: 0;

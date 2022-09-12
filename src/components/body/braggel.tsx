@@ -15,9 +15,9 @@ const Braggel = () => {
         <p><i>Braggel</i> is de naam van ons maandelijks tijdschriftje. Ben je lid bij KSA Aarschot, dan krijg je hem voor elke eerste zaterdag van de maand bij jou in de bus!</p>
         <p>Hieronder vind je een overzicht van de beschikbare digitale edities. Is een maand niet zichtbaar? Helaas, dan staat de editie voor die maand nog niet online. Naast de maandelijkse edities, kan je hier ook de speciallekes, zoals onze Startbraggel voor nieuwe KSA'(st)ers en onze Kampbraggel terugvinden. Alvast veel leesplezier!</p>
         <h2>Maandelijkse edities</h2>
-        <p><a>September</a></p>
+        <p><a target="_blank" href='/pdf/braggel-september.pdf'>September</a></p>
         <h3>Speciale edities</h3>
-        <p><a>kamp</a></p>
+        <p><a target="_blank" href='/pdf/startbraggel.pdf'>start-braggel</a></p>
     </div>
     </>
   )
