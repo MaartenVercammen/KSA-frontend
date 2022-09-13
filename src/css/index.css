@@ -8,6 +8,11 @@
   --card-with: 250px;
 }
 
+@font-face {
+  font-family: 'tittlefont';
+  src: url('/fonts/KGSecondChancesSketch.ttf');
+}
+
 body,
 html {
   height: 100%;
@@ -37,7 +42,7 @@ h6 {
   margin: 1rem;
   font-weight: bold;
   font-size: 2em;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'tittlefont';
 }
 
 p  {
