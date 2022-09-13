@@ -13,7 +13,7 @@ const LeeftijdBox: React.FC<Props> = ({ name, img, startAge, endAge }: Props) =>
   const navigate = useNavigate()
   return (
     <div className="leeftijdBox" onClick={e => navigate("/leiders/"+name)}>
-        <img src={img}/>
+        <img src={img} alt={"logo van de " + name}/>
         <div className="info">
           <h4>{name}</h4>
           <p>{startAge}-{endAge}</p>

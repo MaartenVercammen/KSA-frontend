@@ -9,7 +9,7 @@ type Props = {
 const Card: React.FC<Props> = ({ img, naam, nummer }: Props) => {
   return (
     <div className="card">
-      <img src={img} alt="Avatar" />
+      <img src={img} alt="Avatar"/>
       <div className="card-container">
         <h3>
           <b>{naam}</b>
