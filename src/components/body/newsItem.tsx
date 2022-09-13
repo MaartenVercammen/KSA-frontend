@@ -12,7 +12,8 @@ const NewsItem: React.FC<Props> = ({date, title, text}: Props) => {
     <div className='newsItem'>
         <h2>{title}</h2>
         <div className='newsItemBody'>
-          <p>{parse(text)}</p> </div>
+          <div>{parse(text)}</div> 
+        </div>
         <p className='publishedOn'><i>published on:{date}</i></p>
     </div>
   )
