@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './css/index.css';
-import Index from './components';
+import Index from './components/index';
 import LeidingNummes from './components/body/leidingNummes';
 
 function App() {
