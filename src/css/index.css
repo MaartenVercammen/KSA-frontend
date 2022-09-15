@@ -25,6 +25,7 @@ html {
 
 main{
   min-height: 100vh;
+  position: relative;
 }
 
 a{
@@ -474,7 +475,7 @@ nav input[type=checkbox]{
 }
 
 footer{
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100vw;
   clear: both;
