@@ -20,7 +20,7 @@ const LeidingNummes = ({nummers, groep}: Props) => {
     <div className='leidingnummers'>
       <div className='groep-container'>
         <h1 className='groep'>{groep}</h1>
-        <img src={'/images/'+groep.toLocaleLowerCase()+"Logo.webp"}/>
+        <img src={'/images/'+groep.toLocaleLowerCase()+"Logo.webp"} alt={"logo van groep " + groep}/>
       </div>
       <NavBar/>
       <div className='groep-data'>
