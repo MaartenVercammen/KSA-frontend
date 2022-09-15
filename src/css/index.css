@@ -23,6 +23,10 @@ html {
   background-color: var(--color-fill);
 }
 
+main{
+  min-height: 100vh;
+}
+
 a{
   text-decoration: none;
 }
@@ -470,6 +474,9 @@ nav input[type=checkbox]{
 }
 
 footer{
+  position: relative;
+  bottom: 0;
+  width: 100vw;
   clear: both;
   background-color: var(--color-three);
   height: auto;
