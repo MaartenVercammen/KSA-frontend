@@ -1,7 +1,7 @@
 import axios from '../axios';
 import { user } from '../types';
 
-const getUsers = () => axios.get<Array<user>>("/http://ksaaarschot.studentenweb.org/api/user")
+const getUsers = () => axios.get<Array<user>>("http://188.166.203.186/user")
 
 const UserService = {
    getUsers

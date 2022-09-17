@@ -476,7 +476,7 @@ nav input[type=checkbox]{
 footer{
   position: relative;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   clear: both;
   background-color: var(--color-three);
   height: auto;
