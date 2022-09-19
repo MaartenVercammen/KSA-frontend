@@ -3,8 +3,18 @@ import { Routes, Route, Link } from 'react-router-dom';
 import './css/index.css';
 import Index from './components/index';
 import LeidingNummes from './components/body/leidingNummes';
-
+import Login from './components/body/login';
+import ProtectedRoutes from './components/protectedRoutes';
+import Dashboard from './components/dashboard/dashboard';
+import { Roles } from './types';
+import Logout from './components/body/logout';
+  
 function App() {
+    const setToken = (userToken: object) => {
+        sessionStorage.setItem('user', JSON.stringify(userToken));
+        console.log("item set")
+    }
+
     return (
         <>
             <main>
@@ -16,6 +26,11 @@ function App() {
                     <Route path='/leiders/Knapen' element={<LeidingNummes groep='Knapen' nummers={[{naam: "Ann-Sofie Milis", number:"0497 22 68 47", img:"/images/ann-sofie.webp"}, {naam: "Ruben Pauwels", number:"0468 26 45 59",img:"/images/ruben.webp"}, {naam: "Roos Debeys", number:"0479 30 70 17", img:"/images/roos.webp"}]}/>} />
                     <Route path='/leiders/Jonghernieuwers'element={<LeidingNummes groep='Jonghernieuwers' nummers={[{naam: "Daan Van Noten", number:"0496 39 51 75", img:"/images/daan.webp"}, {naam: "Finn Bogaerts", number:"0479 01 98 66",img:"/images/finn.webp"}, {naam: "Juul Schellens", number:"0492 08 35 60", img:"/images/juul.webp"}]}/>} />
                     <Route path='/leiders/Hernieuwers' element={<LeidingNummes groep='Hernieuwers' nummers={[{naam: "Kobe Holemans", number:"0499 30 40 12", img:"/images/kobe.webp"}, {naam: "Tjen Ooms", number:"0470 39 44 72",img:"/images/tjen.webp"}, {naam: "Luna Vervloessem", number:"0473 98 97 90", img:"/images/luna.webp"}]}/>} />
+                    <Route path='/login' element={<Login setToken={setToken}/>}/>
+                        <Route element={<ProtectedRoutes isAllowed={[Roles.ADMIN]} redirectPath="/"/>}>
+                        <Route path='/dashboard' element={<Dashboard/>}/>
+                    </Route>
+                    <Route path='logout' element={<Logout/>}/>
                 </Routes>
             </main>
         </>

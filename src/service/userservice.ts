@@ -1,10 +1,16 @@
-import axios from '../axios';
+import instance from '../axios';
 import { user } from '../types';
 
-const getUsers = () => axios.get<Array<user>>("http://188.166.203.186/user")
+const getUsers = () => instance.get<Array<user>>("/user")
+
+const login = (email: string, password: string) => instance.post<{type: string, user: user}>("/user/login", {"email": email, "password": password})
+
+const IsUserLoggedIn = () => instance.get<user>('/IsUserLoggedIn');
 
 const UserService = {
-   getUsers
+   getUsers,
+   login,
+   IsUserLoggedIn
 };
 
 export default UserService;

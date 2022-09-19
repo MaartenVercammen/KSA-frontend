@@ -520,3 +520,18 @@ footer a{
 footer a:hover{
   color: var(--color-five);
 }
+
+
+
+.login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.login input[type=sumbit]{
+  align-self: right;
+}
