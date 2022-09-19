@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Navigate, Outlet  } from 'react-router-dom'
 import { tokenToString } from 'typescript';
-import UserService from '../service/userservice';
 import { Roles, user } from '../types/index'
 
 type Props = {
