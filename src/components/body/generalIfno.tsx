@@ -18,10 +18,17 @@ const GeneralInfo = () => {
         </p>
       </div>
       <div>
-        <h3>Vragen? mail ons:</h3>
-        <p>
-          <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
-        </p>
+        <h2>Vragen? mail ons</h2>
+          <p>
+            <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
+          </p>
+        <div>
+        <h2>Volg ons op onze socials</h2>
+          <p>
+            <a href="https://www.facebook.com/KSA.Aarschot" className="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/ksa_aarschot/" className="fa fa-instagram"></a>
+          </p>
+        </div>
       </div>
       <div>
         <h3>Locatie:</h3>
