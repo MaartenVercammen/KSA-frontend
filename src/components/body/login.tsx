@@ -26,20 +26,20 @@ const handleSubmit = async (e) => {
 
   return (
     <div className='login'>
-        <div>
+        <div className='login-container'>
             {errormsg && <p>{errormsg}</p>}
         <h1>login</h1>
         <form onSubmit={handleSubmit}>
             <div>
             <label htmlFor='email'>email</label>
-            <input name='email' type="text"></input>
+            <input name='email' type="email"></input>
             </div>
             <div>
             <label htmlFor='password'>password</label>
             <input name='password' type="password"></input>
             </div>
-            <div>
-            <input type="submit" value="submit"></input>
+            <div className='login-submit-container'>
+            <input type="submit" value="login"></input>
             </div>
         </form>
         </div>
