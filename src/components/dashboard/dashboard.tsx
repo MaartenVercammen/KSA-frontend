@@ -1,8 +1,12 @@
 import React from 'react'
+import UploadBraggels from './uploadBraggels'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div><h1>Dashboard</h1>
+      <UploadBraggels/>
+    </div>
+    
   )
 }
 

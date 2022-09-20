@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import UserService from '../../service/userservice';
 import { useNavigate } from 'react-router-dom';
-import { user } from '../../types/index'
 
 type Props = {
     setToken: (user: object) => void
@@ -14,6 +13,7 @@ const Login = ({setToken} : Props) => {
 const handleSubmit = async (e) => {
     e.preventDefault()
     const res = await UserService.login( e.target.email.value, e.target.password.value)
+    console.log(res)
     if(res.data.type == "valid"){
         setToken(res.data.user)
         navigate("/dashboard");

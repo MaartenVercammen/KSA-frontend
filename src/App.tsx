@@ -12,7 +12,10 @@ import Logout from './components/body/logout';
 function App() {
     const setToken = (userToken: object) => {
         sessionStorage.setItem('user', JSON.stringify(userToken));
-        console.log("item set")
+    }
+
+    const setCookie = (token) => {
+        sessionStorage.setItem('cookie', JSON.stringify(token));
     }
 
     return (
