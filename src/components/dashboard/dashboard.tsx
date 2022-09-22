@@ -1,9 +1,11 @@
 import React from 'react'
+import NavbarDashboard from './navbarDashboard'
 import UploadBraggels from './uploadBraggels'
 
 const Dashboard = () => {
   return (
-    <div><h1>Dashboard</h1>
+    <div>
+      <NavbarDashboard/> 
       <UploadBraggels/>
     </div>
     

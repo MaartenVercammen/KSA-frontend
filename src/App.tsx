@@ -14,10 +14,6 @@ function App() {
         sessionStorage.setItem('user', JSON.stringify(userToken));
     }
 
-    const setCookie = (token) => {
-        sessionStorage.setItem('cookie', JSON.stringify(token));
-    }
-
     return (
         <>
             <main>

@@ -1,55 +1,72 @@
 import React, { useEffect, useState } from "react";
 import FileService from "../../service/fileService";
+import BraggelUploadForm from "./braggelUploadForm";
 
 const UploadBraggels = () => {
   const [braggels, setbraggels] = useState<string[]>([])
+  const [specialBraggels, setspecialBraggels] = useState<string[]>([])
   const [messages, setmessages] = useState<string[]>([])
 
   useEffect(() => {
-    getActiveBraggels();
+    getBragels();
   }, [])
 
+  const getBragels = () =>{
+    getActiveBraggels();
+    getSpecialBraggels();
+  }
+
+  useEffect(() => {
+    setInterval(() => setmessages([]), 10000);
+  }, [braggels])
+
   const getActiveBraggels = async () => {
-    const res = await FileService.getBraggels();
+    const res = await FileService.getBraggels("braggels");
     const data = res.data
     setbraggels(data)
   }
 
-  const deleteBraggel = async (filename: string) => {
-    const res = await FileService.deletebraggel(filename);
+  const getSpecialBraggels = async () => {
+    const res = await FileService.getBraggels("specialebraggels");
+    const data = res.data
+    setspecialBraggels(data)
+  }
+
+  const deleteBraggel = async (filename: string, type: string) => {
+    const res = await FileService.deletebraggel(filename, type);
     setmessages([...messages, res.data.message])
-    getActiveBraggels()
+    getBragels();
   }
 
   const uploadMaandelijksebraggel = async (e) =>
   {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const res = await FileService.uploadFile(formData)
+    const res = await FileService.uploadFile(formData, "braggels")
     setmessages([...messages, res.data.message])
-    getActiveBraggels()
+    getBragels();
   }
   
+  const uploadSpecialebraggel = async (e) =>
+  {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const res = await FileService.uploadFile(formData, "specialebraggels")
+    setmessages([...messages, res.data.message])
+    getSpecialBraggels()
+  }
+
   return (
     <div className="update-braggels">
       <h1>Upload Braggels</h1>
+      
       {messages && messages.map(message => (
-        <p>{message}</p>
+        <div><p>{message}</p></div>
       ))}
       <h2>Maandelijkse braggels</h2>
-      <div>
-        <form onSubmit={uploadMaandelijksebraggel}>
-          <input type="file" name="file" />
-          <input type="submit"/>
-        </form>
-        {braggels && braggels.map((b, index) => (
-        <p key={index}><a href={process.env.API_URL + '/pdf/' + b}>{b}</a><button onClick={e => deleteBraggel(b)}>X</button></p>
-        ))}
-      </div>
+      <BraggelUploadForm braggels={braggels} uploadbraggel={uploadMaandelijksebraggel} deleteBraggel={deleteBraggel} path='Braggels'/>
       <h2>Speciale braggels</h2>
-      <div>
-
-      </div>
+      <BraggelUploadForm braggels={specialBraggels} uploadbraggel={uploadSpecialebraggel} deleteBraggel={deleteBraggel} path='specialebraggels'/>
     </div>
   );
 };

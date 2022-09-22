@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import UserService from '../../service/userservice';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,25 +21,34 @@ const handleSubmit = async (e) => {
     else{
         setErrormsg("Invalid input")
     }
-}   
+}  
+
+useEffect(() => {
+    setErrormsg("")
+    setInterval(() => setErrormsg(""), 50000)
+}, [])
+
 
 
   return (
     <div className='login'>
         <div className='login-container'>
-            {errormsg && <p>{errormsg}</p>}
         <h1>login</h1>
         <form onSubmit={handleSubmit}>
             <div>
-            <label htmlFor='email'>email</label>
-            <input name='email' type="email"></input>
+                <label htmlFor='email'>email</label>
+                <input name='email' type="email"></input>
+                
             </div>
             <div>
-            <label htmlFor='password'>password</label>
-            <input name='password' type="password"></input>
+                <label htmlFor='password'>password</label>
+                <input name='password' type="password"></input>
+            <div>
+                {errormsg && <p className='error'>{errormsg}</p>}
             </div>
-            <div className='login-submit-container'>
-            <input type="submit" value="login"></input>
+            </div>
+                <div className='login-submit-container'>
+                <input type="submit" value="login"></input>
             </div>
         </form>
         </div>

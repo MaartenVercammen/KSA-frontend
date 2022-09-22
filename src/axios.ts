@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Service } from 'axios-middleware';
 
 export const instanceLogin = axios.create({
     baseURL: process.env.API_URL,
@@ -18,3 +19,11 @@ export const instanceFile = axios.create({
     withCredentials: true,
 })
 
+const service = new Service(instance);
+
+service.register({
+  onResponseError(error) {
+    if(error.message.search(505) != -1) sessionStorage.removeItem('user')
+    return error;
+  }
+});
