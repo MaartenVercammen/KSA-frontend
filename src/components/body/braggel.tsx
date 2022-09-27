@@ -76,7 +76,7 @@ const Braggel = () => {
               </a>
             </p>
           ))}
-        {braggels.length == 0 && <p>er zijn op dit moment geen braggels</p>}
+        {!braggels && <p>er zijn op dit moment geen braggels</p>}
 
         <h3>Speciale edities</h3>
         {specialBraggels &&
@@ -90,7 +90,7 @@ const Braggel = () => {
               </a>
             </p>
           ))}
-        {specialBraggels.length == 0  && <p>er zijn op dit moment geen braggels</p>}
+        {!specialBraggels  && <p>er zijn op dit moment geen braggels</p>}
       </div>
     </>
   );

@@ -64,7 +64,7 @@ const UploadBraggels = () => {
         <div><p>{message}</p></div>
       ))}
       <h2>Maandelijkse braggels</h2>
-      <BraggelUploadForm braggels={braggels} uploadbraggel={uploadMaandelijksebraggel} deleteBraggel={deleteBraggel} path='Braggels'/>
+      <BraggelUploadForm braggels={braggels} uploadbraggel={uploadMaandelijksebraggel} deleteBraggel={deleteBraggel} path='braggels'/>
       <h2>Speciale braggels</h2>
       <BraggelUploadForm braggels={specialBraggels} uploadbraggel={uploadSpecialebraggel} deleteBraggel={deleteBraggel} path='specialebraggels'/>
     </div>
