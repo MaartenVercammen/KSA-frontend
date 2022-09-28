@@ -11,11 +11,6 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    output: {
-        path: path.resolve(__dirname, './dist/build/'),
-        filename: 'main.js',
-        publicPath: '/',
-    },
     devServer: {
         historyApiFallback: true,
       },
@@ -45,6 +40,5 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
         }),
-        new Dotenv(),
     ],
 };
