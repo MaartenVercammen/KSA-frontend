@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import FileService from "../../service/fileService";
+import FileService from "../../../service/fileService";
+import "./braggel.css";
 
 const Braggel = () => {
   const [braggels, setbraggels] = useState<string[]>([]);
@@ -90,7 +91,7 @@ const Braggel = () => {
               </a>
             </p>
           ))}
-        {!specialBraggels  && <p>er zijn op dit moment geen braggels</p>}
+        {!specialBraggels && <p>er zijn op dit moment geen braggels</p>}
       </div>
     </>
   );

@@ -1,0 +1,39 @@
+@import url("../../../css/index.css");
+
+.card {
+  background-color: var(--color-three);
+  border-radius: 1rem;
+  width: var(--card-with);
+  width: var(--card-with);
+}
+
+.card-container {
+  width: var(--card-with);
+  height: 100%;
+}
+
+.card img {
+  object-fit: cover;
+  width: var(--card-with);
+  height: var(--card-with);
+}
+
+.card h3 {
+  color: white;
+}
+
+.card .card-container p {
+  text-align: center;
+  color: white;
+  padding-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.card .card-container p a {
+  color: white;
+  text-decoration: none;
+}
+
+.card .card-container p a:hover {
+  color: var(--color-four);
+}

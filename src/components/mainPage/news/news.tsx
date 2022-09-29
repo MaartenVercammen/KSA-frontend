@@ -1,5 +1,6 @@
 import React from "react";
 import NewsItem from "./newsItem";
+import "./news.css";
 
 const News = () => {
   return (
@@ -7,15 +8,11 @@ const News = () => {
       <h1>News</h1>
       <ul>
         <li>
-          <NewsItem title="Inschrijven" date="2022-09-12" text="<p>Vanaf dit jaar kan je je kinderen online inschrijven via onderstaande link. </p>
-<a href='https://forms.gle/Gsp12EvqJeTeFHxUA'>https://forms.gle/Gsp12EvqJeTeFHxUA</a> "/>
-        </li>
-        <li>
           <NewsItem
-          
-            title="Welkom op de nieuwe website"
-            text="<p>Na lang wachten is eindelijk de nieuwe en werkende website er.</p><p> laat weten wat je er van vind.</p>"
+            title="Inschrijven"
             date="2022-09-12"
+            text="<p>Vanaf dit jaar kan je je kinderen online inschrijven via onderstaande link. </p>
+<a href='https://forms.gle/Gsp12EvqJeTeFHxUA'>https://forms.gle/Gsp12EvqJeTeFHxUA</a> "
           />
         </li>
         <li>
@@ -24,7 +21,7 @@ const News = () => {
             text="<p>Krijgt u de Braggel niet per mail?</p><p> Vraag dan zeker even na of uw kind ingeschreven is.</p><p> De inschrijving is voltooid na het invullen van het inschrijvingsformulier en na het ontvangen van uw betaling.</p><p> Een testperiode is mogelijk; er kan drie vergaderingen meegespeeld worden! Hierna is uw kind niet verzekerd, let hier zeker mee op!</p>
 
 <p>Met vragen kan u steeds bij ons terecht.</p>"
-date="2022-09-12"
+            date="2022-09-12"
           />
         </li>
         <li>
@@ -39,10 +36,9 @@ Kies de webshop waar je online wil shoppen en klik op de afbeelding, Trooper reg
 Doe je aankopen zoals gewoonlijk, zonder extra te betalen
 De webshop geeft KSA Aarschot gemiddeld 5% van de aankoopprijs.
 Zeg het door en wij danken je van harte!</p>"
-date="2022-09-12"
+            date="2022-09-12"
           />
         </li>
-
       </ul>
     </div>
   );

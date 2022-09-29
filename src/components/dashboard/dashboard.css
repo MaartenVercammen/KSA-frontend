@@ -1,0 +1,6 @@
+@import url("../../css/index.css");
+
+.dashboard-nav nav p {
+  color: white;
+  margin-left: 1rem;
+}

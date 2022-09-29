@@ -1,5 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
+import "./header.css";
 
 const NavBar = () => {
   const scrollWithOffset = (el: any) => {
@@ -15,8 +16,10 @@ const NavBar = () => {
           KSA Aarschot
         </HashLink>
       </p>
-      <label htmlFor="burger" className="hamburger">☰</label>
-      <input type="checkbox" name="burger" id="burger"/>
+      <label htmlFor="burger" className="hamburger">
+        ☰
+      </label>
+      <input type="checkbox" name="burger" id="burger" />
       <ul>
         <li>
           <HashLink smooth to="/#news" scroll={scrollWithOffset}>
@@ -39,7 +42,6 @@ const NavBar = () => {
           </HashLink>
         </li>
       </ul>
-      
     </nav>
   );
 };

@@ -1,15 +1,15 @@
-import React from 'react'
-import NavbarDashboard from './navbarDashboard'
-import UploadBraggels from './uploadBraggels'
+import React from "react";
+import NavbarDashboard from "./navbarDashboard";
+import UploadBraggels from "./braggel/uploadBraggels";
+import "./dashboard.css";
 
 const Dashboard = () => {
   return (
     <div>
-      <NavbarDashboard/> 
-      <UploadBraggels/>
+      <NavbarDashboard />
+      <UploadBraggels />
     </div>
-    
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

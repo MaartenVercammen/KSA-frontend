@@ -2,12 +2,12 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./css/index.css";
 import Index from "./components/index";
-import LeidingNummes from "./components/body/leidingNummes";
-import Login from "./components/body/login";
-import ProtectedRoutes from "./components/protectedRoutes";
+import LeidingNummes from "./components/mainPage/leeftijden/leidingNummes";
+import Login from "./components/helper/login/login";
+import ProtectedRoutes from "./components/helper/protectedRoutes";
 import Dashboard from "./components/dashboard/dashboard";
 import { Roles } from "./types";
-import Logout from "./components/body/logout";
+import Logout from "./components/helper/logout";
 
 function App() {
   const setToken = (userToken: object) => {
@@ -26,27 +26,32 @@ function App() {
                 groep="Rubskes"
                 nummers={[
                   {
-                    naam: "Floor Van Casteren",
+                    voornaam: "Floor",
+                    achternaam: "Van Casteren",
                     number: "0499 20 10 60",
                     img: "/images/floor.webp",
                   },
                   {
-                    naam: "Rosemarie Mas",
+                    voornaam: "Rosemarie",
+                    achternaam: "Mas",
                     number: "0491 19 26 20",
                     img: "/images/rosemarie.webp",
                   },
                   {
-                    naam: "Giel De Bont",
+                    voornaam: "Giel",
+                    achternaam: "De Bont",
                     number: "0494 46 55 14",
                     img: "/images/giel.webp",
                   },
                   {
-                    naam: "Charlotte Morlion",
+                    voornaam: "Charlotte",
+                    achternaam: "Morlion",
                     number: "0493 20 95 72",
                     img: "/images/charlotte.webp",
                   },
                   {
-                    naam: "Demi Jonckheere",
+                    voornaam: "Demi",
+                    achternaam: "Jonckheere",
                     number: "0483 45 15 80",
                     img: "/images/demi.webp",
                   },
@@ -61,32 +66,38 @@ function App() {
                 groep="Leeuwkes"
                 nummers={[
                   {
-                    naam: "Nele Hermans",
+                    voornaam: "Nele",
+                    achternaam: "Hermans",
                     number: "0472 06 42 54 ",
                     img: "/images/nele.webp",
                   },
                   {
-                    naam: "Margot Somers",
+                    voornaam: "Margot",
+                    achternaam: " Somers",
                     number: "0470 82 72 58",
                     img: "/images/margot.webp",
                   },
                   {
-                    naam: "Kato Willems",
+                    voornaam: "Kato",
+                    achternaam: "Willems",
                     number: "0498 06 93 51",
                     img: "/images/kato.webp",
                   },
                   {
-                    naam: "Seppe Bellekens",
+                    voornaam: "Seppe",
+                    achternaam: "Bellekens",
                     number: "0478 52 48 75",
                     img: "/images/seppe.webp",
                   },
                   {
-                    naam: "Joeri Perdieus ",
+                    voornaam: "Joeri",
+                    achternaam: "Perdieus",
                     number: "0468 20 50 08 ",
                     img: "/images/joeri.webp",
                   },
                   {
-                    naam: "Marthe Seldeslachts",
+                    voornaam: "Marthe",
+                    achternaam: "Seldeslachts",
                     number: "0472 63 42 63",
                     img: "/images/marthe.webp",
                   },
@@ -101,32 +112,38 @@ function App() {
                 groep="Jongknapen"
                 nummers={[
                   {
-                    naam: "Joke Hermans",
+                    voornaam: "Joke",
+                    achternaam: "Hermans",
                     number: "0491 20 88 08 ",
                     img: "/images/joke.webp",
                   },
                   {
-                    naam: "Lore Willems",
+                    voornaam: "Lore",
+                    achternaam: "Willems",
                     number: "0488 33 72 33",
                     img: "/images/lore.webp",
                   },
                   {
-                    naam: "Tuur Willems ",
+                    voornaam: "Tuur",
+                    achternaam: "Willems",
                     number: "0468 33 61 46 ",
                     img: "/images/tuur.webp",
                   },
                   {
-                    naam: "Leon Decoster",
+                    voornaam: "Leon",
+                    achternaam: "Decoster",
                     number: "0468 27 29 10",
                     img: "/images/leon.webp",
                   },
                   {
-                    naam: "Sean Oliviers",
+                    voornaam: "Sean",
+                    achternaam: "Oliviers",
                     number: "0486 11 44 03",
                     img: "/images/sean.webp",
                   },
                   {
-                    naam: "Anne-Sofie Van Bael",
+                    voornaam: "Anne-Sofie",
+                    achternaam: "Van Bael",
                     number: "0493 74 95 88",
                     img: "/images/anne-sofie.webp",
                   },
@@ -141,17 +158,20 @@ function App() {
                 groep="Knapen"
                 nummers={[
                   {
-                    naam: "Ann-Sofie Milis",
+                    voornaam: "Ann-Sofie",
+                    achternaam: "Milis",
                     number: "0497 22 68 47",
                     img: "/images/ann-sofie.webp",
                   },
                   {
-                    naam: "Ruben Pauwels",
+                    voornaam: "Ruben",
+                    achternaam: "Pauwels",
                     number: "0468 26 45 59",
                     img: "/images/ruben.webp",
                   },
                   {
-                    naam: "Roos Debeys",
+                    voornaam: "Roos",
+                    achternaam: "Debeys",
                     number: "0479 30 70 17",
                     img: "/images/roos.webp",
                   },
@@ -166,17 +186,20 @@ function App() {
                 groep="Jonghernieuwers"
                 nummers={[
                   {
-                    naam: "Daan Van Noten",
+                    voornaam: "Daan",
+                    achternaam: "Van Noten",
                     number: "0496 39 51 75",
                     img: "/images/daan.webp",
                   },
                   {
-                    naam: "Finn Bogaerts",
+                    voornaam: "Finn",
+                    achternaam: "Bogaerts",
                     number: "0479 01 98 66",
                     img: "/images/finn.webp",
                   },
                   {
-                    naam: "Juul Schellens",
+                    voornaam: "Juul",
+                    achternaam: "Schellens",
                     number: "0492 08 35 60",
                     img: "/images/juul.webp",
                   },
@@ -191,17 +214,20 @@ function App() {
                 groep="Hernieuwers"
                 nummers={[
                   {
-                    naam: "Kobe Holemans",
+                    voornaam: "Kobe",
+                    achternaam: "Holemans",
                     number: "0499 30 40 12",
                     img: "/images/kobe.webp",
                   },
                   {
-                    naam: "Tjen Ooms",
+                    voornaam: "Tjen",
+                    achternaam: "Ooms",
                     number: "0470 39 44 72",
                     img: "/images/tjen.webp",
                   },
                   {
-                    naam: "Luna Vervloessem",
+                    voornaam: "Luna",
+                    achternaam: "Vervloessem",
                     number: "0473 98 97 90",
                     img: "/images/luna.webp",
                   },

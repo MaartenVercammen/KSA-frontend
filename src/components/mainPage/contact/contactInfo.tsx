@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Card from "./card";
+import Card from "../../helper/card/card";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -8,14 +8,16 @@ const ContactInfo: React.FC = () => {
       <ul>
         <li>
           <Card
-            naam="Nele Hermans"
+            voornaam="Nele"
+            achternaam="Hermans"
             nummer="0472064254"
             img="/images/nele.webp"
           />
         </li>
         <li>
           <Card
-            naam="Kobe Holemans"
+            voornaam="Kobe"
+            achternaam="Holemans"
             nummer="0499304012"
             img="/images/kobe.webp"
           />

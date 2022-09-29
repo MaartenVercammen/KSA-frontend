@@ -1,0 +1,18 @@
+@import url("../../../css/index.css");
+
+.braggels-updload-area {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  margin-left: 1rem;
+  border-radius: 0.2rem;
+  border: 1px solid var(--color-three);
+}
+
+.delete:hover {
+  cursor: pointer;
+}
