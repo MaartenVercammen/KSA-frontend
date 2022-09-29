@@ -55,6 +55,21 @@ p  {
   font-family: 'Montserrat', sans-serif;
 }
 
+.center-div{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  width: 100;
+  flex-flow: column nowrap;
+}
+
+.ok{
+  color: greenyellow;
+  background-color: var(--color-three);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
 header {
   position: relative;
   width: 100%;
@@ -601,3 +616,4 @@ footer a:hover{
 .delete:hover{
   cursor: pointer;
 }
+

@@ -17,8 +17,9 @@ const UploadBraggels = () => {
   }
 
   useEffect(() => {
-    setInterval(() => setmessages([]), 10000);
-  }, [braggels])
+    const timer = setTimeout(() => setmessages([]), 10000);
+    return () => {clearInterval(timer);}
+  }, [braggels, specialBraggels])
 
   const getActiveBraggels = async () => {
     const res = await FileService.getBraggels("braggels");
@@ -34,7 +35,7 @@ const UploadBraggels = () => {
 
   const deleteBraggel = async (filename: string, type: string) => {
     const res = await FileService.deletebraggel(filename, type);
-    setmessages([...messages, res.data.message])
+    setmessages([...messages, res.data.message + " " + filename])
     getBragels();
   }
 
@@ -43,7 +44,7 @@ const UploadBraggels = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const res = await FileService.uploadFile(formData, "braggels")
-    setmessages([...messages, res.data.message])
+    setmessages([...messages, res.data.message + " " + e.target.file.value])
     getBragels();
   }
   
@@ -52,7 +53,7 @@ const UploadBraggels = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const res = await FileService.uploadFile(formData, "specialebraggels")
-    setmessages([...messages, res.data.message])
+    setmessages([...messages, res.data.message + " " + e.target.file.value])
     getSpecialBraggels()
   }
 
@@ -61,7 +62,7 @@ const UploadBraggels = () => {
       <h1>Upload Braggels</h1>
       
       {messages && messages.map(message => (
-        <div><p>{message}</p></div>
+        <div className="center-div"><p className="ok">{message}</p></div>
       ))}
       <h2>Maandelijkse braggels</h2>
       <BraggelUploadForm braggels={braggels} uploadbraggel={uploadMaandelijksebraggel} deleteBraggel={deleteBraggel} path='braggels'/>
