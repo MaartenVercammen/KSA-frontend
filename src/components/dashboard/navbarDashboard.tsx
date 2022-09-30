@@ -1,6 +1,14 @@
 import React from "react";
 
-const NavbarDashboard = () => {
+type Props = {
+  setactivetab: (index: number) => void;
+};
+
+const NavbarDashboard = ({ setactivetab }: Props) => {
+  const changetab = (index: number) => {
+    setactivetab(index);
+  };
+
   return (
     <div className="dashboard-nav">
       <nav>
@@ -11,16 +19,10 @@ const NavbarDashboard = () => {
         <input type="checkbox" name="burger" id="burger" />
         <ul>
           <li>
-            <a>Braggels</a>
+            <a onClick={(e) => changetab(0)}>Braggels</a>
           </li>
           <li>
-            <a>News</a>
-          </li>
-          <li>
-            <a>Leiding nummers</a>
-          </li>
-          <li>
-            <a>Bondsen</a>
+            <a onClick={(e) => changetab(1)}>Users</a>
           </li>
         </ul>
       </nav>

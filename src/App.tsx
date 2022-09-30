@@ -8,6 +8,8 @@ import ProtectedRoutes from "./components/helper/protectedRoutes";
 import Dashboard from "./components/dashboard/dashboard";
 import { Roles } from "./types";
 import Logout from "./components/helper/logout";
+import Braggel from "./components/mainPage/braggel/braggel";
+import UserOverview from "./components/dashboard/users/userOverview";
 
 function App() {
   const setToken = (userToken: object) => {
@@ -239,7 +241,7 @@ function App() {
           <Route
             element={
               <ProtectedRoutes
-                isAllowed={[Roles.ADMIN, Roles.GUEST, Roles.MODERATOR]}
+                isAllowed={[Roles.ADMIN, Roles.BRAGGEL, Roles.BONDS]}
                 redirectPath="/"
               />
             }

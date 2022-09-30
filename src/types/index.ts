@@ -1,6 +1,6 @@
 export interface user {
   id: number;
-  naam: string;
+  name: string;
   password: string;
   email: string;
   role: Roles;
@@ -14,7 +14,7 @@ export interface leidingNummer {
 }
 
 export enum Roles {
-  GUEST = "GUEST",
+  BRAGGEL = "BRAGGEL",
   ADMIN = "ADMIN",
-  MODERATOR = "MODERATOR",
+  BONDS = "BONDS",
 }

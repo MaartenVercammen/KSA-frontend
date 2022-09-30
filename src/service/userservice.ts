@@ -1,7 +1,7 @@
 import { instance, instanceLogin } from "../axios";
 import { user } from "../types";
 
-const getUsers = () => instance.get<Array<user>>("/user");
+const getUsers = () => instance.get<user[]>("/user");
 
 const login = (email: string, password: string) =>
   instanceLogin.post<{ type: string; user: user }>("/user/login", {
