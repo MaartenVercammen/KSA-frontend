@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import UserService from "../../../service/userservice";
 import { user } from "../../../types/index";
+import "./userOverview.css";
 
 const UserOverview = () => {
   const [users, setusers] = useState<user[]>([]);
@@ -16,14 +17,15 @@ const UserOverview = () => {
 
   return (
     <div className="useroveriew">
+      <h1>Users</h1>
       <table>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>email</td>
-            <td>Role</td>
-            <td>update</td>
-            <td>delete</td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
