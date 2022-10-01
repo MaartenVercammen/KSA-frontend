@@ -50,6 +50,9 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
           <li>
             <Link to={"/"}>Site</Link>
           </li>
+          <li>
+            <Link to={"/logout"}>Logout</Link>
+          </li>
         </ul>
       </nav>
     </div>
