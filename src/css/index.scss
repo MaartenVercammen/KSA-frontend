@@ -1,4 +1,4 @@
-@use "./variables.scss";
+@import "./variables.scss";
 
 @font-face {
   font-family: "tittlefont";
@@ -12,7 +12,7 @@ html {
   padding: 0;
   margin: 0;
   display: inline-block;
-  background-color: var(--color-fill);
+  background-color: $color-fill;
 }
 
 main {
@@ -30,7 +30,7 @@ a {
 
 .ok {
   color: greenyellow;
-  background-color: var(--color-three);
+  background-color: $color-three;
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -53,4 +53,8 @@ h1 {
 
 p {
   font-family: "Montserrat", sans-serif;
+}
+
+input {
+  background-color: $color-fill;
 }

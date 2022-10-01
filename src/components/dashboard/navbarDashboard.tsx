@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   setactivetab: (index: number) => void;
@@ -45,6 +46,9 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
             >
               Users
             </a>
+          </li>
+          <li>
+            <Link to={"/"}>Site</Link>
           </li>
         </ul>
       </nav>

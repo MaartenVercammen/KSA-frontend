@@ -45,9 +45,11 @@ const UserOverview = ({ settab }: Props) => {
             ))}
         </tbody>
       </table>
-      <p>
-        <a onClick={(e) => settab(2)}>Add User</a>
-      </p>
+      <div className="button">
+        <p>
+          <a onClick={(e) => settab(2)}>Add User</a>
+        </p>
+      </div>
     </div>
   );
 };

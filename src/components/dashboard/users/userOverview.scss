@@ -8,17 +8,35 @@
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
+    background-color: $color-three;
+    border-radius: 0.5rem;
+  }
+
+  tr {
+    border-bottom: 1px solid $color-five;
+  }
+
+  tbody tr:last-child {
+    border-bottom: none;
   }
 
   td,
   th {
-    border-bottom: 2px solid beige;
     padding: 1rem;
+    color: white;
   }
 
   p {
     width: 100%;
     text-align: center;
+  }
+
+  a {
+    background-color: $color-three;
+    padding: 0.5rem;
+    color: white;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
   }
 
   a:hover {
