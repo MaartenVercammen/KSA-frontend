@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import "./css/index.css";
+import "./css/index.scss";
 import Index from "./components/index";
 import LeidingNummes from "./components/mainPage/leeftijden/leidingNummes";
 import Login from "./components/helper/login/login";
@@ -8,8 +8,6 @@ import ProtectedRoutes from "./components/helper/protectedRoutes";
 import Dashboard from "./components/dashboard/dashboard";
 import { Roles } from "./types";
 import Logout from "./components/helper/logout";
-import Braggel from "./components/mainPage/braggel/braggel";
-import UserOverview from "./components/dashboard/users/userOverview";
 
 function App() {
   const setToken = (userToken: object) => {

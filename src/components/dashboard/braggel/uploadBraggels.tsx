@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import FileService from "../../../service/fileService";
 import BraggelUploadForm from "./braggelUploadForm";
 import { useAlert } from "react-alert";
-import "./uploadbraggel.css";
+import "./uploadbraggel.scss";
 
 const UploadBraggels = () => {
   const [braggels, setbraggels] = useState<string[]>([]);

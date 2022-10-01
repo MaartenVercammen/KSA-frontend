@@ -1,4 +1,4 @@
-@import url("../../../css/index.css");
+@import "../../../css/variables.scss";
 
 .braggels-updload-area {
   display: flex;
@@ -10,7 +10,7 @@
 .delete {
   margin-left: 1rem;
   border-radius: 0.2rem;
-  border: 1px solid var(--color-three);
+  border: 1px solid $color-three;
 }
 
 .delete:hover {

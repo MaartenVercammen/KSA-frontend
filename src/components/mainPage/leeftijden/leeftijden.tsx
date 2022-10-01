@@ -1,6 +1,6 @@
 import React from "react";
 import LeeftijdBox from "./leeftijdBox";
-import "./leeftijden.css";
+import "./leeftijden.scss";
 
 const Leeftijden = () => {
   return (

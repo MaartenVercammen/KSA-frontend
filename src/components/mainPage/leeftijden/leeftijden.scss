@@ -1,4 +1,4 @@
-@import url("../../../css/index.css");
+@import "../../../css/variables.scss";
 
 .leeftijden-container {
   display: flex;
@@ -51,7 +51,7 @@
 }
 
 .leidingnummers {
-  height: 95vh;
+  height: 100%;
 }
 
 .leidingnummers .groep-data ul {
@@ -82,6 +82,10 @@
   width: 30%;
 }
 
+.groep-data {
+  height: 100%;
+}
+
 .groep-data ul {
   display: flex;
   flex-flow: row wrap;
@@ -91,5 +95,5 @@
 }
 
 .groep-data ul li {
-  max-width: var(--card-with);
+  max-width: $card-with;
 }

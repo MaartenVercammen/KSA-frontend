@@ -1,7 +1,7 @@
 import React from "react";
 import ContactInfo from "./contactInfo";
 import GeneralInfo from "./generalInfo";
-import "./contact.css";
+import "./contact.scss";
 
 const Contact = () => {
   return (

@@ -1,12 +1,4 @@
-* {
-  --color-one: #8ecae6;
-  --color-two: #219ebc;
-  --color-three: #023047;
-  --color-four: #f4901d;
-  --color-five: #fb8500;
-  --color-fill: #f6f6f6;
-  --card-with: 250px;
-}
+@use "./variables.scss";
 
 @font-face {
   font-family: "tittlefont";
@@ -61,12 +53,4 @@ h1 {
 
 p {
   font-family: "Montserrat", sans-serif;
-}
-
-.center-div {
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  width: 100;
-  flex-flow: column nowrap;
 }

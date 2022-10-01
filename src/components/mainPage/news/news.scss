@@ -1,4 +1,4 @@
-@import url("../../../css/index.css");
+@import "../../../css/variables.scss";
 
 .news ul {
   padding: 0;
@@ -19,7 +19,7 @@
   flex-direction: column;
   margin: 1rem;
   padding: 0.7rem;
-  background-color: var(--color-four);
+  background-color: $color-four;
   border-radius: 2rem;
   color: white;
 }
@@ -30,11 +30,11 @@
 }
 
 .newsItem a:hover {
-  color: var(--color-five);
+  color: $color-five;
 }
 
 .newsItem h3 {
-  border-bottom: var(--color-three) 1px solid;
+  border-bottom: $color-three 1px solid;
 }
 
 .newsItemBody {

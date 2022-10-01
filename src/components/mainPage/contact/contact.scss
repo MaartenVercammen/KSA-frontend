@@ -1,4 +1,4 @@
-@import url("../../../css/index.css");
+@import "../../../css/variables.scss";
 
 .contact-container {
   display: flex;
@@ -25,12 +25,12 @@
 }
 
 .contact-info li {
-  max-width: var(--card-with);
+  max-width: $card-with;
   padding: 1rem;
 }
 
 .contact-info li {
-  max-width: var(--card-with);
+  max-width: $card-with;
   padding: 1rem;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .contact-info p a:hover {
-  color: var(--color-four);
+  color: $color-four;
 }
 
 .generalinfo {
@@ -68,7 +68,7 @@
 }
 
 .generalinfo a:hover {
-  color: var(--color-five);
+  color: $color-five;
   text-decoration: none;
 }
 
