@@ -9,9 +9,12 @@ const login = (email: string, password: string) =>
     password: password,
   });
 
+const createUser = (user: user) => instance.post<Response>("/user", user);
+
 const UserService = {
   getUsers,
   login,
+  createUser,
 };
 
 export default UserService;

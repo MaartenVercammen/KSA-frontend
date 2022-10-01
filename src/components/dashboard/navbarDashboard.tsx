@@ -23,7 +23,7 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
           name="burger"
           id="burger"
           checked={navdropdown}
-          onClick={(e) => setnavdropdown(true)}
+          onChange={(e) => setnavdropdown(true)}
         />
         <ul>
           <li>
