@@ -11,11 +11,6 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    output: {
-        path: path.resolve(__dirname, './dist/build/'),
-        filename: 'main.js',
-        publicPath: '/',
-    },
     devServer: {
         historyApiFallback: true,
       },
@@ -32,8 +27,8 @@ module.exports = {
                 use: ['ts-loader'],
             },
             {
-                test: /\.(css|scss)$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.s[ac]ss$/i,
+                use: ['style-loader', 'css-loader',  "sass-loader"],
             },
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -45,6 +40,5 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
         }),
-        new Dotenv(),
     ],
 };

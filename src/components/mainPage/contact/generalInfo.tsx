@@ -5,7 +5,7 @@ const GeneralInfo = () => {
   const key: string =
     process.env.GOOGLE_KEY === undefined ? "" : process.env.GOOGLE_KEY;
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: key
+    googleMapsApiKey: key,
   });
 
   return (
@@ -18,10 +18,23 @@ const GeneralInfo = () => {
         </p>
       </div>
       <div>
-        <h3>Vragen? mail ons:</h3>
+        <h2>Vragen? mail ons</h2>
         <p>
           <a href="mailto:bonds@ksa-aarschot.be">Bonds@ksa-aarschot.be</a>
         </p>
+        <div>
+          <h2>Volg ons op onze socials</h2>
+          <p>
+            <a
+              href="https://www.facebook.com/KSA.Aarschot"
+              className="fa fa-facebook"
+            ></a>
+            <a
+              href="https://www.instagram.com/ksa_aarschot/"
+              className="fa fa-instagram"
+            ></a>
+          </p>
+        </div>
       </div>
       <div>
         <h3>Locatie:</h3>
@@ -38,7 +51,9 @@ const GeneralInfo = () => {
               center={{ lat: 50.985687650951384, lng: 4.84617028489699 }}
               mapContainerClassName="map-container"
             >
-                <Marker position={{lat: 50.985687650951384, lng:4.84617028489699}}/>
+              <Marker
+                position={{ lat: 50.985687650951384, lng: 4.84617028489699 }}
+              />
             </GoogleMap>
           </div>
         )}

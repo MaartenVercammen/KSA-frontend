@@ -1,10 +1,20 @@
-import axios from '../axios';
-import { user } from '../types';
+import { instance, instanceLogin } from "../axios";
+import { user } from "../types";
 
-const getUsers = () => axios.get<Array<user>>("/http://ksaaarschot.studentenweb.org/api/user")
+const getUsers = () => instance.get<user[]>("/user");
+
+const login = (email: string, password: string) =>
+  instanceLogin.post<{ type: string; user: user }>("/user/login", {
+    email: email,
+    password: password,
+  });
+
+const createUser = (user: user) => instance.post<Response>("/user", user);
 
 const UserService = {
-   getUsers
+  getUsers,
+  login,
+  createUser,
 };
 
 export default UserService;

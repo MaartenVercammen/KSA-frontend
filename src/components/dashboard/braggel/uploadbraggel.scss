@@ -1,0 +1,47 @@
+@import "../../../css/variables.scss";
+
+.update-braggels {
+  .container {
+    background-color: $color-three;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      color: white;
+    }
+
+    input {
+      background-color: $color-three;
+      color: white;
+    }
+    input[type="submit"] {
+      color: black;
+      border: none;
+      background-color: $color-fill;
+      &:hover {
+        background-color: $color-five;
+      }
+    }
+  }
+}
+
+.braggels-updload-area {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  margin-left: 1rem;
+  border-radius: 0.2rem;
+  border: 1px solid $color-three;
+}
+
+.delete:hover {
+  cursor: pointer;
+}

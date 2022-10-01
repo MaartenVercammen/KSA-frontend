@@ -1,0 +1,52 @@
+@import "../../../css/variables.scss";
+
+.news ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.news li {
+  max-width: 500px;
+}
+
+.newsItem {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0.7rem;
+  background-color: $color-four;
+  border-radius: 2rem;
+  color: white;
+}
+
+.newsItem a {
+  color: white;
+  text-decoration: underline;
+}
+
+.newsItem a:hover {
+  color: $color-five;
+}
+
+.newsItem h3 {
+  border-bottom: $color-three 1px solid;
+}
+
+.newsItemBody {
+  margin: 0;
+}
+
+.newsItem .publishedOn {
+  text-align: right;
+}
+
+.newsItem i {
+  font-style: italic;
+  filter: opacity(0.8);
+  font-size: small;
+}
