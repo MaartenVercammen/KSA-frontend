@@ -5,6 +5,7 @@ import './dashboard.scss';
 import UserOverview from './users/userOverview';
 import CreateUser from './users/createUser';
 import UpdateUser from './users/updateUser';
+import authTab from './tabAuth';
 
 const Dashboard = () => {
     const [arg, setarg] = useState<any[]>([]);
@@ -14,12 +15,14 @@ const Dashboard = () => {
     );
 
     const changeTab = (index: number, ...args) => {
-        setactiveTab(index);
-        if (!dontsavetabs.includes(index)) {
-            sessionStorage.setItem('dashboardPage', index.toString());
-        }
-        if (arg) {
-            setarg(args);
+        if (authTab(index)) {
+            setactiveTab(index);
+            if (!dontsavetabs.includes(index)) {
+                sessionStorage.setItem('dashboardPage', index.toString());
+            }
+            if (arg) {
+                setarg(args);
+            }
         }
     };
 
