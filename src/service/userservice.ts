@@ -11,6 +11,8 @@ const login = (email: string, password: string) =>
 
 const createUser = (user: user) => instance.post<{ type: string; message: string }>('/user', user);
 
+const updateUser = (user: user) => instance.put<{ type: string; message: string }>('/user', user);
+
 const deleteUser = (id: number) =>
     instance.delete<{ type: string; message: string }>('/user?id=' + id);
 
@@ -18,6 +20,7 @@ const UserService = {
     getUsers,
     login,
     createUser,
+    updateUser,
     deleteUser,
 };
 

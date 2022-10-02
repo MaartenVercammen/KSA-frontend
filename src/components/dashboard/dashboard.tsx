@@ -4,15 +4,23 @@ import UploadBraggels from './braggel/uploadBraggels';
 import './dashboard.scss';
 import UserOverview from './users/userOverview';
 import CreateUser from './users/createUser';
+import UpdateUser from './users/updateUser';
 
 const Dashboard = () => {
+    const [arg, setarg] = useState<any[]>([]);
+    const dontsavetabs = [3];
     const [activeTab, setactiveTab] = useState<number>(
         Number.parseInt(sessionStorage.getItem('dashboardPage') || '') || 0
     );
 
-    const changeTab = (index: number) => {
+    const changeTab = (index: number, ...args) => {
         setactiveTab(index);
-        sessionStorage.setItem('dashboardPage', index.toString());
+        if (!dontsavetabs.includes(index)) {
+            sessionStorage.setItem('dashboardPage', index.toString());
+        }
+        if (arg) {
+            setarg(args);
+        }
     };
 
     return (
@@ -21,6 +29,7 @@ const Dashboard = () => {
             {activeTab == 0 && <UploadBraggels />}
             {activeTab == 1 && <UserOverview changeTab={changeTab} />}
             {activeTab == 2 && <CreateUser changeTab={changeTab} />}
+            {activeTab == 3 && <UpdateUser changeTab={changeTab} userToUpdate={arg[0]} />}
         </div>
     );
 };

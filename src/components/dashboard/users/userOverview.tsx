@@ -5,7 +5,7 @@ import './userOverview.scss';
 import { useAlert } from 'react-alert';
 
 type Props = {
-    changeTab: (index: number) => void;
+    changeTab: (index: number, ...args) => void;
 };
 
 const UserOverview = ({ changeTab }: Props) => {
@@ -20,6 +20,10 @@ const UserOverview = ({ changeTab }: Props) => {
     const getUsers = async () => {
         const res = await UserService.getUsers();
         setusers(res.data);
+    };
+
+    const updateUser = (user: user) => {
+        changeTab(3, user);
     };
 
     const deleteUser = async (id: number) => {
@@ -45,12 +49,26 @@ const UserOverview = ({ changeTab }: Props) => {
                 </thead>
                 <tbody>
                     {users &&
-                        users.map(({ id, name, email, role }) => (
+                        users.map(({ id, name, email, role, password }: user) => (
                             <tr key={id}>
                                 <td>{name}</td>
                                 <td>{email}</td>
                                 <td>{role}</td>
-                                <td>update</td>
+                                <td>
+                                    <button
+                                        onClick={(e) =>
+                                            updateUser({
+                                                id: id,
+                                                name: name,
+                                                password: password,
+                                                email: email,
+                                                role: role,
+                                            })
+                                        }
+                                    >
+                                        Update
+                                    </button>
+                                </td>
                                 <td>
                                     <button onClick={(e) => deleteUser(id)}>X</button>
                                 </td>
