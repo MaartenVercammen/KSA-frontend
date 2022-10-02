@@ -23,9 +23,11 @@ const UserOverview = ({ changeTab }: Props) => {
     };
 
     const deleteUser = async (id: number) => {
-        const res = await UserService.deleteUser(id);
-        alert.show(res.data.message);
-        getUsers();
+        if (window.confirm('Delete user')) {
+            const res = await UserService.deleteUser(id);
+            alert.show(res.data.message);
+            getUsers();
+        }
     };
 
     return (
