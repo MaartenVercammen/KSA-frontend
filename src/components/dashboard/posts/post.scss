@@ -1,0 +1,54 @@
+@import '../../../css/variables.scss';
+
+.posts-dashboard {
+    .button-container {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem;
+        margin-bottom: 5rem;
+        button {
+            background-color: $color-five;
+            color: white;
+            padding: 1rem;
+            &:hover {
+                background-color: $color-three;
+                color: black;
+            }
+        }
+    }
+}
+
+.addPost {
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-self: center;
+        gap: 1rem;
+        width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+
+        input {
+            outline: none;
+            border: none;
+            border-bottom: 2px solid $color-three;
+            &:focus {
+                border-bottom: 2px solid $color-five;
+            }
+        }
+
+        input[type='submit'] {
+            background-color: $color-five;
+            border: none;
+            color: white;
+            padding: 1rem;
+            &:hover {
+                background-color: $color-three;
+                color: black;
+            }
+        }
+    }
+}

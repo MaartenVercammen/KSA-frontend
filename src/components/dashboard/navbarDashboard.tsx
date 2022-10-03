@@ -52,6 +52,18 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
                             </a>
                         </li>
                     )}
+                    {authTab(4) && (
+                        <li>
+                            <a
+                                onClick={(e) => {
+                                    changetab(4);
+                                    setnavdropdown(false);
+                                }}
+                            >
+                                Posts
+                            </a>
+                        </li>
+                    )}
                     <li>
                         <Link to={'/'}>Site</Link>
                     </li>

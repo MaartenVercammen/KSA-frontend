@@ -6,6 +6,8 @@ const allowedPerTab = {
     1: [Roles.BONDS, Roles.ADMIN],
     2: [Roles.ADMIN],
     3: [Roles.ADMIN],
+    4: [Roles.BRAGGEL, Roles.BONDS, Roles.ADMIN],
+    5: [Roles.BRAGGEL, Roles.BONDS, Roles.ADMIN],
 };
 
 const authTab = (index: number) => {
