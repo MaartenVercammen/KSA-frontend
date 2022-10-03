@@ -3,6 +3,7 @@ import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
 import './post.scss';
+import { useAlert } from 'react-alert';
 
 type Props = {
     changeTab: (index: number, ...args) => void;
@@ -11,6 +12,8 @@ type Props = {
 const Posts = ({ changeTab }: Props) => {
     const [posts, setposts] = useState<Post[]>([]);
 
+    const alert = useAlert();
+
     useEffect(() => {
         getPosts();
     }, []);
@@ -18,6 +21,12 @@ const Posts = ({ changeTab }: Props) => {
     const getPosts = async () => {
         const res = await PostService.getPosts();
         setposts(res.data);
+    };
+
+    const deletePost = async (index: number) => {
+        const res = await PostService.deletePost(index);
+        getPosts();
+        alert.show(res.data.message);
     };
 
     return (
@@ -35,6 +44,10 @@ const Posts = ({ changeTab }: Props) => {
                                         date={new Date(date).toLocaleDateString()}
                                         text={content}
                                     />
+                                    <div className="news-control-container">
+                                        <button onClick={(e) => deletePost(id)}>Delete post</button>
+                                        <button>Update post</button>
+                                    </div>
                                 </li>
                             );
                         })}
