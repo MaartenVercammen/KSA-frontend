@@ -22,6 +22,9 @@ main {
 
 a {
     text-decoration: none;
+    &:hover {
+        color: $color-five;
+    }
 }
 
 .error {
@@ -57,15 +60,4 @@ p {
 
 input {
     background-color: $color-fill;
-}
-
-button {
-    background-color: $color-five;
-    color: white;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    &:hover {
-        background-color: $color-three;
-        color: black;
-    }
 }

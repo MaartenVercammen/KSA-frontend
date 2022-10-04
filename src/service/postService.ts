@@ -9,7 +9,7 @@ const getPosts = () => instance.get<Post[]>('/post');
 const deletePost = (id: number) =>
     instance.delete<{ type: string; message: string }>('/post?id=' + id);
 
-const updatePost = () => instance.put('/post');
+const updatePost = (post: Post) => instance.put('/post', post);
 
 const PostService = {
     uploadPost,

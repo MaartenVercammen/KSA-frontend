@@ -8,6 +8,7 @@ import UpdateUser from './users/updateUser';
 import authTab from './tabAuth';
 import Posts from './posts/posts';
 import AddPosts from './posts/addPosts';
+import UpdatePost from './posts/updatePost';
 
 const Dashboard = () => {
     const [arg, setarg] = useState<any[]>([]);
@@ -36,7 +37,8 @@ const Dashboard = () => {
             {activeTab == 2 && <CreateUser changeTab={changeTab} />}
             {activeTab == 3 && <UpdateUser changeTab={changeTab} userToUpdate={arg[0]} />}
             {activeTab == 4 && <Posts changeTab={changeTab} />}
-            {activeTab == 5 && <AddPosts />}
+            {activeTab == 5 && <AddPosts changeTab={changeTab} />}
+            {activeTab == 6 && <UpdatePost changeTab={changeTab} post={arg[0]} />}
         </div>
     );
 };

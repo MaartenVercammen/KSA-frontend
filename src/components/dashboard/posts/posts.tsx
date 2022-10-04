@@ -24,9 +24,15 @@ const Posts = ({ changeTab }: Props) => {
     };
 
     const deletePost = async (index: number) => {
-        const res = await PostService.deletePost(index);
-        getPosts();
-        alert.show(res.data.message);
+        if (window.confirm('Delete post')) {
+            const res = await PostService.deletePost(index);
+            getPosts();
+            alert.show(res.data.message);
+        }
+    };
+
+    const updatePost = (post: Post) => {
+        changeTab(6, post);
     };
 
     return (
@@ -46,7 +52,18 @@ const Posts = ({ changeTab }: Props) => {
                                     />
                                     <div className="news-control-container">
                                         <button onClick={(e) => deletePost(id)}>Delete post</button>
-                                        <button>Update post</button>
+                                        <button
+                                            onClick={(e) =>
+                                                updatePost({
+                                                    id: id,
+                                                    title: title,
+                                                    content: content,
+                                                    date: date,
+                                                })
+                                            }
+                                        >
+                                            Update post
+                                        </button>
                                     </div>
                                 </li>
                             );

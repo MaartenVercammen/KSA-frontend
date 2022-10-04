@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/dashboard';
 import { Roles } from './types';
 import Logout from './components/helper/logout';
 import UpdateUser from './components/dashboard/users/updateUser';
+import Footer from './components/footer/footer';
 
 function App() {
     const setToken = (userToken: object) => {
@@ -250,6 +251,7 @@ function App() {
                     <Route path="logout" element={<Logout />} />
                 </Routes>
             </main>
+            <Footer />
         </>
     );
 }
