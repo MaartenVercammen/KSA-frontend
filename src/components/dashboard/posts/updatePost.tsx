@@ -3,6 +3,7 @@ import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import { useAlert } from 'react-alert';
 import './post.scss';
+import MDEditor from '@uiw/react-md-editor';
 
 type Props = {
     post: Post;
@@ -41,12 +42,7 @@ const UpdatePost = ({ post, changeTab }: Props) => {
                 ></input>
 
                 <label htmlFor="content">bericht</label>
-                <textarea
-                    name="content"
-                    rows={25}
-                    value={content}
-                    onChange={(e) => setcontent(e.target.value)}
-                ></textarea>
+                <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
 
                 <input type="submit" value="update Post"></input>
             </form>

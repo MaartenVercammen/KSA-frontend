@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavbarDashboard from './navbarDashboard';
 import UploadBraggels from './braggel/uploadBraggels';
 import './dashboard.scss';
@@ -16,6 +16,10 @@ const Dashboard = () => {
     const [activeTab, setactiveTab] = useState<number>(
         Number.parseInt(sessionStorage.getItem('dashboardPage') || '') || 0
     );
+
+    useEffect(() => {
+        changeTab(Number.parseInt(sessionStorage.getItem('dashboardPage') || '0'));
+    }, []);
 
     const changeTab = (index: number, ...args) => {
         if (authTab(index)) {

@@ -15,6 +15,8 @@ const authTab = (index: number) => {
     const user: user = JSON.parse(sessionStorage.getItem('user') || '{}');
     if (allowedPerTab[index].includes(user.role)) {
         return true;
+    } else {
+        sessionStorage.setItem('dashboardPage', '0');
     }
     return false;
 };

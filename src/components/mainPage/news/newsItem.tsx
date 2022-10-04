@@ -1,5 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
+import MDEditor from '@uiw/react-md-editor';
 
 type Props = {
     title: string;
@@ -13,7 +14,14 @@ const NewsItem: React.FC<Props> = ({ date, title, text }: Props) => {
             <h2>{title}</h2>
             <div className="newsItemBody">
                 <div>
-                    <p>{parse(text)}</p>
+                    <MDEditor.Markdown
+                        source={text}
+                        style={{
+                            whiteSpace: 'pre-wrap',
+                            backgroundColor: '#f4901d',
+                            color: 'white',
+                        }}
+                    />
                 </div>
             </div>
             <p className="publishedOn">
