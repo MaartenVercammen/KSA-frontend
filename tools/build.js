@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 const config = require('../webpack.prod');

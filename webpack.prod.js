@@ -1,6 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -8,14 +9,14 @@ module.exports = {
   },
   mode: 'production',
   output: {
-      path: path.resolve(__dirname, './dist/build/'),
-      filename: 'main.js',
-      publicPath: '/',
+    path: path.resolve(__dirname, './dist/build/'),
+    filename: 'main.js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      //favicon: 'src/favicon.png',
+      // favicon: 'src/favicon.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -30,7 +31,7 @@ module.exports = {
       },
     }),
     new Dotenv({
-        path: '.env.production', // Path to .env file (this is the default)
+      path: '.env.production', // Path to .env file (this is the default)
     }),
   ],
   optimization: {
@@ -65,7 +66,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader',  "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -73,4 +74,4 @@ module.exports = {
       },
     ],
   },
-}
+};

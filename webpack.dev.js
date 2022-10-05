@@ -1,6 +1,6 @@
-const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const Dotenv = require('dotenv-webpack');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -9,16 +9,16 @@ module.exports = {
   mode: 'development',
   target: 'web',
   output: {
-      filename: 'main.js',
-      publicPath: '/',
+    filename: 'main.js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.html',
-      //favicon: 'src/favicon.png',
+      // favicon: 'src/favicon.png',
     }),
     new Dotenv({
-        path: '.env.dev' // Path to .env file (this is the default)
+      path: '.env.dev', // Path to .env file (this is the default)
     }),
   ],
   optimization: {
@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader',  "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -47,4 +47,4 @@ module.exports = {
       },
     ],
   },
-}
+};
