@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node tools/devServer.js",
-    "build": "webpack --config webpack.prod.js"
+    "prebuild": "shx rm -rf dist && mkdir dist",
+    "build": "node tools/build.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "react-hot-loader": "^4.13.0",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
+    "shx": "^0.3.4",
     "ts-loader": "^9.2.6",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.9.2",
