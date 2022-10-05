@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import { useAlert } from 'react-alert';
-import './post.scss';
+import './post.css';
 import MDEditor from '@uiw/react-md-editor';
 
 type Props = {

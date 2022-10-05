@@ -1,4 +1,12 @@
-@import './variables.scss';
+:root {
+  --color-one: #8ecae6;
+  --color-two: #219ebc;
+  --color-four: #f4901d;
+  --color-three: #023047;
+  --color-five: #fb8500;
+  --color-fill: #f6f6f6;
+  --card-with: 250px;
+}
 
 @font-face {
     font-family: 'tittlefont';
@@ -12,7 +20,7 @@ html {
     padding: 0;
     margin: 0;
     display: inline-block;
-    background-color: $color-fill;
+    background-color: var(--color-fill);
 }
 
 main {
@@ -22,8 +30,9 @@ main {
 
 a {
     text-decoration: none;
+
     &:hover {
-        color: $color-five;
+        color: var(--color-five);
     }
 }
 
@@ -33,7 +42,7 @@ a {
 
 .ok {
     color: greenyellow;
-    background-color: $color-three;
+    background-color: var(--color-three);
     border-radius: 0.5rem;
     padding: 1rem;
 }
@@ -59,5 +68,5 @@ p {
 }
 
 input {
-    background-color: $color-fill;
+    background-color: var(--color-fill);
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import NavbarDashboard from './navbarDashboard';
 import UploadBraggels from './braggel/uploadBraggels';
-import './dashboard.scss';
+import './dashboard.css';
 import UserOverview from './users/userOverview';
 import CreateUser from './users/createUser';
 import UpdateUser from './users/updateUser';

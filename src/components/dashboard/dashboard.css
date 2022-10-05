@@ -1,10 +1,10 @@
 @import '../../css/variables.scss';
 .dashboard-nav {
-    nav p {
+    & nav p {
         color: white;
         margin-left: 1rem;
     }
-    a {
+    & a {
         cursor: pointer;
     }
 }

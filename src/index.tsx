@@ -8,7 +8,7 @@ import {
   Provider as AlertProvider,
 } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-import "./css/index.scss";
+import "./css/index.css";
 import App from "./App";
 
 const options = {

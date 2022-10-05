@@ -1,5 +1,3 @@
-@import '../../../css/variables.scss';
-
 .leeftijden-container {
     display: flex;
     flex-direction: row;
@@ -95,5 +93,5 @@
 }
 
 .groep-data ul li {
-    max-width: $card-with;
+    max-width: var(--card-with);
 }
