@@ -20,7 +20,6 @@ module.exports = {
         path: path.resolve(__dirname, './.env.dev') // Path to .env file (this is the default)
     }),
   ],
-  entry: './src/index.tsx',
   module: {
     rules: [
       {
