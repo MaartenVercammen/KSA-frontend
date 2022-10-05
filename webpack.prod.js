@@ -14,10 +14,23 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html'),
+      template: 'src/index.html',
+      //favicon: 'src/favicon.png',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
     new Dotenv({
-        path: './.env.production', // Path to .env file (this is the default)
+        path: '.env.production', // Path to .env file (this is the default)
     }),
   ],
   optimization: {
