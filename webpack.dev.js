@@ -7,19 +7,24 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   mode: 'development',
+  target: 'web',
   output: {
-      path: path.resolve(__dirname, './dist/dev/'),
       filename: 'main.js',
       publicPath: '/',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html'),
+    new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
+      template: 'src/index.html',
+      //favicon: 'src/favicon.png',
     }),
     new Dotenv({
-        path: path.resolve(__dirname, './.env.dev') // Path to .env file (this is the default)
+        path: '.env.dev' // Path to .env file (this is the default)
     }),
   ],
+  optimization: {
+    // Readable IDs are better for debugging
+    moduleIds: 'named',
+  },
   module: {
     rules: [
       {
