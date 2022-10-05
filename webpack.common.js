@@ -1,19 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.tsx',
-    watchOptions: {
-        poll: 1000,
-        ignored: '**/node_modules',
-    },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    devServer: {
-        historyApiFallback: true,
-      },
     module: {
         rules: [
             {
