@@ -1,9 +1,8 @@
-import React from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import React from 'react';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
-const GeneralInfo = () => {
-  const key: string =
-    process.env.GOOGLE_KEY === undefined ? "" : process.env.GOOGLE_KEY;
+function GeneralInfo() {
+  const key: string = process.env.GOOGLE_KEY === undefined ? '' : process.env.GOOGLE_KEY;
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: key,
   });
@@ -28,11 +27,11 @@ const GeneralInfo = () => {
             <a
               href="https://www.facebook.com/KSA.Aarschot"
               className="fa fa-facebook"
-            ></a>
+            />
             <a
               href="https://www.instagram.com/ksa_aarschot/"
               className="fa fa-instagram"
-            ></a>
+            />
           </p>
         </div>
       </div>
@@ -60,6 +59,6 @@ const GeneralInfo = () => {
       </div>
     </div>
   );
-};
+}
 
 export default GeneralInfo;

@@ -22,5 +22,5 @@ ReactDOM.render(
 			</AlertProvider>
 		</BrowserRouter>
 	</React.StrictMode>,
-	document.getElementById('root')
+	document.getElementById('root'),
 );

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import FileService from "../../../service/fileService";
-import BraggelUploadForm from "./braggelUploadForm";
-import { useAlert } from "react-alert";
-import "./uploadbraggel.css";
+import React, { useEffect, useState } from 'react';
+import { useAlert } from 'react-alert';
+import FileService from '../../../service/fileService';
+import BraggelUploadForm from './braggelUploadForm';
+import './uploadbraggel.css';
 
-const UploadBraggels = () => {
+function UploadBraggels() {
   const [braggels, setbraggels] = useState<string[]>([]);
   const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
 
@@ -20,21 +20,21 @@ const UploadBraggels = () => {
   };
 
   const getActiveBraggels = async () => {
-    const res = await FileService.getBraggels("braggels");
-    const data = res.data;
+    const res = await FileService.getBraggels('braggels');
+    const { data } = res;
     setbraggels(data);
   };
 
   const getSpecialBraggels = async () => {
-    const res = await FileService.getBraggels("specialebraggels");
-    const data = res.data;
+    const res = await FileService.getBraggels('specialebraggels');
+    const { data } = res;
     setspecialBraggels(data);
   };
 
   const deleteBraggel = async (filename: string, type: string) => {
     try {
       const res = await FileService.deletebraggel(filename, type);
-      alert.show(res.data.message + " " + filename);
+      alert.show(`${res.data.message} ${filename}`);
       getBragels();
     } catch (error: any) {
       alert.error(error.message);
@@ -44,13 +44,13 @@ const UploadBraggels = () => {
   const uploadMaandelijksebraggel = async (e) => {
     e.preventDefault();
     try {
-      if (!e.target.file.value.endsWith(".pdf")) {
-        alert.show("Upload PDF file");
+      if (!e.target.file.value.endsWith('.pdf')) {
+        alert.show('Upload PDF file');
         return;
       }
       const formData = new FormData(e.target);
-      const res = await FileService.uploadFile(formData, "braggels");
-      alert.show(res.data.message + " " + e.target.file.value.slice(12));
+      const res = await FileService.uploadFile(formData, 'braggels');
+      alert.show(`${res.data.message} ${e.target.file.value.slice(12)}`);
       getBragels();
     } catch (error: any) {
       alert.error(error.message);
@@ -60,13 +60,13 @@ const UploadBraggels = () => {
   const uploadSpecialebraggel = async (e) => {
     e.preventDefault();
     try {
-      if (!e.target.file.value.endsWith(".pdf")) {
-        alert.show("Upload PDF file");
+      if (!e.target.file.value.endsWith('.pdf')) {
+        alert.show('Upload PDF file');
         return;
       }
       const formData = new FormData(e.target);
-      const res = await FileService.uploadFile(formData, "specialebraggels");
-      alert.show(res.data.message + " " + e.target.file.value.slice(12));
+      const res = await FileService.uploadFile(formData, 'specialebraggels');
+      alert.show(`${res.data.message} ${e.target.file.value.slice(12)}`);
       getSpecialBraggels();
     } catch (error: any) {
       alert.error(error.message);
@@ -96,6 +96,6 @@ const UploadBraggels = () => {
       </div>
     </div>
   );
-};
+}
 
 export default UploadBraggels;

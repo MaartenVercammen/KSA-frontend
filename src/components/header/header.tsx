@@ -1,7 +1,7 @@
-import React from "react";
-import "./header.css";
+import React from 'react';
+import './header.css';
 
-const Header = () => {
+function Header() {
   return (
     <header>
       <img
@@ -16,6 +16,6 @@ const Header = () => {
       />
     </header>
   );
-};
+}
 
 export default Header;

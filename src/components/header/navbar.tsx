@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { HashLink } from "react-router-hash-link";
-import "./header.css";
+import React, { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import './header.css';
 
-const NavBar = () => {
+function NavBar() {
   const [checkboxstate, setcheckboxstate] = useState<boolean>(false);
   const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
   };
 
   return (
@@ -71,6 +71,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default NavBar;

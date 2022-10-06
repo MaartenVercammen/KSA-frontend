@@ -6,77 +6,77 @@ import './post.css';
 import { useAlert } from 'react-alert';
 
 type Props = {
-    changeTab: (index: number, ...args) => void;
+  changeTab: (index: number, ...args) => void;
 };
 
-const Posts = ({ changeTab }: Props) => {
-    const [posts, setposts] = useState<Post[]>([]);
+function Posts({ changeTab }: Props) {
+  const [posts, setposts] = useState<Post[]>([]);
 
-    const alert = useAlert();
+  const alert = useAlert();
 
-    useEffect(() => {
-        getPosts();
-    }, []);
+  useEffect(() => {
+    getPosts();
+  }, []);
 
-    const getPosts = async () => {
-        const res = await PostService.getPosts();
-        setposts(res.data);
-    };
+  const getPosts = async () => {
+    const res = await PostService.getPosts();
+    setposts(res.data);
+  };
 
-    const deletePost = async (index: number) => {
-        if (window.confirm('Delete post')) {
-            const res = await PostService.deletePost(index);
-            getPosts();
-            alert.show(res.data.message);
-        }
-    };
+  const deletePost = async (index: number) => {
+    if (window.confirm('Delete post')) {
+      const res = await PostService.deletePost(index);
+      getPosts();
+      alert.show(res.data.message);
+    }
+  };
 
-    const updatePost = (post: Post) => {
-        changeTab(6, post);
-    };
+  const updatePost = (post: Post) => {
+    changeTab(6, post);
+  };
 
-    return (
-        <div className="posts-dashboard">
-            <h1>Nieuwsberichten</h1>
-            <div className="news" id="news">
-                <ul>
-                    {posts &&
-                        posts.map(({ id, title, content, date }: Post) => {
-                            console.log(new Date(date).toLocaleDateString());
-                            return (
-                                <li key={id} className="posts-conatainer">
-                                    <NewsItem
-                                        title={title}
-                                        date={new Date(date).toLocaleDateString()}
-                                        text={content}
-                                    />
-                                    <div className="news-control-container">
-                                        <button onClick={(e) => deletePost(id)}>
-                                            Delete Nieuwsbericht
-                                        </button>
-                                        <button
-                                            onClick={(e) =>
-                                                updatePost({
-                                                    id: id,
-                                                    title: title,
-                                                    content: content,
-                                                    date: date,
-                                                })
-                                            }
-                                        >
-                                            Update Nieuwsbericht
-                                        </button>
-                                    </div>
-                                </li>
-                            );
+  return (
+    <div className="posts-dashboard">
+      <h1>Nieuwsberichten</h1>
+      <div className="news" id="news">
+        <ul>
+          {posts
+                        && posts.map(({
+                          id, title, content, date,
+                        }: Post) => {
+                          console.log(new Date(date).toLocaleDateString());
+                          return (
+                            <li key={id} className="posts-conatainer">
+                              <NewsItem
+                                title={title}
+                                date={new Date(date).toLocaleDateString()}
+                                text={content}
+                              />
+                              <div className="news-control-container">
+                                <button onClick={(e) => deletePost(id)}>
+                                  Delete Nieuwsbericht
+                                </button>
+                                <button
+                                  onClick={(e) => updatePost({
+                                    id,
+                                    title,
+                                    content,
+                                    date,
+                                  })}
+                                >
+                                  Update Nieuwsbericht
+                                </button>
+                              </div>
+                            </li>
+                          );
                         })}
-                </ul>
-            </div>
-            <div className="button-container">
-                <button onClick={(e) => changeTab(5)}>Add Nieuwsbericht</button>
-            </div>
-        </div>
-    );
-};
+        </ul>
+      </div>
+      <div className="button-container">
+        <button onClick={(e) => changeTab(5)}>Add Nieuwsbericht</button>
+      </div>
+    </div>
+  );
+}
 
 export default Posts;

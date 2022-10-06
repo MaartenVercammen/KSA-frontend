@@ -1,9 +1,9 @@
-import React from "react";
-import ContactInfo from "./contactInfo";
-import GeneralInfo from "./generalInfo";
-import "./contact.css";
+import React from 'react';
+import ContactInfo from './contactInfo';
+import GeneralInfo from './generalInfo';
+import './contact.css';
 
-const Contact = () => {
+function Contact() {
   return (
     <div className="contact" id="contact">
       <h1>Contact</h1>
@@ -13,6 +13,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Contact;
