@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.html',
-      // favicon: 'src/favicon.png',
+      favicon: 'src/favicon.png',
     }),
     new Dotenv({
       path: '.env.dev', // Path to .env file (this is the default)
