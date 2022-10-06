@@ -1,38 +1,36 @@
-@import '../../../css/variables.scss';
-
 .posts-dashboard {
-    .button-container {
+    & .button-container {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
         padding: 5rem;
     }
-    .news-control-container {
+    & .news-control-container {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
     }
 
-    .newsItem {
+    & .newsItem {
         margin: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
     }
 
-    button {
-        background-color: $color-three;
+    & button {
+        background-color: var(--color-three);
         padding: 0.5rem;
         color: white;
         width: 100%;
         &:hover {
-            color: $color-five;
+            color: var(--color-five);
         }
     }
 }
 
 .addPost {
-    form {
+    & form {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -42,22 +40,22 @@
         margin-left: auto;
         margin-right: auto;
 
-        input {
+        & input {
             outline: none;
             border: none;
-            border-bottom: 2px solid $color-three;
+            border-bottom: 2px solid var(--color-three);
             &:focus {
-                border-bottom: 2px solid $color-five;
+                border-bottom: 2px solid var(--color-five);
             }
         }
 
-        input[type='submit'] {
-            background-color: $color-five;
+        & input[type='submit'] {
+            background-color: var(--color-five);
             border: none;
             color: white;
             padding: 1rem;
             &:hover {
-                background-color: $color-three;
+                background-color: var(--color-three);
                 color: black;
             }
         }

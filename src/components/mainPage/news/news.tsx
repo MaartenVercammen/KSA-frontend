@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from './newsItem';
-import './news.scss';
+import './news.css';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 

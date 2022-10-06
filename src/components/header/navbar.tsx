@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import "./header.scss";
+import "./header.css";
 
 const NavBar = () => {
   const [checkboxstate, setcheckboxstate] = useState<boolean>(false);

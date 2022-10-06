@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
-import './post.scss';
+import './post.css';
 import { useAlert } from 'react-alert';
 
 type Props = {

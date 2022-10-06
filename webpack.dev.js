@@ -1,4 +1,3 @@
-
 /* eslint-disable import/no-extraneous-dependencies */
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -39,9 +38,30 @@ module.exports = {
         use: ['ts-loader'],
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /(\.css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+            },
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'autoprefixer',
+                  'postcss-nesting',
+                ],
+              },
+              sourceMap: true,
+            },
+          },
+        ],
       },
+
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
         use: ['file-loader'],

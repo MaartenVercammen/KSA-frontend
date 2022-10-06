@@ -2,6 +2,7 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   resolve: {
@@ -65,8 +66,27 @@ module.exports = {
         use: ['ts-loader'],
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /(\.css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'postcss-nesting',
+                  'cssnano',
+                  'autoprefixer',
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
