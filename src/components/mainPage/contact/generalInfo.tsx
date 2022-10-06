@@ -1,6 +1,9 @@
 import React from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
+import Facebook from '../../../icons/facebook.svg';
+import Instagram from '../../../icons/instagram.svg';
+
 function GeneralInfo() {
   const key: string = process.env.GOOGLE_KEY === undefined ? '' : process.env.GOOGLE_KEY;
   const { isLoaded } = useLoadScript({
@@ -24,14 +27,12 @@ function GeneralInfo() {
         <div>
           <h2>Volg ons op onze socials</h2>
           <p>
-            <a
-              href="https://www.facebook.com/KSA.Aarschot"
-              className="fa fa-facebook"
-            />
-            <a
-              href="https://www.instagram.com/ksa_aarschot/"
-              className="fa fa-instagram"
-            />
+            <a href="https://www.facebook.com/KSA.Aarschot">
+              <Facebook className="fa fa-facebook" />
+            </a>
+            <a href="https://www.instagram.com/ksa_aarschot/">
+              <Instagram className="fa fa-instagram" />
+            </a>
           </p>
         </div>
       </div>
