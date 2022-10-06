@@ -89,6 +89,18 @@ module.exports = {
         ],
       },
       {
+        test: /\.woff2$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+      {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         issuer: /\.[jt]sx?$/,
         use: [
