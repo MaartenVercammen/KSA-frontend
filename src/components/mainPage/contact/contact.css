@@ -27,11 +27,6 @@
   padding: 1rem;
 }
 
-.contact-info li {
-  max-width: var(--card-with);
-  padding: 1rem;
-}
-
 .contact-info p {
   text-align: center;
 }

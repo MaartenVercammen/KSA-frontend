@@ -56,7 +56,7 @@ h6 {
   text-align: center;
   margin: 1rem;
   font-size: 2em;
-  font-family: tittlefont;
+  font-family: tittlefont, sans-serif;
 }
 
 h1 {
