@@ -35,7 +35,7 @@
         }
         & .login-submit-container {
             display: flex;
-            justify-content: end;
+            justify-content: flex-end;
             & input[type='submit'] {
                 background-color: var(--color-four);
                 border: none;
