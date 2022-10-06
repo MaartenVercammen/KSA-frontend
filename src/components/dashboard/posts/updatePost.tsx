@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import './post.css';
-import MDEditor from '@uiw/react-md-editor';
 
 type Props = {
   post: Post;

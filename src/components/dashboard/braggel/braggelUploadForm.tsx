@@ -20,10 +20,10 @@ function BraggelUploadForm({
         <input type="submit" />
       </form>
       {braggels
-        && braggels.map((b, index) => (
-          <p key={index}>
+        && braggels.map((b) => (
+          <p key={b}>
             <a href={`${process.env.API_URL}/pdf/${path}/${b}`}>{b}</a>
-            <button className="delete" onClick={(e) => deleteBraggel(b, path)}>
+            <button type="button" className="delete" onClick={() => deleteBraggel(b, path)}>
               X
             </button>
           </p>

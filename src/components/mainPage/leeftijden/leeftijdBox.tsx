@@ -8,15 +8,15 @@ type Props = {
   endAge: string;
 };
 
-const LeeftijdBox: React.FC<Props> = ({
+function LeeftijdBox({
   name,
   img,
   startAge,
   endAge,
-}: Props) => {
+}: Props) {
   const navigate = useNavigate();
   return (
-    <div className="leeftijdBox" onClick={(e) => navigate(`/leiders/${name}`)}>
+    <div className="leeftijdBox" onClick={() => navigate(`/leiders/${name}`)}>
       <img src={img} alt={`logo van de ${name}`} />
       <div className="info">
         <h4>{name}</h4>
@@ -28,6 +28,6 @@ const LeeftijdBox: React.FC<Props> = ({
       </div>
     </div>
   );
-};
+}
 
 export default LeeftijdBox;

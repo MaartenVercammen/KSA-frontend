@@ -24,7 +24,7 @@ function NavBar() {
         type="checkbox"
         name="burger"
         id="burger"
-        onClick={(e) => setcheckboxstate(true)}
+        onClick={() => setcheckboxstate(true)}
         checked={checkboxstate}
       />
       <ul>
@@ -33,7 +33,7 @@ function NavBar() {
             smooth
             to="/#news"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             News
           </HashLink>
@@ -43,7 +43,7 @@ function NavBar() {
             smooth
             to="/#braggel"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Braggel
           </HashLink>
@@ -53,7 +53,7 @@ function NavBar() {
             smooth
             to="/#leeftijden"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Leeftijden
           </HashLink>
@@ -63,7 +63,7 @@ function NavBar() {
             smooth
             to="/#contact"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Contact
           </HashLink>

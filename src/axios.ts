@@ -21,11 +21,10 @@ export const instanceFile = axios.create({
 
 const serviceData = {
   onResponseError(error) {
-    console.log(error);
-    if (error.message.search(401) != -1) {
+    if (error.message.search(401) !== -1) {
       return Promise.reject({ message: 'Unauthorized' });
     }
-    if (error.message.search(418) != -1) {
+    if (error.message.search(418) !== -1) {
       sessionStorage.removeItem('user');
     }
     return error;

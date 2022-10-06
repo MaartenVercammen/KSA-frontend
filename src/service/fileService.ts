@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { instance, instanceFile } from '../axios';
 
 const uploadFile = (data: FormData, type: string) => instanceFile.post<{ type: string, message: string }>(`/file?path=${type}`, data);

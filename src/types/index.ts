@@ -1,4 +1,4 @@
-export interface user {
+export interface User {
   id: number;
   name: string;
   password: string;
@@ -6,7 +6,7 @@ export interface user {
   role: Roles;
 }
 
-export interface leidingNummer {
+export interface LeidingNummer {
   voornaam: string;
   achternaam: string;
   number: string;

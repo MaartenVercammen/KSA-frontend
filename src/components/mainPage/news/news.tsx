@@ -7,14 +7,14 @@ import { Post } from '../../../types';
 function News() {
   const [news, setnews] = useState<Post[]>([]);
 
-  useEffect(() => {
-    getPosts();
-  }, []);
-
   const getPosts = async () => {
     const res = await PostService.getPosts();
     setnews(res.data);
   };
+
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   return (
     <div className="news" id="news">

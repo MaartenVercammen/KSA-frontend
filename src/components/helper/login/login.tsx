@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import UserService from '../../../service/userservice';
+import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import './login.css';
 import { useAlert } from 'react-alert';
+import './login.css';
+import UserService from '../../../service/userservice';
 
 type Props = {
   setToken: (user: object) => void;
@@ -12,14 +12,14 @@ function Login({ setToken }: Props) {
   const navigate = useNavigate();
   const alert = useAlert();
 
-  if (sessionStorage.getItem('user') != undefined) {
+  if (sessionStorage.getItem('user') !== undefined) {
     return <Navigate to="/dashboard" />;
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await UserService.login(e.target.email.value, e.target.password.value);
-    if (res.data.type == 'valid') {
+    if (res.data.type === 'valid') {
       setToken(res.data.user);
       navigate('/dashboard');
     } else {

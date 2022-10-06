@@ -1,34 +1,38 @@
-import { useState, useEffect } from 'react';
-import UserService from '../../../service/userservice';
-import { user } from '../../../types/index';
-import './userOverview.css';
+import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
+import UserService from '../../../service/userservice';
+import { User } from '../../../types';
+import './userOverview.css';
 
 type Props = {
   changeTab: (index: number, ...args) => void;
 };
 
 function UserOverview({ changeTab }: Props) {
-  const [users, setusers] = useState<user[]>([]);
+  const [users, setusers] = useState<User[]>([]);
 
   const alert = useAlert();
-
-  useEffect(() => {
-    getUsers();
-  }, []);
 
   const getUsers = async () => {
     const res = await UserService.getUsers();
     setusers(res.data);
   };
 
-  const updateUser = (user: user) => {
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const updateUser = (user: User) => {
     changeTab(3, user);
   };
 
   const deleteUser = async (id: number) => {
+    // TODO: remove confirm
+    // eslint-disable-next-line no-alert
     if (window.confirm('Delete user')) {
       const res = await UserService.deleteUser(id);
+      // TODO: remove alert
+      // eslint-disable-next-line no-alert
       alert.show(res.data.message);
       getUsers();
     }
@@ -51,14 +55,15 @@ function UserOverview({ changeTab }: Props) {
           {users
                         && users.map(({
                           id, name, email, role, password,
-                        }: user) => (
+                        }: User) => (
                           <tr key={id}>
                             <td>{name}</td>
                             <td>{email}</td>
                             <td>{role}</td>
                             <td>
                               <button
-                                onClick={(e) => updateUser({
+                                type="button"
+                                onClick={() => updateUser({
                                   id,
                                   name,
                                   password,
@@ -70,7 +75,7 @@ function UserOverview({ changeTab }: Props) {
                               </button>
                             </td>
                             <td>
-                              <button onClick={(e) => deleteUser(id)}>X</button>
+                              <button type="button" onClick={() => deleteUser(id)}>X</button>
                             </td>
                           </tr>
                         ))}
@@ -78,7 +83,7 @@ function UserOverview({ changeTab }: Props) {
       </table>
       <div className="button">
         <p>
-          <a onClick={(e) => changeTab(2)}>Add User</a>
+          <a onClick={() => changeTab(2)}>Add User</a>
         </p>
       </div>
     </div>

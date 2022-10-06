@@ -10,26 +10,24 @@ function UploadBraggels() {
 
   const alert = useAlert();
 
-  useEffect(() => {
-    getBragels();
-  }, []);
-
-  const getBragels = () => {
-    getActiveBraggels();
-    getSpecialBraggels();
-  };
-
   const getActiveBraggels = async () => {
     const res = await FileService.getBraggels('braggels');
     const { data } = res;
     setbraggels(data);
   };
-
   const getSpecialBraggels = async () => {
     const res = await FileService.getBraggels('specialebraggels');
     const { data } = res;
     setspecialBraggels(data);
   };
+  const getBragels = () => {
+    getActiveBraggels();
+    getSpecialBraggels();
+  };
+
+  useEffect(() => {
+    getBragels();
+  }, []);
 
   const deleteBraggel = async (filename: string, type: string) => {
     try {

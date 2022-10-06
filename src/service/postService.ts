@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { instance, instanceFile } from '../axios';
+import { instance } from '../axios';
 import { Post } from '../types';
 
 const uploadPost = (data: Post) => instance.post<{ type: string; message: string }>('/post', data);

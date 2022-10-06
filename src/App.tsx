@@ -1,14 +1,13 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './css/index.css';
 import Index from './components/index';
-import LeidingNummes from './components/mainPage/leeftijden/leidingNummes';
+import LeidingNummers from './components/mainPage/leeftijden/leidingNummers';
 import Login from './components/helper/login/login';
 import ProtectedRoutes from './components/helper/protectedRoutes';
 import Dashboard from './components/dashboard/dashboard';
 import { Roles } from './types';
 import Logout from './components/helper/logout';
-import UpdateUser from './components/dashboard/users/updateUser';
 import Footer from './components/footer/footer';
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
           <Route
             path="/leiders/Rubskes"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Rubskes"
                 nummers={[
                   {
@@ -64,7 +63,7 @@ function App() {
           <Route
             path="/leiders/Leeuwkes"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Leeuwkes"
                 nummers={[
                   {
@@ -110,7 +109,7 @@ function App() {
           <Route
             path="/leiders/Jonknapen"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Jongknapen"
                 nummers={[
                   {
@@ -156,7 +155,7 @@ function App() {
           <Route
             path="/leiders/Knapen"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Knapen"
                 nummers={[
                   {
@@ -184,7 +183,7 @@ function App() {
           <Route
             path="/leiders/Jonghernieuwers"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Jonghernieuwers"
                 nummers={[
                   {
@@ -212,7 +211,7 @@ function App() {
           <Route
             path="/leiders/Hernieuwers"
             element={(
-              <LeidingNummes
+              <LeidingNummers
                 groep="Hernieuwers"
                 nummers={[
                   {

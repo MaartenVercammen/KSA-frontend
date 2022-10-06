@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavbarDashboard from './navbarDashboard';
 import UploadBraggels from './braggel/uploadBraggels';
 import './dashboard.css';
@@ -14,12 +14,8 @@ function Dashboard() {
   const [arg, setarg] = useState<any[]>([]);
   const dontsavetabs = [3];
   const [activeTab, setactiveTab] = useState<number>(
-    Number.parseInt(sessionStorage.getItem('dashboardPage') || '') || 0,
+    Number.parseInt(sessionStorage.getItem('dashboardPage') || '', 10) || 0,
   );
-
-  useEffect(() => {
-    changeTab(Number.parseInt(sessionStorage.getItem('dashboardPage') || '0'));
-  }, []);
 
   const changeTab = (index: number, ...args) => {
     if (authTab(index)) {
@@ -33,16 +29,20 @@ function Dashboard() {
     }
   };
 
+  useEffect(() => {
+    changeTab(Number.parseInt(sessionStorage.getItem('dashboardPage') || '0', 10));
+  }, []);
+
   return (
     <div>
       <NavbarDashboard setactivetab={changeTab} />
-      {activeTab == 0 && <UploadBraggels />}
-      {activeTab == 1 && <UserOverview changeTab={changeTab} />}
-      {activeTab == 2 && <CreateUser changeTab={changeTab} />}
-      {activeTab == 3 && <UpdateUser changeTab={changeTab} userToUpdate={arg[0]} />}
-      {activeTab == 4 && <Posts changeTab={changeTab} />}
-      {activeTab == 5 && <AddPosts changeTab={changeTab} />}
-      {activeTab == 6 && <UpdatePost changeTab={changeTab} post={arg[0]} />}
+      {activeTab === 0 && <UploadBraggels />}
+      {activeTab === 1 && <UserOverview changeTab={changeTab} />}
+      {activeTab === 2 && <CreateUser changeTab={changeTab} />}
+      {activeTab === 3 && <UpdateUser changeTab={changeTab} userToUpdate={arg[0]} />}
+      {activeTab === 4 && <Posts changeTab={changeTab} />}
+      {activeTab === 5 && <AddPosts changeTab={changeTab} />}
+      {activeTab === 6 && <UpdatePost changeTab={changeTab} post={arg[0]} />}
     </div>
   );
 }

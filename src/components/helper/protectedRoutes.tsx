@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { tokenToString } from 'typescript';
-import { Roles, user } from '../../types/index';
+import { Roles } from '../../types';
 
 type Props = {
   redirectPath: string;

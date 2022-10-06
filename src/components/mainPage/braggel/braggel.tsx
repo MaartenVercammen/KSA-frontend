@@ -6,15 +6,6 @@ function Braggel() {
   const [braggels, setbraggels] = useState<string[]>([]);
   const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
 
-  useEffect(() => {
-    getBragels();
-  }, []);
-
-  const getBragels = () => {
-    getActiveBraggels();
-    getSpecialBraggels();
-  };
-
   const getActiveBraggels = async () => {
     const res = await FileService.getBraggels('braggels');
     const { data } = res;
@@ -26,6 +17,15 @@ function Braggel() {
     const { data } = res;
     setspecialBraggels(data);
   };
+
+  const getBragels = () => {
+    getActiveBraggels();
+    getSpecialBraggels();
+  };
+
+  useEffect(() => {
+    getBragels();
+  }, []);
 
   return (
     <>
@@ -64,12 +64,12 @@ function Braggel() {
           Hieronder vind je een overzicht van de beschikbare digitale edities.
           Is een maand niet zichtbaar? Helaas, dan staat de editie voor die
           maand nog niet online. Naast de maandelijkse edities, kan je hier ook
-          de speciallekes, zoals onze Startbraggel voor nieuwe KSA'(st)ers en
+          de speciallekes, zoals onze Startbraggel voor nieuwe KSA&apos;(st)ers en
           onze Kampbraggel terugvinden. Alvast veel leesplezier!
         </p>
         <h2>Maandelijkse edities</h2>
         {braggels
-          && braggels.map((braggel, index) => (
+          && braggels.map((braggel) => (
             <p>
               <a
                 target="_blank"
@@ -84,7 +84,7 @@ function Braggel() {
 
         <h3>Speciale edities</h3>
         {specialBraggels
-          && specialBraggels.map((braggel, index) => (
+          && specialBraggels.map((braggel) => (
             <p>
               <a
                 target="_blank"

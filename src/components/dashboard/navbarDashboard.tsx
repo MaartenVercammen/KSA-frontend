@@ -25,13 +25,13 @@ function NavbarDashboard({ setactivetab }: Props) {
           name="burger"
           id="burger"
           checked={navdropdown}
-          onChange={(e) => setnavdropdown(true)}
+          onChange={() => setnavdropdown(true)}
         />
         <ul>
           {authTab(0) && (
             <li>
               <a
-                onClick={(e) => {
+                onClick={() => {
                   changetab(0);
                   setnavdropdown(false);
                 }}
@@ -43,7 +43,7 @@ function NavbarDashboard({ setactivetab }: Props) {
           {authTab(1) && (
             <li>
               <a
-                onClick={(e) => {
+                onClick={() => {
                   changetab(1);
                   setnavdropdown(false);
                 }}
@@ -55,7 +55,7 @@ function NavbarDashboard({ setactivetab }: Props) {
           {authTab(4) && (
             <li>
               <a
-                onClick={(e) => {
+                onClick={() => {
                   changetab(4);
                   setnavdropdown(false);
                 }}

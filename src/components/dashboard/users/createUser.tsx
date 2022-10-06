@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import UserService from '../../../service/userservice';
-import { Roles, user } from '../../../types';
+import { Roles, User } from '../../../types';
 
 type Props = {
   changeTab: (index: number) => void;
@@ -17,7 +17,7 @@ function CreateUser({ changeTab }: Props) {
 
   const createUser = async (e) => {
     e.preventDefault();
-    const user: user = {
+    const user: User = {
       id: -1,
       name,
       email,

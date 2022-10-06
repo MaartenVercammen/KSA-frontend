@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import { leidingNummer } from '../../../types/index';
-import Footer from '../../footer/footer';
+import { LeidingNummer } from '../../../types';
 import NavBar from '../../header/navbar';
 import Card from '../../helper/card/card';
 
 type Props = {
-  nummers: Array<leidingNummer>;
+  nummers: Array<LeidingNummer>;
   groep: string;
 };
 
-function LeidingNummes({ nummers, groep }: Props) {
+function LeidingNummers({ nummers, groep }: Props) {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -27,7 +26,7 @@ function LeidingNummes({ nummers, groep }: Props) {
       <div className="groep-data">
         <ul>
           {nummers
-                            && nummers.map((value: leidingNummer, index: number) => (
+                            && nummers.map((value: LeidingNummer) => (
                               <li>
                                 <Card
                                   nummer={value.number}
@@ -43,4 +42,4 @@ function LeidingNummes({ nummers, groep }: Props) {
   );
 }
 
-export default LeidingNummes;
+export default LeidingNummers;

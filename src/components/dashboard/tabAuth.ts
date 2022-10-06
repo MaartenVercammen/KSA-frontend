@@ -1,5 +1,4 @@
-import { userInfo } from 'os';
-import { Roles, user } from '../../types';
+import { Roles, User } from '../../types';
 
 const allowedPerTab = {
   0: [Roles.BRAGGEL, Roles.BONDS, Roles.ADMIN],
@@ -12,7 +11,7 @@ const allowedPerTab = {
 };
 
 const authTab = (index: number) => {
-  const user: user = JSON.parse(sessionStorage.getItem('user') || '{}');
+  const user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
   if (allowedPerTab[index].includes(user.role)) {
     return true;
   }
