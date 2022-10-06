@@ -31,9 +31,9 @@ const UpdatePost = ({ post, changeTab }: Props) => {
 
     return (
         <div className="addPost">
-            <h1>Add Post</h1>
+            <h1>Update Nieuwsbericht: {post.title}</h1>
             <form onSubmit={updatePost}>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Titel</label>
                 <input
                     type="text"
                     name="title"
@@ -44,7 +44,7 @@ const UpdatePost = ({ post, changeTab }: Props) => {
                 <label htmlFor="content">bericht</label>
                 <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
 
-                <input type="submit" value="update Post"></input>
+                <input type="submit" value="update Nieuwsbericht"></input>
             </form>
         </div>
     );

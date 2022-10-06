@@ -60,7 +60,7 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
                                     setnavdropdown(false);
                                 }}
                             >
-                                Posts
+                                Nieuws
                             </a>
                         </li>
                     )}

@@ -25,7 +25,7 @@ const NewsItem: React.FC<Props> = ({ date, title, text }: Props) => {
                 </div>
             </div>
             <p className="publishedOn">
-                <i>published on:{date}</i>
+                <i>published on: {date}</i>
             </p>
         </div>
     );

@@ -37,7 +37,7 @@ const Posts = ({ changeTab }: Props) => {
 
     return (
         <div className="posts-dashboard">
-            <h1>Posts</h1>
+            <h1>Nieuwsberichten</h1>
             <div className="news" id="news">
                 <ul>
                     {posts &&
@@ -51,7 +51,9 @@ const Posts = ({ changeTab }: Props) => {
                                         text={content}
                                     />
                                     <div className="news-control-container">
-                                        <button onClick={(e) => deletePost(id)}>Delete post</button>
+                                        <button onClick={(e) => deletePost(id)}>
+                                            Delete Nieuwsbericht
+                                        </button>
                                         <button
                                             onClick={(e) =>
                                                 updatePost({
@@ -62,7 +64,7 @@ const Posts = ({ changeTab }: Props) => {
                                                 })
                                             }
                                         >
-                                            Update post
+                                            Update Nieuwsbericht
                                         </button>
                                     </div>
                                 </li>
@@ -71,7 +73,7 @@ const Posts = ({ changeTab }: Props) => {
                 </ul>
             </div>
             <div className="button-container">
-                <button onClick={(e) => changeTab(5)}>Add Post</button>
+                <button onClick={(e) => changeTab(5)}>Add Nieuwsbericht</button>
             </div>
         </div>
     );

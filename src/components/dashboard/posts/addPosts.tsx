@@ -24,7 +24,7 @@ const AddPosts = ({ changeTab }: Props) => {
 
     return (
         <div className="addPost">
-            <h1>Add Post</h1>
+            <h1>Voeg nieuws item toe</h1>
             <form onSubmit={addpost}>
                 <label htmlFor="title">Title</label>
                 <input
