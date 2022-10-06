@@ -9,42 +9,42 @@
 }
 
 @font-face {
-    font-family: 'tittlefont';
-    src: url('/fonts/KGSecondChancesSketch.ttf');
+  font-family: tittlefont;
+  src: url("/fonts/KGSecondChancesSketch.ttf");
 }
 
 body,
 html {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-    background-color: var(--color-fill);
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: var(--color-fill);
 }
 
 main {
-    min-height: 100vh;
-    position: relative;
+  min-height: 100vh;
+  position: relative;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 
-    &:hover {
-        color: var(--color-five);
-    }
+  &:hover {
+    color: var(--color-five);
+  }
 }
 
 .error {
-    color: red;
+  color: red;
 }
 
 .ok {
-    color: greenyellow;
-    background-color: var(--color-three);
-    border-radius: 0.5rem;
-    padding: 1rem;
+  color: greenyellow;
+  background-color: var(--color-three);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 h1,
@@ -53,20 +53,20 @@ h3,
 h4,
 h5,
 h6 {
-    text-align: center;
-    margin: 1rem;
-    font-size: 2em;
-    font-family: 'tittlefont';
+  text-align: center;
+  margin: 1rem;
+  font-size: 2em;
+  font-family: tittlefont, sans-serif;
 }
 
 h1 {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 input {
-    background-color: var(--color-fill);
+  background-color: var(--color-fill);
 }

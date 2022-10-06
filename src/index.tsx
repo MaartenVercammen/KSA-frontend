@@ -6,21 +6,20 @@ import AlertTemplate from 'react-alert-template-basic';
 import './css/index.css';
 import App from './App';
 
-const options = {
-	position: positions.TOP_CENTER,
-	timeout: 5000,
-	offset: '5px',
-	transition: transitions.SCALE,
-	type: types.INFO
-};
-
 ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<AlertProvider template={AlertTemplate} {...options}>
-				<App />
-			</AlertProvider>
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById('root')
+  <React.StrictMode>
+    <BrowserRouter>
+      <AlertProvider
+        template={AlertTemplate}
+        position={positions.TOP_CENTER}
+        timeout={5000}
+        offset="5px"
+        transition={transitions.SCALE}
+        type={types.INFO}
+      >
+        <App />
+      </AlertProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root'),
 );

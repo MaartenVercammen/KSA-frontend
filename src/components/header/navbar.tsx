@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { HashLink } from "react-router-hash-link";
-import "./header.css";
+import React, { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import './header.css';
 
-const NavBar = () => {
+function NavBar() {
   const [checkboxstate, setcheckboxstate] = useState<boolean>(false);
   const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
   };
 
   return (
@@ -24,7 +24,7 @@ const NavBar = () => {
         type="checkbox"
         name="burger"
         id="burger"
-        onClick={(e) => setcheckboxstate(true)}
+        onClick={() => setcheckboxstate(true)}
         checked={checkboxstate}
       />
       <ul>
@@ -33,7 +33,7 @@ const NavBar = () => {
             smooth
             to="/#news"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             News
           </HashLink>
@@ -43,7 +43,7 @@ const NavBar = () => {
             smooth
             to="/#braggel"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Braggel
           </HashLink>
@@ -53,7 +53,7 @@ const NavBar = () => {
             smooth
             to="/#leeftijden"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Leeftijden
           </HashLink>
@@ -63,7 +63,7 @@ const NavBar = () => {
             smooth
             to="/#contact"
             scroll={scrollWithOffset}
-            onClick={(e) => setcheckboxstate(false)}
+            onClick={() => setcheckboxstate(false)}
           >
             Contact
           </HashLink>
@@ -71,6 +71,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default NavBar;

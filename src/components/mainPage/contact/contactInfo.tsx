@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import Card from "../../helper/card/card";
+import React from 'react';
+import Card from '../../helper/card/card';
 
-const ContactInfo: React.FC = () => {
+function ContactInfo() {
   return (
     <div className="contact-info">
       <h3>Hoofdleiding</h3>
@@ -25,6 +25,6 @@ const ContactInfo: React.FC = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default ContactInfo;

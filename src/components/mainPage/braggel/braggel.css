@@ -6,9 +6,11 @@
   & p {
     text-align: center;
   }
+
   & a {
     text-decoration: underline;
     color: white;
+
     &:hover {
       color: var(--color-five);
     }
@@ -22,6 +24,7 @@
   overflow: hidden;
   line-height: 0;
 }
+
 .custom-shape-divider-top-1662392900 svg {
   position: relative;
   display: block;
