@@ -53,8 +53,6 @@
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
     "postcss-nesting": "^10.2.0",
-    "sass": "^1.55.0",
-    "sass-loader": "^13.0.2",
     "shx": "^0.3.4",
     "style-loader": "^3.3.1",
     "stylelint": "^14.13.0",
