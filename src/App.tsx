@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import './css/index.scss';
+import './css/index.css';
 import Index from './components/index';
 import LeidingNummes from './components/mainPage/leeftijden/leidingNummes';
 import Login from './components/helper/login/login';

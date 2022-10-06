@@ -1,18 +1,16 @@
-@import "../../../css/variables.scss";
-
 .braggel {
-  background-color: $color-three;
+  background-color: var(--color-three);
   color: white;
   padding: 5rem;
 
-  p {
+  & p {
     text-align: center;
   }
-  a {
+  & a {
     text-decoration: underline;
     color: white;
     &:hover {
-      color: $color-five;
+      color: var(--color-five);
     }
   }
 }
@@ -32,5 +30,5 @@
 }
 
 .custom-shape-divider-top-1662392900 .shape-fill {
-  fill: $color-fill;
+  fill: var(--color-fill);
 }

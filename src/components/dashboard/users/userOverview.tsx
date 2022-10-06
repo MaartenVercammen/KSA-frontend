@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import UserService from '../../../service/userservice';
 import { user } from '../../../types/index';
-import './userOverview.scss';
+import './userOverview.css';
 import { useAlert } from 'react-alert';
 
 type Props = {

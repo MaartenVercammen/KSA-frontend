@@ -1,5 +1,5 @@
 import React from "react";
-import "./uploadbraggel.scss";
+import "./uploadbraggel.css";
 
 type Props = {
   uploadbraggel: React.FormEventHandler;

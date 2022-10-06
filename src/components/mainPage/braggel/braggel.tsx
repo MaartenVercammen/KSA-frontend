@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FileService from "../../../service/fileService";
-import "./braggel.scss";
+import "./braggel.css";
 
 const Braggel = () => {
   const [braggels, setbraggels] = useState<string[]>([]);

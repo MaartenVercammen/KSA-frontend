@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserService from '../../../service/userservice';
 import { Navigate, useNavigate } from 'react-router-dom';
-import './login.scss';
+import './login.css';
 import { useAlert } from 'react-alert';
 
 type Props = {
