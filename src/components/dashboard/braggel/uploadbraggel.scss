@@ -1,6 +1,11 @@
 @import '../../../css/variables.scss';
 
 .update-braggels {
+    h2,
+    h3 {
+        color: white;
+    }
+
     .container {
         background-color: $color-three;
         padding: 1rem;

@@ -44,7 +44,7 @@ const Posts = ({ changeTab }: Props) => {
                         posts.map(({ id, title, content, date }: Post) => {
                             console.log(new Date(date).toLocaleDateString());
                             return (
-                                <li key={id}>
+                                <li key={id} className="posts-conatainer">
                                     <NewsItem
                                         title={title}
                                         date={new Date(date).toLocaleDateString()}

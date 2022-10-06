@@ -13,6 +13,22 @@
         flex-flow: row nowrap;
         justify-content: space-around;
     }
+
+    .newsItem {
+        margin: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    button {
+        background-color: $color-three;
+        padding: 0.5rem;
+        color: white;
+        width: 100%;
+        &:hover {
+            color: $color-five;
+        }
+    }
 }
 
 .addPost {
