@@ -1,0 +1,34 @@
+.contact-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info ul {
+  display: flex;
+  list-style: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-info li {
+  max-width: var(--card-with);
+  padding: 1rem;
+}
+
+.contact-info p {
+  text-align: center;
+}
+
+.contact-info p a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact-info p a:hover {
+  color: var(--color-four);
+}

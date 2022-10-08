@@ -1,6 +1,8 @@
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
 
+import styles from './newsItem.module.css';
+
 type Props = {
   title: string;
   text: string;
@@ -9,9 +11,9 @@ type Props = {
 
 function NewsItem({ date, title, text }: Props) {
   return (
-    <div className="newsItem">
+    <div className={styles.item}>
       <h2>{title}</h2>
-      <div className="newsItemBody">
+      <div className={styles.body}>
         <div>
           <MDEditor.Markdown
             source={text}
@@ -23,7 +25,7 @@ function NewsItem({ date, title, text }: Props) {
           />
         </div>
       </div>
-      <p className="publishedOn">
+      <p className={styles.publishedOn}>
         <i>
           published on:
           {date}

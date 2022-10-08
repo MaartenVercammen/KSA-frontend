@@ -1,17 +1,18 @@
 import React from 'react';
-import './header.css';
+
+import styles from './header.module.css';
 
 function Header() {
   return (
     <header>
       <img
         src="/images/groepsfoto.webp"
-        className="headerImg"
+        className={styles['header-img']}
         alt="groepsfoto bij de formatie"
       />
       <img
         src="/images/logo.png"
-        className="logo"
+        className={styles.logo}
         alt="logo van KSA aarschot"
       />
     </header>

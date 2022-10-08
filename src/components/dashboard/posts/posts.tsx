@@ -3,7 +3,8 @@ import { useAlert } from 'react-alert';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
-import './post.css';
+
+import styles from './posts.module.css';
 
 type Props = {
   changeTab: (index: number, ...args) => void;
@@ -38,21 +39,21 @@ function Posts({ changeTab }: Props) {
   };
 
   return (
-    <div className="posts-dashboard">
+    <div className={styles['posts-dashboard']}>
       <h1>Nieuwsberichten</h1>
-      <div className="news" id="news">
+      <div className={styles.news} id="news">
         <ul>
           {posts
                         && posts.map(({
                           id, title, content, date,
                         }: Post) => (
-                          <li key={id} className="posts-conatainer">
+                          <li key={id} className={styles['posts-conatainer']}>
                             <NewsItem
                               title={title}
                               date={new Date(date).toLocaleDateString()}
                               text={content}
                             />
-                            <div className="news-control-container">
+                            <div className={styles['news-control-container']}>
                               <button type="button" onClick={() => deletePost(id)}>
                                 Delete Nieuwsbericht
                               </button>
@@ -72,7 +73,7 @@ function Posts({ changeTab }: Props) {
                         ))}
         </ul>
       </div>
-      <div className="button-container">
+      <div className={styles['button-container']}>
         <button type="button" onClick={() => changeTab(5)}>Add Nieuwsbericht</button>
       </div>
     </div>

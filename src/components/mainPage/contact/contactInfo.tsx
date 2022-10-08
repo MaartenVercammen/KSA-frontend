@@ -1,9 +1,11 @@
 import React from 'react';
 import Card from '../../helper/card/card';
 
+import styles from './contactInfo.module.css';
+
 function ContactInfo() {
   return (
-    <div className="contact-info">
+    <div className={styles['contact-info']}>
       <h3>Hoofdleiding</h3>
       <ul>
         <li>

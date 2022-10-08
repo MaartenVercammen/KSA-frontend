@@ -5,7 +5,7 @@ import NavBar from './header/navbar';
 
 function Index() {
   return (
-    <div className="page">
+    <div>
       <Header />
       <NavBar />
       <Body />

@@ -4,6 +4,8 @@ import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
+import styles from './addPost.module.css';
+
 type Props = {
   changeTab: (index: number) => void;
 };
@@ -25,7 +27,7 @@ function AddPosts({ changeTab }: Props) {
   };
 
   return (
-    <div className="addPost">
+    <div className={styles['add-post']}>
       <h1>Voeg nieuws item toe</h1>
       <form onSubmit={addpost}>
         <label htmlFor="title">Title</label>

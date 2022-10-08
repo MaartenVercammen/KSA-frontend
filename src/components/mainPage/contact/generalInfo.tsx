@@ -4,6 +4,8 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import Facebook from '../../../icons/facebook.svg';
 import Instagram from '../../../icons/instagram.svg';
 
+import styles from './generalInfo.module.css';
+
 function GeneralInfo() {
   const key: string = process.env.GOOGLE_KEY === undefined ? '' : process.env.GOOGLE_KEY;
   const { isLoaded } = useLoadScript({
@@ -11,7 +13,7 @@ function GeneralInfo() {
   });
 
   return (
-    <div className="generalinfo">
+    <div className={styles.generalinfo}>
       <div>
         <h2>KSA aarschot</h2>
         <p>
@@ -28,10 +30,10 @@ function GeneralInfo() {
           <h2>Volg ons op onze socials</h2>
           <p>
             <a href="https://www.facebook.com/KSA.Aarschot">
-              <Facebook className="fa fa-facebook" />
+              <Facebook className={`${styles.fa} ${styles['fa-facebook']}`} />
             </a>
             <a href="https://www.instagram.com/ksa_aarschot/">
-              <Instagram className="fa fa-instagram" />
+              <Instagram className={`${styles.fa} ${styles['fa-instagram']}`} />
             </a>
           </p>
         </div>
@@ -45,11 +47,11 @@ function GeneralInfo() {
         </p>
 
         {isLoaded && (
-          <div className="map">
+          <div className={styles.map}>
             <GoogleMap
               zoom={15}
               center={{ lat: 50.985687650951384, lng: 4.84617028489699 }}
-              mapContainerClassName="map-container"
+              mapContainerClassName={styles['map-container']}
             >
               <Marker
                 position={{ lat: 50.985687650951384, lng: 4.84617028489699 }}

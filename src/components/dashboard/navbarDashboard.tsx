@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import authTab from './tabAuth';
 
+import styles from './navbarDashboard.module.css';
+
 type Props = {
   setactivetab: (index: number) => void;
 };
@@ -14,10 +16,10 @@ function NavbarDashboard({ setactivetab }: Props) {
   };
 
   return (
-    <div className="dashboard-nav">
+    <div className={styles['dashboard-nav']}>
       <nav>
         <p>DashBoard</p>
-        <label htmlFor="burger" className="hamburger">
+        <label htmlFor="burger" className={styles.hamburger}>
           ☰
         </label>
         <input

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
 import FileService from '../../../service/fileService';
 import BraggelUploadForm from './braggelUploadForm';
-import './uploadbraggel.css';
+
+import styles from './uploadBraggels.module.css';
 
 function UploadBraggels() {
   const [braggels, setbraggels] = useState<string[]>([]);
@@ -72,9 +73,9 @@ function UploadBraggels() {
   };
 
   return (
-    <div className="update-braggels">
+    <div className={styles.updateBraggels}>
       <h1>Upload Braggels</h1>
-      <div className="container">
+      <div className={styles.container}>
         <h2>Maandelijkse braggels</h2>
         <BraggelUploadForm
           braggels={braggels}
@@ -83,7 +84,7 @@ function UploadBraggels() {
           path="braggels"
         />
       </div>
-      <div className="container">
+      <div className={styles.container}>
         <h2>Speciale braggels</h2>
         <BraggelUploadForm
           braggels={specialBraggels}

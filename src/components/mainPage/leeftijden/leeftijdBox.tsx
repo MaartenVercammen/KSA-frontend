@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import styles from './leeftijdsBox.module.css';
+
 type Props = {
   name: string;
   img: string;
@@ -16,9 +18,9 @@ function LeeftijdBox({
 }: Props) {
   const navigate = useNavigate();
   return (
-    <div className="leeftijdBox" onClick={() => navigate(`/leiders/${name}`)}>
+    <div className={styles.box} onClick={() => navigate(`/leiders/${name}`)}>
       <img src={img} alt={`logo van de ${name}`} />
-      <div className="info">
+      <div className={styles.info}>
         <h4>{name}</h4>
         <p>
           {startAge}

@@ -3,7 +3,8 @@ import { useAlert } from 'react-alert';
 import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
-import './post.css';
+
+import styles from './addPost.module.css';
 
 type Props = {
   post: Post;
@@ -30,7 +31,7 @@ function UpdatePost({ post, changeTab }: Props) {
   };
 
   return (
-    <div className="addPost">
+    <div className={styles['add-post']}>
       <h1>
         Update Nieuwsbericht:
         {post.title}

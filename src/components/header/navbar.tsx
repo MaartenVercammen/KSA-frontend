@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import './header.css';
+
+import styles from './navbar.module.css';
 
 function NavBar() {
   const [checkboxstate, setcheckboxstate] = useState<boolean>(false);
@@ -17,7 +18,7 @@ function NavBar() {
           KSA Aarschot
         </HashLink>
       </p>
-      <label htmlFor="burger" className="hamburger">
+      <label htmlFor="burger" className={styles.hamburger}>
         ☰
       </label>
       <input

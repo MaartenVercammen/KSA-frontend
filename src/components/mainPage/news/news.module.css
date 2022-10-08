@@ -1,0 +1,11 @@
+.news > ul {
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.news > li {
+  max-width: 500px;
+}

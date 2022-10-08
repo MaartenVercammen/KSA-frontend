@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from './newsItem';
-import './news.css';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
+
+import styles from './news.module.css';
 
 function News() {
   const [news, setnews] = useState<Post[]>([]);
@@ -17,7 +18,7 @@ function News() {
   }, []);
 
   return (
-    <div className="news" id="news">
+    <div className={styles.news} id="news">
       <h1>News</h1>
       <ul>
         {news

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import UserService from '../../../service/userservice';
 import { User } from '../../../types';
-import './userOverview.css';
+
+import styles from './userOverview.module.css';
 
 type Props = {
   changeTab: (index: number, ...args) => void;
@@ -39,7 +40,7 @@ function UserOverview({ changeTab }: Props) {
   };
 
   return (
-    <div className="useroveriew">
+    <div className={styles.useroverview}>
       <h1>Users</h1>
       <table>
         <thead>
@@ -81,7 +82,7 @@ function UserOverview({ changeTab }: Props) {
                         ))}
         </tbody>
       </table>
-      <div className="button">
+      <div className={styles.button}>
         <p>
           <a onClick={() => changeTab(2)}>Add User</a>
         </p>

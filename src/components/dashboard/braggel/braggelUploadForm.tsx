@@ -1,5 +1,6 @@
 import React from 'react';
-import './uploadbraggel.css';
+
+import styles from './braggelUploadForm.module.css';
 
 type Props = {
   uploadbraggel: React.FormEventHandler;
@@ -14,7 +15,7 @@ function BraggelUploadForm({
   deleteBraggel,
 }: Props) {
   return (
-    <div className="braggels-updload-area">
+    <div className={styles.braggelsUploadArea}>
       <form onSubmit={uploadbraggel}>
         <input type="file" name="file" />
         <input type="submit" />
@@ -23,7 +24,7 @@ function BraggelUploadForm({
         && braggels.map((b) => (
           <p key={b}>
             <a href={`${process.env.API_URL}/pdf/${path}/${b}`}>{b}</a>
-            <button type="button" className="delete" onClick={() => deleteBraggel(b, path)}>
+            <button type="button" className={styles.delete} onClick={() => deleteBraggel(b, path)}>
               X
             </button>
           </p>

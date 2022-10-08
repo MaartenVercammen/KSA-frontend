@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-import './login.css';
 import UserService from '../../../service/userservice';
+
+import styles from './login.module.css';
 
 type Props = {
   setToken: (user: object) => void;
@@ -28,8 +29,8 @@ function Login({ setToken }: Props) {
   };
 
   return (
-    <div className="login">
-      <div className="login-container">
+    <div className={styles.login}>
+      <div className={styles['login-container']}>
         <h1>login</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -40,7 +41,7 @@ function Login({ setToken }: Props) {
             <label htmlFor="password">password</label>
             <input name="password" type="password" />
           </div>
-          <div className="login-submit-container">
+          <div className={styles['login-submit-container']}>
             <input type="submit" value="login" />
           </div>
         </form>
