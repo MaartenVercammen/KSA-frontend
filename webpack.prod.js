@@ -17,7 +17,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      // favicon: 'src/favicon.png',
+      favicon: 'src/favicon.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -89,7 +89,38 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        test: /\.woff2$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: /\.[jt]sx?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+          },
+
+        ],
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: /\.(css|ejs)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif|mp3)$/,
         use: ['file-loader'],
       },
     ],
