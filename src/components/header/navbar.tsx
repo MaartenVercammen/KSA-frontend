@@ -24,7 +24,7 @@ function NavBar() {
 				type="checkbox"
 				name="burger"
 				id="burger"
-				onClick={() => setcheckboxstate(!checkboxstate)}
+				onChange={() => setcheckboxstate(!checkboxstate)}
 				checked={checkboxstate}
 			/>
 			<ul>
