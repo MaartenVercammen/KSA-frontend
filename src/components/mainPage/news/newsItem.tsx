@@ -10,27 +10,27 @@ type Props = {
 };
 
 function NewsItem({ date, title, text }: Props) {
-	return (
-		<div className={styles.item}>
-			<h2>{title}</h2>
-			<div className={styles.body}>
-				<MDEditor.Markdown
-					source={text}
-					style={{
-						whiteSpace: 'pre-wrap',
-						backgroundColor: '#f4901d',
-						color: 'white'
-					}}
-				/>
-			</div>
-			<p className={styles.publishedOn}>
-				<i>
-					published on:
-					{date}
-				</i>
-			</p>
-		</div>
-	);
+  return (
+    <div className={styles.item}>
+      <h2>{title}</h2>
+      <div className={styles.body}>
+        <MDEditor.Markdown
+          source={text}
+          style={{
+            whiteSpace: 'pre-wrap',
+            backgroundColor: '#f4901d',
+            color: 'white',
+          }}
+        />
+      </div>
+      <p className={styles.publishedOn}>
+        <i>
+          published on:
+          {date}
+        </i>
+      </p>
+    </div>
+  );
 }
 
 export default NewsItem;

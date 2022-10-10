@@ -4,29 +4,29 @@ import FileService from '../../../service/fileService';
 import styles from './braggel.module.css';
 
 function Braggel() {
-	const [braggels, setbraggels] = useState<string[]>([]);
-	const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
+  const [braggels, setbraggels] = useState<string[]>([]);
+  const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
 
-	const getActiveBraggels = async () => {
-		const res = await FileService.getBraggels('braggels');
-		const { data } = res;
-		setbraggels(data);
-	};
+  const getActiveBraggels = async () => {
+    const res = await FileService.getBraggels('braggels');
+    const { data } = res;
+    setbraggels(data);
+  };
 
-	const getSpecialBraggels = async () => {
-		const res = await FileService.getBraggels('specialebraggels');
-		const { data } = res;
-		setspecialBraggels(data);
-	};
+  const getSpecialBraggels = async () => {
+    const res = await FileService.getBraggels('specialebraggels');
+    const { data } = res;
+    setspecialBraggels(data);
+  };
 
-	const getBragels = () => {
-		getActiveBraggels();
-		getSpecialBraggels();
-	};
+  const getBragels = () => {
+    getActiveBraggels();
+    getSpecialBraggels();
+  };
 
-	useEffect(() => {
-		getBragels();
-	}, []);
+  useEffect(() => {
+    getBragels();
+  }, []);
 
   return (
     <>
@@ -83,23 +83,23 @@ function Braggel() {
           ))}
         {!braggels && <p>er zijn op dit moment geen braggels</p>}
 
-				<h3>Speciale edities</h3>
-				{specialBraggels &&
-					specialBraggels.map((braggel, index) => (
-						<p key={index}>
-							<a
-								target="_blank"
-								href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}
-								rel="noreferrer"
-							>
-								{braggel}
-							</a>
-						</p>
-					))}
-				{!specialBraggels && <p>er zijn op dit moment geen braggels</p>}
-			</div>
-		</>
-	);
+        <h3>Speciale edities</h3>
+        {specialBraggels
+          && specialBraggels.map((braggel, index) => (
+            <p key={index}>
+              <a
+                target="_blank"
+                href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}
+                rel="noreferrer"
+              >
+                {braggel}
+              </a>
+            </p>
+          ))}
+        {!specialBraggels && <p>er zijn op dit moment geen braggels</p>}
+      </div>
+    </>
+  );
 }
 
 export default Braggel;
