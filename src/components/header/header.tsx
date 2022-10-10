@@ -1,11 +1,16 @@
 import React from 'react';
+
+import groepsfoto from '../../images/groepsfoto.webp';
+
 import './header.css';
+
+console.log(groepsfoto);
 
 function Header() {
   return (
     <header>
       <img
-        src="/images/groepsfoto.webp"
+        src={groepsfoto}
         className="headerImg"
         alt="groepsfoto bij de formatie"
       />
