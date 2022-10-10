@@ -44,3 +44,14 @@
     }
   }
 }
+
+:global {
+  & .wmde-markdown a {
+    color: white !important;
+    text-decoration: underline !important;
+
+    &:hover {
+      color: var(--color-three) !important;
+    }
+  }
+}
