@@ -23,7 +23,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
       name,
       email,
       role,
-      password,
+      password
     };
     const res = await UserService.updateUser(user);
     alert.show(res.data.message);
@@ -39,13 +39,13 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
       <form className="form-horizontal" onSubmit={updateUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam
-            {' '}
+            Naam{' '}
           </label>
           <input
             type="text"
             name="name"
             className="form-control"
+            required
             value={name}
             onChange={(e) => setname(e.target.value)}
           />
@@ -53,13 +53,13 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email
-            {' '}
+            Email{' '}
           </label>
           <input
             type="email"
             name="email"
             className="form-control"
+            required
             value={email}
             onChange={(e) => setemail(e.target.value)}
           />
@@ -67,13 +67,13 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password
-            {' '}
+            Password{' '}
           </label>
           <input
             type="password"
             name="password"
             className="form-control"
+            placeholder="Hou leeg voor bestaand passwoord te bebouden"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
@@ -94,7 +94,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
           </select>
         </div>
 
-        <input type="submit" value="create" className="btn btn-default" />
+        <input type="submit" value="update" className="btn btn-default" />
       </form>
     </div>
   );

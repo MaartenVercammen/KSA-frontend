@@ -22,7 +22,7 @@ function CreateUser({ changeTab }: Props) {
       name,
       email,
       role,
-      password,
+      password
     };
     const res = await UserService.createUser(user);
     alert.show(res.data.message);
@@ -35,13 +35,13 @@ function CreateUser({ changeTab }: Props) {
       <form className="form-horizontal" onSubmit={createUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam
-            {' '}
+            Naam{' '}
           </label>
           <input
             type="text"
             name="name"
             className="form-control"
+            required
             value={name}
             onChange={(e) => setname(e.target.value)}
           />
@@ -49,12 +49,12 @@ function CreateUser({ changeTab }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email
-            {' '}
+            Email{' '}
           </label>
           <input
             type="email"
             name="email"
+            required
             className="form-control"
             value={email}
             onChange={(e) => setemail(e.target.value)}
@@ -63,13 +63,13 @@ function CreateUser({ changeTab }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password
-            {' '}
+            Password{' '}
           </label>
           <input
             type="password"
             name="password"
             className="form-control"
+            required
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
