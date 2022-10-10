@@ -1,20 +1,25 @@
-import { instance, instanceLogin } from "../axios";
-import { user } from "../types";
+import { instance, instanceLogin } from '../axios';
+import { User } from '../types';
 
-const getUsers = () => instance.get<user[]>("/user");
+const getUsers = () => instance.get<User[]>('/user');
 
-const login = (email: string, password: string) =>
-  instanceLogin.post<{ type: string; user: user }>("/user/login", {
-    email: email,
-    password: password,
-  });
+const login = (email: string, password: string) => instanceLogin.post<{ type: string; user: User }>('/user/login', {
+  email,
+  password,
+});
 
-const createUser = (user: user) => instance.post<Response>("/user", user);
+const createUser = (user: User) => instance.post<{ type: string; message: string }>('/user', user);
+
+const updateUser = (user: User) => instance.put<{ type: string; message: string }>('/user', user);
+
+const deleteUser = (id: number) => instance.delete<{ type: string; message: string }>(`/user?id=${id}`);
 
 const UserService = {
   getUsers,
   login,
   createUser,
+  updateUser,
+  deleteUser,
 };
 
 export default UserService;

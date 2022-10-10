@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import authTab from './tabAuth';
 
 type Props = {
   setactivetab: (index: number) => void;
 };
 
-const NavbarDashboard = ({ setactivetab }: Props) => {
+function NavbarDashboard({ setactivetab }: Props) {
   const [navdropdown, setnavdropdown] = useState<boolean>(false);
 
   const changetab = (index: number) => {
@@ -24,39 +25,55 @@ const NavbarDashboard = ({ setactivetab }: Props) => {
           name="burger"
           id="burger"
           checked={navdropdown}
-          onChange={(e) => setnavdropdown(true)}
+          onChange={() => setnavdropdown(true)}
         />
         <ul>
+          {authTab(0) && (
+            <li>
+              <a
+                onClick={() => {
+                  changetab(0);
+                  setnavdropdown(false);
+                }}
+              >
+                Braggels
+              </a>
+            </li>
+          )}
+          {authTab(1) && (
+            <li>
+              <a
+                onClick={() => {
+                  changetab(1);
+                  setnavdropdown(false);
+                }}
+              >
+                Users
+              </a>
+            </li>
+          )}
+          {authTab(4) && (
+            <li>
+              <a
+                onClick={() => {
+                  changetab(4);
+                  setnavdropdown(false);
+                }}
+              >
+                Nieuws
+              </a>
+            </li>
+          )}
           <li>
-            <a
-              onClick={(e) => {
-                changetab(0);
-                setnavdropdown(false);
-              }}
-            >
-              Braggels
-            </a>
+            <Link to="/">Site</Link>
           </li>
           <li>
-            <a
-              onClick={(e) => {
-                changetab(1);
-                setnavdropdown(false);
-              }}
-            >
-              Users
-            </a>
-          </li>
-          <li>
-            <Link to={"/"}>Site</Link>
-          </li>
-          <li>
-            <Link to={"/logout"}>Logout</Link>
+            <Link to="/logout">Logout</Link>
           </li>
         </ul>
       </nav>
     </div>
   );
-};
+}
 
 export default NavbarDashboard;

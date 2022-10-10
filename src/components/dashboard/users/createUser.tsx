@@ -1,24 +1,32 @@
-import React, { useState } from "react";
-import UserService from "../../../service/userservice";
-import { Roles, user } from "../../../types";
+import React, { useState } from 'react';
+import { useAlert } from 'react-alert';
+import UserService from '../../../service/userservice';
+import { Roles, User } from '../../../types';
 
-const CreateUser = () => {
-  const [name, setname] = useState<string>("");
-  const [email, setemail] = useState<string>("");
-  const [password, setpassword] = useState<string>("");
+type Props = {
+  changeTab: (index: number) => void;
+};
+
+function CreateUser({ changeTab }: Props) {
+  const [name, setname] = useState<string>('');
+  const [email, setemail] = useState<string>('');
+  const [password, setpassword] = useState<string>('');
   const [role, setrole] = useState<Roles>(Roles.BRAGGEL);
+
+  const alert = useAlert();
 
   const createUser = async (e) => {
     e.preventDefault();
-    const user: user = {
+    const user: User = {
       id: -1,
-      name: name,
-      email: email,
-      role: role,
-      password: password,
+      name,
+      email,
+      role,
+      password,
     };
     const res = await UserService.createUser(user);
-    console.log(res.data);
+    alert.show(res.data.message);
+    changeTab(1);
   };
 
   return (
@@ -27,7 +35,8 @@ const CreateUser = () => {
       <form className="form-horizontal" onSubmit={createUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam{" "}
+            Naam
+            {' '}
           </label>
           <input
             type="text"
@@ -35,12 +44,13 @@ const CreateUser = () => {
             className="form-control"
             value={name}
             onChange={(e) => setname(e.target.value)}
-          ></input>
+          />
         </div>
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email{" "}
+            Email
+            {' '}
           </label>
           <input
             type="email"
@@ -48,12 +58,13 @@ const CreateUser = () => {
             className="form-control"
             value={email}
             onChange={(e) => setemail(e.target.value)}
-          ></input>
+          />
         </div>
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password{" "}
+            Password
+            {' '}
           </label>
           <input
             type="password"
@@ -61,7 +72,7 @@ const CreateUser = () => {
             className="form-control"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
-          ></input>
+          />
         </div>
         <div className="form-group">
           <label className="control-label" htmlFor="role">
@@ -83,6 +94,6 @@ const CreateUser = () => {
       </form>
     </div>
   );
-};
+}
 
 export default CreateUser;

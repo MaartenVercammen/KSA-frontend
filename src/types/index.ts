@@ -1,4 +1,4 @@
-export interface user {
+export interface User {
   id: number;
   name: string;
   password: string;
@@ -6,7 +6,7 @@ export interface user {
   role: Roles;
 }
 
-export interface leidingNummer {
+export interface LeidingNummer {
   voornaam: string;
   achternaam: string;
   number: string;
@@ -14,7 +14,14 @@ export interface leidingNummer {
 }
 
 export enum Roles {
-  BRAGGEL = "BRAGGEL",
-  ADMIN = "ADMIN",
-  BONDS = "BONDS",
+  BRAGGEL = 'BRAGGEL',
+  ADMIN = 'ADMIN',
+  BONDS = 'BONDS',
+}
+
+export interface Post {
+  id: number;
+  title: string;
+  content: string;
+  date: Date;
 }

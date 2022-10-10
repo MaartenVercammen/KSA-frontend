@@ -1,8 +1,8 @@
-import React from "react";
-import LeeftijdBox from "./leeftijdBox";
-import "./leeftijden.scss";
+import React from 'react';
+import LeeftijdBox from './leeftijdBox';
+import './leeftijden.css';
 
-const Leeftijden = () => {
+function Leeftijden() {
   return (
     <div className="leeftijden" id="leeftijden">
       <h1>Leeftijden</h1>
@@ -46,6 +46,6 @@ const Leeftijden = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Leeftijden;

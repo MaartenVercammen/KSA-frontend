@@ -1,10 +1,10 @@
-import React from "react";
-import Braggel from "./braggel/braggel";
-import Contact from "./contact/contact";
-import Leeftijden from "./leeftijden/leeftijden";
-import News from "./news/news";
+import React from 'react';
+import Braggel from './braggel/braggel';
+import Contact from './contact/contact';
+import Leeftijden from './leeftijden/leeftijden';
+import News from './news/news';
 
-const Body = () => {
+function Body() {
   return (
     <main>
       <News />
@@ -13,6 +13,6 @@ const Body = () => {
       <Contact />
     </main>
   );
-};
+}
 
 export default Body;

@@ -2,6 +2,7 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   resolve: {
@@ -10,13 +11,13 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, './dist/build/'),
-    filename: 'main.js',
+    filename: '[name].js',
     publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      // favicon: 'src/favicon.png',
+      favicon: 'src/favicon.png',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -33,6 +34,10 @@ module.exports = {
     new Dotenv({
       path: '.env.production', // Path to .env file (this is the default)
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }),
+
   ],
   optimization: {
     runtimeChunk: 'single',
@@ -43,6 +48,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
+          type: /javascript/,
           name: (module) => {
             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             // npm package names are URL-safe, but some servers don't like @ symbols
@@ -65,11 +71,62 @@ module.exports = {
         use: ['ts-loader'],
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /(\.css)$/,
+        // exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'postcss-nesting',
+                  'cssnano',
+                  'autoprefixer',
+                ],
+              },
+            },
+          },
+        ],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        test: /\.woff2$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: /\.[jt]sx?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+          },
+
+        ],
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: /\.(css|ejs)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif|mp3)$/,
         use: ['file-loader'],
       },
     ],
