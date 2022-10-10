@@ -68,13 +68,7 @@ function Braggel() {
 				{braggels &&
 					braggels.map((braggel, index) => (
 						<p key={index}>
-							<a
-								target="_blank"
-								href={`${process.env.API_URL}/pdf/braggels/${braggel}`}
-								rel="noreferrer"
-							>
-								{braggel}
-							</a>
+							<a href={`${process.env.API_URL}/pdf/braggels/${braggel}`}>{braggel}</a>
 						</p>
 					))}
 				{!braggels && <p>er zijn op dit moment geen braggels</p>}
@@ -83,13 +77,7 @@ function Braggel() {
 				{specialBraggels &&
 					specialBraggels.map((braggel, index) => (
 						<p key={index}>
-							<a
-								target="_blank"
-								href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}
-								rel="noreferrer"
-							>
-								{braggel}
-							</a>
+							<a href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}>{braggel}</a>
 						</p>
 					))}
 				{!specialBraggels && <p>er zijn op dit moment geen braggels</p>}
