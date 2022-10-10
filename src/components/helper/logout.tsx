@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
-const Logout = () => {
+function Logout() {
   useEffect(() => {
-    sessionStorage.removeItem("user");
+    sessionStorage.removeItem('user');
   }, []);
 
-  return <Navigate to={"/"} />;
-};
+  return <Navigate to="/" />;
+}
 
 export default Logout;

@@ -24,8 +24,7 @@ nav {
   display: flex;
   top: 0;
   position: sticky;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: baseline;
   align-content: center;
@@ -40,21 +39,24 @@ nav {
     text-decoration: none;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-right: 1rem;
     color: white;
   }
+
   & a:hover {
     color: var(--color-four);
   }
+
   & ul {
     list-style: none;
     margin-right: 1rem;
     display: flex;
     flex-flow: row nowrap;
   }
+
   & .hamburger {
     display: none;
   }
+
   & input[type="checkbox"] {
     display: none;
   }
@@ -65,9 +67,11 @@ nav {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
     & ul {
       display: none;
     }
+
     & .hamburger {
       display: block;
       margin-right: 1rem;
@@ -77,12 +81,14 @@ nav {
       font-size: large;
       color: white;
     }
+
     & input[type="checkbox"] {
       display: none;
       position: absolute;
       top: 1rem;
       right: 1rem;
     }
+
     & input[type="checkbox"]:checked ~ ul {
       display: flex;
       flex-flow: column nowrap;
@@ -91,6 +97,7 @@ nav {
       padding: 0;
       margin: 0;
     }
+
     & input[type="checkbox"]:checked ~ ul li {
       margin: 0.5rem;
     }

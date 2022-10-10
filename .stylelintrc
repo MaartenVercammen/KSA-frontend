@@ -4,5 +4,9 @@
   ],
   "plugins": [
     "stylelint-use-nesting"
-  ]
+  ],
+  "rules": {
+    "selector-class-pattern": null,
+    "no-descending-specificity": null
+  }
 }
