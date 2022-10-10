@@ -87,7 +87,7 @@ module.exports = {
         },
       },
       {
-        test: /\.webp$/,
+        test: /\.(png|webp)$/,
         type: 'asset/resource',
         generator: {
           filename: 'images/[hash][ext]',

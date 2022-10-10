@@ -1,10 +1,9 @@
 import React from 'react';
 
 import groepsfoto from '../../images/groepsfoto.webp';
+import logo from '../../images/logo.png';
 
 import './header.css';
-
-console.log(groepsfoto);
 
 function Header() {
   return (
@@ -15,7 +14,7 @@ function Header() {
         alt="groepsfoto bij de formatie"
       />
       <img
-        src="/images/logo.png"
+        src={logo}
         className="logo"
         alt="logo van KSA aarschot"
       />
