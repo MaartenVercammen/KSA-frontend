@@ -32,10 +32,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
   return (
     <div className="create-user">
-      <h1>
-        Update
-        {userToUpdate.name}
-      </h1>
+      <h1>Update {' ' + userToUpdate.name}</h1>
       <form className="form-horizontal" onSubmit={updateUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
