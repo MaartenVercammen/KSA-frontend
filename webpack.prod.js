@@ -11,7 +11,7 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, './dist/build/'),
-    filename: 'main.js',
+    filename: '[name].js',
     publicPath: '/',
   },
   plugins: [
@@ -34,6 +34,10 @@ module.exports = {
     new Dotenv({
       path: '.env.production', // Path to .env file (this is the default)
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }),
+
   ],
   optimization: {
     runtimeChunk: 'single',
@@ -44,6 +48,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
+          type: /javascript/,
           name: (module) => {
             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             // npm package names are URL-safe, but some servers don't like @ symbols
@@ -67,6 +72,7 @@ module.exports = {
       },
       {
         test: /(\.css)$/,
+        // exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
