@@ -10,6 +10,13 @@ import { Roles } from './types';
 import Logout from './components/helper/logout';
 import Footer from './components/footer/footer';
 
+import rubskesLogo from './images/rubskesLogo.webp';
+import leeuwkesLogo from './images/leeuwkesLogo.webp';
+import jongknapenLogo from './images/jongknapenLogo.webp';
+import knapenLogo from './images/knapenLogo.webp';
+import jonghernieuwersLogo from './images/jonghernieuwersLogo.webp';
+import hernieuwersLogo from './images/hernieuwersLogo.webp';
+
 function App() {
   const setToken = (userToken: object) => {
     sessionStorage.setItem('user', JSON.stringify(userToken));
@@ -19,12 +26,14 @@ function App() {
     <>
       <main>
         <Routes>
-          <Route path="/*" element={<Index />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+          <Route path="/logout" element={<Logout />} />
           <Route
             path="/leiders/Rubskes"
             element={(
               <LeidingNummers
-                groep="Rubskes"
+                groep={{ naam: 'Rubskes', logo: rubskesLogo }}
                 nummers={[
                   {
                     voornaam: 'Floor',
@@ -58,13 +67,13 @@ function App() {
                   },
                 ]}
               />
-                          )}
+     )}
           />
           <Route
             path="/leiders/Leeuwkes"
             element={(
               <LeidingNummers
-                groep="Leeuwkes"
+                groep={{ naam: 'Leeuwkes', logo: leeuwkesLogo }}
                 nummers={[
                   {
                     voornaam: 'Nele',
@@ -110,7 +119,7 @@ function App() {
             path="/leiders/Jonknapen"
             element={(
               <LeidingNummers
-                groep="Jongknapen"
+                groep={{ naam: 'Jongknapen', logo: jongknapenLogo }}
                 nummers={[
                   {
                     voornaam: 'Joke',
@@ -150,13 +159,13 @@ function App() {
                   },
                 ]}
               />
-                          )}
+     )}
           />
           <Route
             path="/leiders/Knapen"
             element={(
               <LeidingNummers
-                groep="Knapen"
+                groep={{ naam: 'Knapen', logo: knapenLogo }}
                 nummers={[
                   {
                     voornaam: 'Ann-Sofie',
@@ -178,13 +187,13 @@ function App() {
                   },
                 ]}
               />
-                          )}
+     )}
           />
           <Route
             path="/leiders/Jonghernieuwers"
             element={(
               <LeidingNummers
-                groep="Jonghernieuwers"
+                groep={{ naam: 'Jonghernieuwers', logo: jonghernieuwersLogo }}
                 nummers={[
                   {
                     voornaam: 'Daan',
@@ -206,13 +215,13 @@ function App() {
                   },
                 ]}
               />
-                          )}
+     )}
           />
           <Route
             path="/leiders/Hernieuwers"
             element={(
               <LeidingNummers
-                groep="Hernieuwers"
+                groep={{ naam: 'Hernieuwers', logo: hernieuwersLogo }}
                 nummers={[
                   {
                     voornaam: 'Kobe',
@@ -234,9 +243,8 @@ function App() {
                   },
                 ]}
               />
-                          )}
+     )}
           />
-          <Route path="/login" element={<Login setToken={setToken} />} />
           <Route
             element={(
               <ProtectedRoutes
@@ -247,7 +255,6 @@ function App() {
           >
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
-          <Route path="logout" element={<Logout />} />
         </Routes>
       </main>
       <Footer />
