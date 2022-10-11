@@ -9,8 +9,6 @@ import knapenLogo from '../../../images/knapenLogo.webp';
 import jonghernieuwersLogo from '../../../images/jonghernieuwersLogo.webp';
 import hernieuwersLogo from '../../../images/hernieuwersLogo.webp';
 
-console.log(rubskesLogo);
-
 function Leeftijden() {
   return (
     <div className="leeftijden" id="leeftijden">
