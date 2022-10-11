@@ -18,17 +18,11 @@ function Card({
   return (
     <div className={styles.card}>
       <img src={img} alt="Avatar" />
-      <div className={styles['card-container']}>
-        <h3>
-          <b>{voornaam}</b>
-          <br />
-          <b>{achternaam}</b>
-        </h3>
-        <p>
-          tel:
-          <a href={`tel:${nummer}`}>{nummer}</a>
-        </p>
-      </div>
+      <h3>{`${voornaam} ${achternaam}`}</h3>
+      <p>
+        tel:
+        <a href={`tel:${nummer}`}>{nummer}</a>
+      </p>
     </div>
   );
 }

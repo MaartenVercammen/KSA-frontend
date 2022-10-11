@@ -18,16 +18,15 @@ function LeeftijdBox({
 }: Props) {
   const navigate = useNavigate();
   return (
-    <div className={styles.box} onClick={() => navigate(`/leiders/${name}`)}>
-      <img src={img} alt={`logo van de ${name}`} />
-      <div className={styles.info}>
-        <h4>{name}</h4>
-        <p>
-          {startAge}
-          -
-          {endAge}
-        </p>
-      </div>
+    <div
+      className={styles.box}
+      style={{ backgroundImage: `url(${img})` }}
+      role="link"
+      onClick={() => navigate(`/leiders/${name}`)}
+      tabIndex={0}
+    >
+      <h4>{name}</h4>
+      <p>{`${startAge}-${endAge}`}</p>
     </div>
   );
 }

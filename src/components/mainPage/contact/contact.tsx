@@ -7,15 +7,13 @@ import styles from './contact.module.css';
 
 function Contact() {
   return (
-    <div id="contact">
+    <div className={styles.container} id="contact">
       <h1>Contact</h1>
-      <div className={styles['contact-container']}>
+      <div className={styles.grid}>
         <ContactInfo />
         <GeneralInfo />
       </div>
-      <div>
-        <Locatie />
-      </div>
+      <Locatie />
     </div>
   );
 }

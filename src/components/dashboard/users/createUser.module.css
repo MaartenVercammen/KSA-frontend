@@ -15,10 +15,10 @@
     & input {
       outline: none;
       border: none;
-      border-bottom: 2px solid var(--color-three);
+      border-bottom: 2px solid rgb(var(--color-dark-blue));
 
       &:focus {
-        border-bottom: 2px solid var(--color-five);
+        border-bottom: 2px solid var(--color-darker-orange);
       }
     }
 
@@ -44,8 +44,8 @@
   }
 
   & .btn {
-    background-color: var(--color-three);
-    color: var(--color-fill);
+    background-color: rgb(var(--color-dark-blue));
+    color: var(color-white);
     height: 2rem;
 
     &:hover {

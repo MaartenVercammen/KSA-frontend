@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { LeidingNummer } from '../../../types';
+import { Groep, LeidingNummer } from '../../../types';
 import NavBar from '../../header/navbar';
 import Card from '../../helper/card/card';
 
@@ -7,7 +7,7 @@ import styles from './leidingNummers.module.css';
 
 type Props = {
   nummers: Array<LeidingNummer>;
-  groep: string;
+  groep: Groep;
 };
 
 function LeidingNummers({ nummers, groep }: Props) {
@@ -15,32 +15,26 @@ function LeidingNummers({ nummers, groep }: Props) {
     window.scroll(0, 0);
   }, []);
 
+  console.log({ backgroundImage: `url(${groep.logo});` });
+
   return (
-    <div className={styles.leidingnummers}>
-      <div className={styles['groep-container']}>
-        <h1 className={styles.groep}>{groep}</h1>
-        <img
-          src={`/images/${groep.toLocaleLowerCase()}Logo.webp`}
-          alt={`logo van groep ${groep}`}
-        />
-      </div>
+    <>
+      <header className={styles.header} style={{ backgroundImage: `url(${groep.logo})` }}>
+        <h1>{groep.naam}</h1>
+      </header>
       <NavBar />
-      <div className={styles['groep-data']}>
-        <ul>
-          {nummers
-                            && nummers.map((value: LeidingNummer) => (
-                              <li>
-                                <Card
-                                  nummer={value.number}
-                                  img={value.img}
-                                  voornaam={value.voornaam}
-                                  achternaam={value.achternaam}
-                                />
-                              </li>
-                            ))}
-        </ul>
+      <div className={styles.grid}>
+        {nummers
+          && nummers.map((value: LeidingNummer) => (
+            <Card
+              nummer={value.number}
+              img={value.img}
+              voornaam={value.voornaam}
+              achternaam={value.achternaam}
+            />
+          ))}
       </div>
-    </div>
+    </>
   );
 }
 

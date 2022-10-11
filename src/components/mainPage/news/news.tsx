@@ -18,22 +18,21 @@ function News() {
   }, []);
 
   return (
-    <div className={styles.news} id="news">
+    <div className={styles.container} id="news">
       <h1>News</h1>
-      <ul>
+      <div className={styles.grid}>
         {news
-                    && news.map(({
-                      id, title, content, date,
-                    }) => (
-                      <li key={id}>
-                        <NewsItem
-                          title={title}
-                          date={new Date(date).toLocaleDateString()}
-                          text={content}
-                        />
-                      </li>
-                    ))}
-      </ul>
+          && news.map(({
+            id, title, content, date,
+          }) => (
+            <NewsItem
+              key={id}
+              title={title}
+              date={new Date(date).toLocaleDateString()}
+              text={content}
+            />
+          ))}
+      </div>
     </div>
   );
 }

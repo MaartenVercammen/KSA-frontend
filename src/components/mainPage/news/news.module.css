@@ -1,11 +1,17 @@
-.news > ul {
-  padding: 0;
+.container {
   display: flex;
-  flex-flow: row wrap;
-  list-style: none;
-  justify-content: space-around;
-}
+  flex-direction: column;
 
-.news > li {
-  max-width: 500px;
+  & h1 {
+    align-self: center;
+    margin: 2rem 0;
+  }
+
+  & .grid {
+    margin: 1rem 0.5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
 }

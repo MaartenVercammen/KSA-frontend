@@ -7,17 +7,17 @@ import styles from './socials.module.css';
 
 function Socials() {
   return (
-    <div>
+    <>
       <h2>Volg ons op onze socials</h2>
-      <p>
+      <div className={styles.row}>
         <a href="https://www.facebook.com/KSA.Aarschot">
           <Facebook className={`${styles.fa} ${styles['fa-facebook']}`} />
         </a>
         <a href="https://www.instagram.com/ksa_aarschot/">
           <Instagram className={`${styles.fa} ${styles['fa-instagram']}`} />
         </a>
-      </p>
-    </div>
+      </div>
+    </>
   );
 }
 

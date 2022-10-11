@@ -1,56 +1,56 @@
 .login {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: column nowrap;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 
-	& .login-container {
-		background-color: var(--color-one);
-		padding: 5rem;
-		border-radius: 1rem;
-	}
+  & .login-container {
+    background-color: var(--color-one);
+    padding: 5rem;
+    border-radius: 1rem;
+  }
 
-	& form {
-		& div {
-			margin-bottom: 1rem;
-			margin-top: 1rem;
+  & form {
+    & div {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
 
-			& label {
-				margin-bottom: 0.2rem;
-			}
+      & label {
+        margin-bottom: 0.2rem;
+      }
 
-			& input {
-				width: 100%;
-			}
+      & input {
+        width: 100%;
+      }
 
-			&input[type='email'],
-			input[type='password'] {
-				border: none;
-				border-bottom: 2px solid var(--color-five);
-				background-color: var(--color-one);
-				outline: none;
+      &input[type="email"],
+      input[type="password"] {
+        border: none;
+        border-bottom: 2px solid var(--color-darker-orange);
+        background-color: var(--color-one);
+        outline: none;
 
-				&:focus {
-					background-color: var(--color-one);
-				}
-			}
-		}
+        &:focus {
+          background-color: var(--color-one);
+        }
+      }
+    }
 
-		& .login-submit-container {
-			display: flex;
-			justify-content: flex-end;
+    & .login-submit-container {
+      display: flex;
+      justify-content: flex-end;
 
-			& input[type='submit'] {
-				background-color: var(--color-four);
-				border: none;
-				color: white;
-				padding: 16px 32px;
-				text-decoration: none;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-		}
-	}
+      & input[type="submit"] {
+        background-color: var(--color-four);
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    }
+  }
 }

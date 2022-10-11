@@ -3,55 +3,35 @@
   flex-flow: column nowrap;
   margin: 1rem;
   padding: 0.7rem;
-  background-color: var(--color-four);
+  background: var(--news-item-background);
   border-radius: 2rem;
-  color: white;
+  color: var(--news-item-color);
 
-  & > a {
-    color: white;
+  & > *:nth-last-child(2) {
+    margin-bottom: 2rem;
+  }
+
+  & a {
     text-decoration: underline;
 
     &:hover {
-      color: var(--color-five) !important;
+      color: var(--news-item-link-hover-color);
     }
   }
 
-  & > h3 {
-    border-bottom: var(--color-three) 1px solid;
-  }
-
-  & > body {
-    margin: 0;
-    width: 400px;
-
-    & a {
-      color: white;
-      text-decoration: underline;
-
-      &:hover {
-        color: var(--color-three);
-      }
-    }
-  }
-
-  & > .published-on {
-    text-align: right;
-
-    & i {
-      font-style: italic;
-      filter: opacity(0.8);
-      font-size: small;
-    }
+  & > time {
+    font-size: 0.8em;
+    margin-top: auto;
+    margin-left: auto;
   }
 }
 
 :global {
-  & .wmde-markdown a {
-    color: white !important;
-    text-decoration: underline !important;
+  & .wmde-markdown {
+    --color-canvas-default: transparent !important;
+    --color-fg-default: inherit !important;
+    --color-accent-fg: inherit !important;
 
-    &:hover {
-      color: var(--color-three) !important;
-    }
+    font: inherit;
   }
 }

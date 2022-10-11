@@ -1,15 +1,69 @@
 :root {
+  --color-dark-blue: 2 48 71;
+  --color-blue: 33 158 188;
   --color-one: #8ecae6;
-  --color-two: #219ebc;
-  --color-four: #f4901d;
-  --color-three: #023047;
-  --color-five: #fb8500;
-  --color-fill: #f6f6f6;
+  --color-darker-orange: 251 133 0;
+  --color-lighter-orange: 244 144 29;
   --card-with: 250px;
+  --color-white: 255 255 255;
+  --color-dark-grey: 27 28 30;
+  --color-grey: 106 120 124;
+  --dark-functional-red: 255 41 41;
+  --dark-functional-orange: 255 153 10;
+  --dark-functional-green: 2 207 50;
+
+  /* element coloring */
+  --braggel-link-color: rgb(var(--color-white));
+  --braggel-link-hover-color: rgb(var(--color-darker-orange));
+  --button-primary-background: rgb(var(--color-dark-blue));
+  --button-primary-background-hover: rgb(var(--color-blue));
+  --button-primary-border-color: transparent;
+  --button-primary-color: rgb(var(--color-white));
+  --button-secondary-background: rgb(var(--color-white));
+  --button-secondary-border-color: rgb(var(--color-white));
+  --button-secondary-color: rgb(var(--color-dark-blue));
+  --card-background: rgb(var(--color-dark-blue));
+  --card-color: rgb(var(--color-white));
+  --input-border-active: rgb(var(--color-grey));
+  --input-border-focus: rgb(var(--color-blue));
+  --input-border-hover: rgb(var(--color-blue));
+  --input-border-inactive: rgb(var(--color-grey) / 80%);
+  --input-border-invalid: rgb(var(--dark-functional-red));
+  --input-outline-active: rgb(var(--color-grey));
+  --input-outline-focus: rgb(var(--color-blue));
+  --input-outline-invalid: rgb(var(--dark-functional-red));
+  --form-input-helper-text: rgb(var(--color-grey));
+  --form-input-hint: rgb(var(--color-grey));
+  --link-color: initial;
+  --link-color-hover: rgb(var(--color-darker-orange));
+  --navbar-border-bottom: none;
+  --navbar-background: rgb(var(--color-dark-blue));
+  --navbar-color: rgb(var(--color-white));
+  --news-item-background: rgb(var(--color-lighter-orange));
+  --news-item-color: rgb(var(--color-white));
+  --news-item-link-hover-color: rgb(var(--color-dark-blue));
+  --colour-four: rgb(var(--color-lighter-orange));
+
+  /* metrics */
+  --button-padding: 0.5rem 1rem;
+  --input-label-margin-left: 8px;
+  --input-margin: 8px 0 4px 0;
+  --input-padding: 8px 12px;
+  --input-height: 40px;
+  --input-border-radius: 5px;
+
+  /* site specific */
+  --header-height: calc(100vh - var(--navbar-height) - 1rem);
+  --navbar-height: 70px;
+  --navbar-padding: 0 1rem;
+  --braggel-background: rgb(var(--color-dark-blue));
+
+  /* Markdown editor */
+
 }
 
 @font-face {
-  font-family: tittlefont;
+  font-family: "KG Second Chances Sketch";
   src: url("/fonts/KGSecondChancesSketch.ttf");
 }
 
@@ -65,26 +119,74 @@
     U+FFFD;
 }
 
-body,
-html {
-  height: 100%;
-  width: 100%;
+* {
   padding: 0;
   margin: 0;
-  display: inline-block;
-  background-color: var(--color-fill);
 }
 
-main {
-  min-height: 100vh;
-  position: relative;
+body,
+html {
+  font-family: Montserrat, sans-serif;
+  font-size: calc(16px + 0.25vmax);
+  font-weight: 400;
 }
 
 a {
+  color: var(--link-color);
   text-decoration: none;
 
   &:hover {
-    color: var(--color-five);
+    color: var(--link-color-hover);
+    text-decoration: underline;
+  }
+}
+
+button {
+  align-items: center;
+  background: var(--button-primary-background);
+  border: 2px solid var(--button-primary-border-color);
+  color: var(--button-primary-color);
+  cursor: pointer;
+  display: flex;
+  font-size: inherit;
+  justify-content: center;
+  padding: var(--button-padding);
+
+  &:hover {
+    background: var(--button-primary-background-hover);
+  }
+
+  & > svg {
+    fill: currentcolor;
+    width: 0.6rem;
+
+    &:first-child {
+      margin-right: 0.2rem;
+    }
+
+    &:last-child {
+      margin-left: 0.2rem;
+    }
+  }
+
+  &.secondary {
+    background: var(--button-secondary-background);
+    border-color: var(--button-secondary-border-color);
+    color: var(--button-secondary-color);
+
+    &:hover {
+      border-width: 3px;
+      font-variation-settings: "wght" 600;
+      font-weight: 600;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    &:hover {
+      border-width: 3px;
+      font-variation-settings: "wght" 600;
+      font-weight: 600;
+    }
   }
 }
 
@@ -94,7 +196,7 @@ a {
 
 .ok {
   color: greenyellow;
-  background-color: var(--color-three);
+  background-color: rgb(var(--color-dark-blue));
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -105,20 +207,86 @@ h3,
 h4,
 h5,
 h6 {
-  text-align: center;
-  margin: 1rem;
-  font-size: 2em;
-  font-family: tittlefont, sans-serif;
+  font-family: "KG Second Chances Sketch", sans-serif;
 }
 
-h1 {
-  margin-top: 2rem;
+input,
+select {
+  border: 2px solid var(--input-border-inactive);
+  border-radius: var(--input-border-radius);
+  color: inherit;
+  font-size: inherit;
+  height: var(--input-height);
+  margin: var(--input-margin);
+  padding: var(--input-padding);
+
+  &:active {
+    outline: 2px solid var(--input-outline-active);
+    border-color: var(--input-border-active);
+  }
+
+  &:hover {
+    border-color: var(--input-border-hover);
+  }
+
+  &:invalid {
+    border: 2px solid var(--input-border-invalid);
+  }
+
+  &:focus {
+    outline: 2px solid var(--input-outline-focus);
+    border-color: var(--input-border-focus);
+  }
+
+  &[disabled] {
+    &:hover {
+      border-color: var(--input-border-inactive);
+    }
+
+    &:active {
+      outline: 0;
+    }
+  }
+
+  &:invalid:focus {
+    border-color: var(--input-border-invalid);
+    outline: 2px solid var(--input-outline-invalid);
+  }
 }
 
-p {
-  font-family: Montserrat, sans-serif;
+form {
+  & > label {
+    display: flex;
+    flex-direction: column;
+
+    & > span {
+      margin-left: var(--input-label-margin-left);
+
+      &.label-text {
+        font-variation-settings: "wght" 600;
+        font-weight: 600;
+      }
+
+      &.helper-text {
+        color: var(--form-input-helper-text);
+      }
+
+      &.hint {
+        font-size: 0.8rem;
+        color: var(--form-input-helper-text);
+        margin-left: auto;
+      }
+    }
+  }
 }
 
-input {
-  background-color: var(--color-fill);
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & h1 {
+    margin: 1em 0;
+  }
 }

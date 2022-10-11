@@ -1,15 +1,16 @@
-.locatie {
+.container {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 
-  &.map {
-    width: 60%;
+  & *:not(.map) {
+    align-self: center;
   }
-}
 
-.map-container {
-  width: 100%;
-  height: 100%;
+  & .map {
+    height: 40vh;
+  }
+
+  & *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }

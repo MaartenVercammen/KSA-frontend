@@ -12,9 +12,9 @@ import hernieuwersLogo from '../../../images/hernieuwersLogo.webp';
 
 function Leeftijden() {
   return (
-    <div id="leeftijden">
+    <div className={styles.container} id="leeftijden">
       <h1>Leeftijden</h1>
-      <div className={styles['leeftijden-container']}>
+      <div className={styles.grid}>
         <LeeftijdBox
           name="Rubskes"
           img={rubskesLogo}

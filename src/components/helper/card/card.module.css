@@ -1,35 +1,18 @@
 .card {
-	background-color: var(--color-three);
-	border-radius: 1rem;
-	width: var(--card-with);
+  background-color: var(--card-background);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--card-color);
 
-	& .card-container {
-		width: var(--card-with);
-		height: 100%;
+  & img {
+    border-radius: 1rem 1rem 0 0;
+    object-fit: cover;
+    height: 250px;
+  }
 
-		& p {
-			text-align: center;
-			color: white;
-			padding-bottom: 1rem;
-
-			& a {
-				color: white;
-				text-decoration: none;
-			}
-
-			& a:hover {
-				color: var(--color-four);
-			}
-		}
-	}
-
-	& img {
-		object-fit: cover;
-		width: var(--card-with);
-		height: var(--card-with);
-	}
-
-	& h3 {
-		color: white;
-	}
+  & > *:not(img) {
+    align-self: center;
+    margin: 0.2rem 0;
+  }
 }

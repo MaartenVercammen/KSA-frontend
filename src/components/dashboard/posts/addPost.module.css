@@ -1,67 +1,34 @@
-.posts-dashboard {
-	& .button-container {
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: center;
-		align-items: center;
-		padding: 5rem;
-	}
+.add-post {
+  & form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-self: center;
+    gap: 1rem;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 
-	& .news-control-container {
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: space-around;
-	}
+    & input {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid rgb(var(--color-dark-blue));
 
-	& .newsItem {
-		margin: 0;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-	}
+      &:focus {
+        border-bottom: 2px solid var(--color-darker-orange);
+      }
+    }
 
-	& button {
-		background-color: var(--color-three);
-		padding: 0.5rem;
-		color: white;
-		width: 100%;
+    & input[type="submit"] {
+      background-color: var(--color-darker-orange);
+      border: none;
+      color: white;
+      padding: 1rem;
 
-		&:hover {
-			color: var(--color-five);
-		}
-	}
-}
-
-.addPost {
-	& form {
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: center;
-		align-self: center;
-		gap: 1rem;
-		width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-
-		& input {
-			outline: none;
-			border: none;
-			border-bottom: 2px solid var(--color-three);
-
-			&:focus {
-				border-bottom: 2px solid var(--color-five);
-			}
-		}
-
-		& input[type='submit'] {
-			background-color: var(--color-five);
-			border: none;
-			color: white;
-			padding: 1rem;
-
-			&:hover {
-				background-color: var(--color-three);
-				color: black;
-			}
-		}
-	}
+      &:hover {
+        background-color: rgb(var(--color-dark-blue));
+        color: black;
+      }
+    }
+  }
 }

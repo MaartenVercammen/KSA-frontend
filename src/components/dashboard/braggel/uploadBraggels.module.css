@@ -5,7 +5,7 @@
   }
 
   & .container {
-    background-color: var(--color-three);
+    background-color: rgb(var(--color-dark-blue));
     padding: 1rem;
     border-radius: 1rem;
     width: 500px;
@@ -15,35 +15,35 @@
       color: white;
 
       &:hover {
-        color: var(--color-five);
+        color: var(--color-darker-orange);
       }
     }
 
     & button {
-      background-color: var(--color-three);
+      background-color: rgb(var(--color-dark-blue));
       padding: 0.5rem;
       color: white;
       margin-top: 1rem;
       border-radius: 0.5rem;
 
       &:hover {
-        color: var(--color-five);
+        color: var(--color-darker-orange);
         cursor: pointer;
       }
     }
 
     & input {
-      background-color: var(--color-three);
+      background-color: rgb(var(--color-dark-blue));
       color: white;
     }
 
     & input[type="submit"] {
       color: black;
       border: none;
-      background-color: var(--color-fill);
+      background-color: var(color-white);
 
       &:hover {
-        background-color: var(--color-five);
+        background-color: var(--color-darker-orange);
       }
     }
   }

@@ -11,25 +11,11 @@ type Props = {
 
 function NewsItem({ date, title, text }: Props) {
   return (
-    <div className={styles.item}>
+    <article className={styles.item}>
       <h2>{title}</h2>
-      <div className={styles.body}>
-        <MDEditor.Markdown
-          source={text}
-          style={{
-            whiteSpace: 'pre-wrap',
-            backgroundColor: '#f4901d',
-            color: 'white',
-          }}
-        />
-      </div>
-      <p className={styles.publishedOn}>
-        <i>
-          published on:
-          {date}
-        </i>
-      </p>
-    </div>
+      <MDEditor.Markdown source={text} />
+      <time>{date}</time>
+    </article>
   );
 }
 

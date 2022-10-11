@@ -1,11 +1,11 @@
 .generalinfo {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
-  & div {
-    width: 100%;
+  & h2:not(:first-of-type) {
+    margin-top: 2rem;
   }
 
   & p {
@@ -17,7 +17,7 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--color-five);
+      color: var(--color-darker-orange);
       text-decoration: none;
     }
   }
