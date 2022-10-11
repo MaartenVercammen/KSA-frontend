@@ -95,19 +95,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.woff2$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'application/font-woff',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.svg$/,
         issuer: /\.[jt]sx?$/,
         use: [
           {
@@ -117,17 +105,26 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        issuer: /\.(css|ejs)$/,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
+        test: /\.svg$/,
+        issuer: /\.(css|html)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'icons/[hash][ext]',
+        },
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp3)$/,
-        use: ['file-loader'],
+        test: /\.(ttf|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext]',
+        },
+      },
+      {
+        test: /\.(png|webp)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext]',
+        },
       },
     ],
   },

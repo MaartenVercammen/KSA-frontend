@@ -6,6 +6,11 @@ export interface User {
   role: Roles;
 }
 
+export interface Groep {
+  naam: string;
+  logo: string;
+}
+
 export interface LeidingNummer {
   voornaam: string;
   achternaam: string;
