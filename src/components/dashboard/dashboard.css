@@ -1,0 +1,10 @@
+.dashboard-nav {
+	& nav p {
+		color: white;
+		margin-left: 1rem;
+	}
+
+	& a {
+		cursor: pointer;
+	}
+}

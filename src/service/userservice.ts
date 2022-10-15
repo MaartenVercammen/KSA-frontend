@@ -1,10 +1,25 @@
-import axios from '../axios';
-import { user } from '../types';
+import { instance, instanceLogin } from '../axios';
+import { User } from '../types';
 
-const getUsers = () => axios.get<Array<user>>("/http://ksaaarschot.studentenweb.org/api/user")
+const getUsers = () => instance.get<User[]>('/user');
+
+const login = (email: string, password: string) => instanceLogin.post<{ type: string; user: User }>('/user/login', {
+  email,
+  password,
+});
+
+const createUser = (user: User) => instance.post<{ type: string; message: string }>('/user', user);
+
+const updateUser = (user: User) => instance.put<{ type: string; message: string }>('/user', user);
+
+const deleteUser = (id: number) => instance.delete<{ type: string; message: string }>(`/user?id=${id}`);
 
 const UserService = {
-   getUsers
+  getUsers,
+  login,
+  createUser,
+  updateUser,
+  deleteUser,
 };
 
 export default UserService;

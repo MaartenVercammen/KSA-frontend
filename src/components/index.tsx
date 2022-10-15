@@ -1,32 +1,16 @@
-import React, { useEffect } from 'react'
-import Body from './body/body'
-import Footer from './footer/footer'
-import Header from './header/header'
-import NavBar from './header/navbar'
-import service from '../service/userservice'
-import { AxiosResponse } from 'axios'
+import React from 'react';
+import Body from './mainPage/body';
+import Header from './header/header';
+import NavBar from './header/navbar';
 
-const Index = () => {
-
-  useEffect(() => {
-    getUsers()
-  
-  }, [])
-
-  const getUsers =async () => {
-    const res: AxiosResponse = await service.getUsers()
-    console.log(res.data)
-  }
-  
-
+function Index() {
   return (
-    <div className='page'>
-        <Header/>
-        <NavBar/>
-        <Body/>
-        <Footer/>
+    <div className="page">
+      <Header />
+      <NavBar />
+      <Body />
     </div>
-  )
+  );
 }
 
-export default Index
+export default Index;
