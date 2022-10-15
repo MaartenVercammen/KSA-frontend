@@ -3,11 +3,10 @@ import { User } from '../types';
 
 const getUsers = () => instance.get<User[]>('/user');
 
-const login = (email: string, password: string) =>
-  instance.post<{ type: string; user: User } | { type: string; message: string }>('/user/login', {
-    email,
-    password
-  });
+const login = (email: string, password: string) => instance.post<{ type: string; user: User } | { type: string; message: string }>('/user/login', {
+  email,
+  password,
+});
 
 const createUser = (user: User) => instance.post<{ type: string; message: string }>('/user', user);
 
