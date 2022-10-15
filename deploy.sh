@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rsync -r ./dist/build/ carl:/nodes/beta.ksa-aarschot.be/public/
+rsync -r ./dist/build/ carl:/nodes/new.ksa-aarschot.be/public/

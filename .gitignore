@@ -26,6 +26,9 @@ yarn-debug.log*
 yarn-error.log*
 
 deploy.sh
+*.sh
+
+deploy.sh
 
 /fonts
 

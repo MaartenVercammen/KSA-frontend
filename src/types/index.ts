@@ -6,6 +6,11 @@ export interface User {
   role: Roles;
 }
 
+export interface Groep {
+  naam: string;
+  logo: string;
+}
+
 export interface LeidingNummer {
   voornaam: string;
   achternaam: string;
@@ -16,7 +21,7 @@ export interface LeidingNummer {
 export enum Roles {
   BRAGGEL = 'BRAGGEL',
   ADMIN = 'ADMIN',
-  BONDS = 'BONDS',
+  BONDS = 'BONDS'
 }
 
 export interface Post {

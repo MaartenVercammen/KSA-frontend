@@ -17,7 +17,10 @@ function AddPosts({ changeTab }: Props) {
   const addpost = async (e) => {
     e.preventDefault();
     const post: Post = {
-      id: -1, title, content, date: new Date(Date.now()),
+      id: -1,
+      title,
+      content,
+      date: new Date(Date.now())
     };
     const res = await PostService.uploadPost(post);
     alert.show(res.data.message);
@@ -32,6 +35,7 @@ function AddPosts({ changeTab }: Props) {
         <input
           type="text"
           name="title"
+          required
           value={title}
           onChange={(e) => settitle(e.target.value)}
         />
