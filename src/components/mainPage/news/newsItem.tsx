@@ -15,9 +15,9 @@ function NewsItem({ date, title, text }: Props) {
         <MDEditor.Markdown
           source={text}
           style={{
-					  whiteSpace: 'pre-wrap',
-					  backgroundColor: '#f4901d',
-					  color: 'white',
+            whiteSpace: 'pre-wrap',
+            backgroundColor: '#f4901d',
+            color: 'white',
           }}
         />
       </div>

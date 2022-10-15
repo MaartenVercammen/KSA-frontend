@@ -4,19 +4,19 @@ import { Service } from 'axios-middleware';
 export const instanceLogin = axios.create({
   baseURL: process.env.API_URL,
   headers: { 'Content-type': 'application/json' },
-  withCredentials: true
+  withCredentials: true,
 });
 
 export const instance = axios.create({
   baseURL: process.env.API_URL,
   headers: { 'Content-type': 'application/json' },
-  withCredentials: true
+  withCredentials: true,
 });
 
 export const instanceFile = axios.create({
   baseURL: process.env.API_URL,
   headers: { 'Content-type': 'multipart/form-data' },
-  withCredentials: true
+  withCredentials: true,
 });
 
 const serviceData = {
@@ -28,7 +28,7 @@ const serviceData = {
       sessionStorage.removeItem('user');
     }
     return error;
-  }
+  },
 };
 
 const service = new Service(instance);

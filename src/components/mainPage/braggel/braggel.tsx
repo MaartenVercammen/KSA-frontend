@@ -55,7 +55,9 @@ function Braggel() {
       <div className="braggel" id="braggel">
         <h1>Braggel</h1>
         <p>
-          <i>Braggel</i> is de naam van ons maandelijks tijdschriftje. Ben je lid bij KSA Aarschot,
+          <i>Braggel</i>
+          {' '}
+          is de naam van ons maandelijks tijdschriftje. Ben je lid bij KSA Aarschot,
           dan krijg jij hem maandelijks in jouw mailbox.
         </p>
         <p>
@@ -65,18 +67,18 @@ function Braggel() {
           KSA&apos;(st)ers en onze Kampbraggel terugvinden. Alvast veel leesplezier!
         </p>
         <h2>Maandelijkse edities</h2>
-        {braggels &&
-          braggels.map((braggel, index) => (
-            <p key={index}>
+        {braggels
+          && braggels.map((braggel) => (
+            <p key={braggel}>
               <a href={`${process.env.API_URL}/pdf/braggels/${braggel}`}>{braggel}</a>
             </p>
           ))}
         {!braggels && <p>er zijn op dit moment geen braggels</p>}
 
         <h3>Speciale edities</h3>
-        {specialBraggels &&
-          specialBraggels.map((braggel, index) => (
-            <p key={index}>
+        {specialBraggels
+          && specialBraggels.map((braggel) => (
+            <p key={braggel}>
               <a href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}>{braggel}</a>
             </p>
           ))}

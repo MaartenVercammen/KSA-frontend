@@ -23,7 +23,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
       name,
       email,
       role,
-      password
+      password,
     };
     const res = await UserService.updateUser(user);
     alert.show(res.data.message);
@@ -32,11 +32,15 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
   return (
     <div className="create-user">
-      <h1>Update {' ' + userToUpdate.name}</h1>
+      <h1>
+        Update
+        {` ${userToUpdate.name}`}
+      </h1>
       <form className="form-horizontal" onSubmit={updateUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam{' '}
+            Naam
+            {' '}
           </label>
           <input
             type="text"
@@ -50,7 +54,8 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email{' '}
+            Email
+            {' '}
           </label>
           <input
             type="email"
@@ -64,7 +69,8 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password{' '}
+            Password
+            {' '}
           </label>
           <input
             type="password"

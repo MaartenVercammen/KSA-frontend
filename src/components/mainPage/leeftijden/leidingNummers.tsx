@@ -22,8 +22,8 @@ function LeidingNummers({ nummers, groep }: Props) {
       <NavBar />
       <div className="groep-data">
         <ul>
-          {nummers &&
-            nummers.map((value: LeidingNummer) => (
+          {nummers
+            && nummers.map((value: LeidingNummer) => (
               <li>
                 <Card
                   nummer={value.number}
