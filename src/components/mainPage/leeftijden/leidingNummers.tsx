@@ -17,25 +17,22 @@ function LeidingNummers({ nummers, groep }: Props) {
     <div className="leidingnummers">
       <div className="groep-container">
         <h1 className="groep">{groep.naam}</h1>
-        <img
-          src={groep.logo}
-          alt={`logo van groep ${groep.naam}`}
-        />
+        <img src={groep.logo} alt={`logo van groep ${groep.naam}`} />
       </div>
       <NavBar />
       <div className="groep-data">
         <ul>
-          {nummers
-                            && nummers.map((value: LeidingNummer) => (
-                              <li>
-                                <Card
-                                  nummer={value.number}
-                                  img={value.img}
-                                  voornaam={value.voornaam}
-                                  achternaam={value.achternaam}
-                                />
-                              </li>
-                            ))}
+          {nummers &&
+            nummers.map((value: LeidingNummer) => (
+              <li>
+                <Card
+                  nummer={value.number}
+                  img={value.img}
+                  voornaam={value.voornaam}
+                  achternaam={value.achternaam}
+                />
+              </li>
+            ))}
         </ul>
       </div>
     </div>

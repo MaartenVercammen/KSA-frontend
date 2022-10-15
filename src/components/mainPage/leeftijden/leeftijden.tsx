@@ -2,13 +2,6 @@ import React from 'react';
 import LeeftijdBox from './leeftijdBox';
 import './leeftijden.css';
 
-import rubskesLogo from '../../../images/rubskesLogo.webp';
-import leeuwkesLogo from '../../../images/leeuwkesLogo.webp';
-import jongknapenLogo from '../../../images/jongknapenLogo.webp';
-import knapenLogo from '../../../images/knapenLogo.webp';
-import jonghernieuwersLogo from '../../../images/jonghernieuwersLogo.webp';
-import hernieuwersLogo from '../../../images/hernieuwersLogo.webp';
-
 function Leeftijden() {
   return (
     <div className="leeftijden" id="leeftijden">

@@ -21,7 +21,7 @@ export interface LeidingNummer {
 export enum Roles {
   BRAGGEL = 'BRAGGEL',
   ADMIN = 'ADMIN',
-  BONDS = 'BONDS',
+  BONDS = 'BONDS'
 }
 
 export interface Post {
