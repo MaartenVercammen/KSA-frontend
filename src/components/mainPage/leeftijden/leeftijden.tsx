@@ -39,7 +39,7 @@ function Leeftijden() {
         />
         <LeeftijdBox
           name="Hernieuwers"
-          img="./images/herniewersLogo.webp"
+          img="./images/hernieuwersLogo.webp"
           startAge="5ste middelbaar"
           endAge="6de middelbaar"
         />

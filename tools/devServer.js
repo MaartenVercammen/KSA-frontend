@@ -2,6 +2,7 @@
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
+const path = require('path');
 const config = require('../webpack.dev');
 
 const bundler = webpack(config);
@@ -15,14 +16,12 @@ const server = new WebpackDevServer({
   host: process.env.FRONTEND_DEV_HOST || 'localhost',
   hot: true,
   port: process.env.FRONTEND_DEV_PORT || 3000,
-  /*
-    Optional proxy
-    Add paths to context, server URL to target
-    proxy: {
-        context: ['/api/, '/server/'],
-        target: `http://server`,
-    },
-    */
+  static: {
+    directory: path.join(__dirname, '/public'),
+  },
+  proxy: {
+    '/images': 'http://localhost:3005',
+  },
 }, bundler);
 
 server.start();
