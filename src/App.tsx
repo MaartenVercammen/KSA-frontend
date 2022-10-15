@@ -6,7 +6,7 @@ import LeidingNummers from './components/mainPage/leeftijden/leidingNummers';
 import Login from './components/helper/login/login';
 import ProtectedRoutes from './components/helper/protectedRoutes';
 import Dashboard from './components/dashboard/dashboard';
-import { Roles } from './types';
+import { Groep, Roles } from './types';
 import Logout from './components/helper/logout';
 import Footer from './components/footer/footer';
 
@@ -26,7 +26,7 @@ function App() {
             path="/leiders/Rubskes"
             element={
               <LeidingNummers
-                groep="Rubskes"
+                groep={{ naam: 'Rubskes', logo: './images/rubskesLogo.webp' } as Groep}
                 nummers={[
                   {
                     voornaam: 'Floor',
@@ -66,7 +66,7 @@ function App() {
             path="/leiders/Leeuwkes"
             element={
               <LeidingNummers
-                groep="Leeuwkes"
+                groep={{ naam: 'Leeuwkes', logo: './images/leeukesLogo.webp' } as Groep}
                 nummers={[
                   {
                     voornaam: 'Nele',
@@ -112,7 +112,7 @@ function App() {
             path="/leiders/Jonknapen"
             element={
               <LeidingNummers
-                groep="Jongknapen"
+                groep={{ naam: 'Jongknapen', logo: './images/jongknapenLogo.webp' } as Groep}
                 nummers={[
                   {
                     voornaam: 'Joke',
@@ -158,7 +158,7 @@ function App() {
             path="/leiders/Knapen"
             element={
               <LeidingNummers
-                groep="Knapen"
+                groep={{ naam: 'Knapen', logo: './images/knapenLogo.webp' } as Groep}
                 nummers={[
                   {
                     voornaam: 'Ann-Sofie',
@@ -186,7 +186,9 @@ function App() {
             path="/leiders/Jonghernieuwers"
             element={
               <LeidingNummers
-                groep="Jonghernieuwers"
+                groep={
+                  { naam: 'Jonghernieuwers', logo: './images/jongherniewersLogo.webp' } as Groep
+                }
                 nummers={[
                   {
                     voornaam: 'Daan',
@@ -214,7 +216,7 @@ function App() {
             path="/leiders/Hernieuwers"
             element={
               <LeidingNummers
-                groep="Hernieuwers"
+                groep={{ naam: 'Hernieuwers', logo: './images/herieuwersLogo.webp' } as Groep}
                 nummers={[
                   {
                     voornaam: 'Kobe',
