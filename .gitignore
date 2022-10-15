@@ -25,11 +25,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-deploy.sh
-*.sh
-
-deploy.sh
 
 /fonts
 
+
 test-deploy.sh
+web-deploy.sh
