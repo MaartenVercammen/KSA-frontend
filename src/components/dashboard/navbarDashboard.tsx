@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import authTab from './tabAuth';
+import NavbarLink from './navbarLink';
 
 type Props = {
-  setactivetab: (index: number) => void;
+  isAllowed: boolean;
 };
 
-function NavbarDashboard({ setactivetab }: Props) {
+function NavbarDashboard({ isAllowed }: Props) {
   const [navdropdown, setnavdropdown] = useState<boolean>(false);
-
-  const changetab = (index: number) => {
-    setactivetab(index);
-  };
 
   return (
     <div className="dashboard-nav">
@@ -28,41 +24,14 @@ function NavbarDashboard({ setactivetab }: Props) {
           onChange={() => setnavdropdown(true)}
         />
         <ul>
-          {authTab(0) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(0);
-                  setnavdropdown(false);
-                }}
-              >
-                Braggels
-              </a>
-            </li>
+          {isAllowed && (
+            <NavbarLink name="Braggel" url="/users" setnav={setnavdropdown} />
           )}
-          {authTab(1) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(1);
-                  setnavdropdown(false);
-                }}
-              >
-                Users
-              </a>
-            </li>
+          {isAllowed && (
+            <NavbarLink name="Users" url="/users" setnav={setnavdropdown} />
           )}
-          {authTab(4) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(4);
-                  setnavdropdown(false);
-                }}
-              >
-                Nieuws
-              </a>
-            </li>
+          {isAllowed && (
+            <NavbarLink name="Nieuws" url="/Nieuws" setnav={setnavdropdown} />
           )}
           <li>
             <Link to="/">Site</Link>

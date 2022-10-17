@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import { useLocation, useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userservice';
 import { Roles, User } from '../../../types';
 
-type Props = {
-  changeTab: (index: number) => void;
-  userToUpdate: User;
-};
-
-function UpdateUser({ changeTab, userToUpdate }: Props) {
+function UpdateUser() {
+  const location = useLocation();
+  const userToUpdate = location.state.user;
   const [name, setname] = useState<string>(userToUpdate.name);
   const [email, setemail] = useState<string>(userToUpdate.email);
   const [password, setpassword] = useState<string>(userToUpdate.password);
   const [role, setrole] = useState<Roles>(userToUpdate.role);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const updateUser = async (e) => {
     e.preventDefault();
@@ -23,11 +22,11 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
       name,
       email,
       role,
-      password
+      password,
     };
     const res = await UserService.updateUser(user);
     alert.show(res.data.message);
-    changeTab(1);
+    navigate('/users');
   };
 
   return (
@@ -39,7 +38,8 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
       <form className="form-horizontal" onSubmit={updateUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam{' '}
+            Naam
+            {' '}
           </label>
           <input
             type="text"
@@ -53,7 +53,8 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email{' '}
+            Email
+            {' '}
           </label>
           <input
             type="email"
@@ -67,7 +68,8 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password{' '}
+            Password
+            {' '}
           </label>
           <input
             type="password"

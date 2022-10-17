@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userservice';
 import { Roles, User } from '../../../types';
 
-type Props = {
-  changeTab: (index: number) => void;
-};
-
-function CreateUser({ changeTab }: Props) {
+function CreateUser() {
   const [name, setname] = useState<string>('');
   const [email, setemail] = useState<string>('');
   const [password, setpassword] = useState<string>('');
   const [role, setrole] = useState<Roles>(Roles.BRAGGEL);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -22,11 +20,11 @@ function CreateUser({ changeTab }: Props) {
       name,
       email,
       role,
-      password
+      password,
     };
     const res = await UserService.createUser(user);
     alert.show(res.data.message);
-    changeTab(1);
+    navigate('/users');
   };
 
   return (
@@ -35,7 +33,8 @@ function CreateUser({ changeTab }: Props) {
       <form className="form-horizontal" onSubmit={createUser}>
         <div className="form-group">
           <label className="control-label" htmlFor="name">
-            Naam{' '}
+            Naam
+            {' '}
           </label>
           <input
             type="text"
@@ -49,7 +48,8 @@ function CreateUser({ changeTab }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="email">
-            Email{' '}
+            Email
+            {' '}
           </label>
           <input
             type="email"
@@ -63,7 +63,8 @@ function CreateUser({ changeTab }: Props) {
 
         <div className="form-group">
           <label className="control-label" htmlFor="password">
-            Password{' '}
+            Password
+            {' '}
           </label>
           <input
             type="password"

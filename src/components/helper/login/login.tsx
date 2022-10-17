@@ -25,7 +25,7 @@ function Login({ setToken }: Props) {
       if (res.data.type === 'valid') {
         const data = res.data as { type: string; user: User };
         setToken(data.user);
-        navigate('/dashboard');
+        navigate('/braggel');
       }
     } catch (err) {
       alert.show('Invalid input');

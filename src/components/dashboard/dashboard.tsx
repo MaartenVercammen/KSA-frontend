@@ -1,48 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 import NavbarDashboard from './navbarDashboard';
-import UploadBraggels from './braggel/uploadBraggels';
+import { Roles } from '../../types';
 import './dashboard.css';
-import UserOverview from './users/userOverview';
-import CreateUser from './users/createUser';
-import UpdateUser from './users/updateUser';
-import authTab from './tabAuth';
-import Posts from './posts/posts';
-import AddPosts from './posts/addPosts';
-import UpdatePost from './posts/updatePost';
 
-function Dashboard() {
-  const [arg, setarg] = useState<any[]>([]);
-  const dontsavetabs = [3];
-  const [activeTab, setactiveTab] = useState<number>(
-    Number.parseInt(sessionStorage.getItem('dashboardPage') || '', 10) || 0,
-  );
+type Props = {
+  element: React.ReactNode,
+  isAllowed: Roles[],
+  redirect: string,
+};
 
-  const changeTab = (index: number, ...args) => {
-    if (authTab(index)) {
-      setactiveTab(index);
-      if (!dontsavetabs.includes(index)) {
-        sessionStorage.setItem('dashboardPage', index.toString());
-      }
-      if (arg) {
-        setarg(args);
-      }
-    }
-  };
-
-  useEffect(() => {
-    changeTab(Number.parseInt(sessionStorage.getItem('dashboardPage') || '0', 10));
-  }, []);
+function Dashboard({ element, isAllowed, redirect } : Props) {
+  const user = JSON.parse(sessionStorage.getItem('user') || '{}');
+  if (user === '') return <Navigate to="/login" />;
+  if (!isAllowed.includes(user.role)) {
+    return <Navigate to={redirect} />;
+  }
 
   return (
     <div>
-      <NavbarDashboard setactivetab={changeTab} />
-      {activeTab === 0 && <UploadBraggels />}
-      {activeTab === 1 && <UserOverview changeTab={changeTab} />}
-      {activeTab === 2 && <CreateUser changeTab={changeTab} />}
-      {activeTab === 3 && <UpdateUser changeTab={changeTab} userToUpdate={arg[0]} />}
-      {activeTab === 4 && <Posts changeTab={changeTab} />}
-      {activeTab === 5 && <AddPosts changeTab={changeTab} />}
-      {activeTab === 6 && <UpdatePost changeTab={changeTab} post={arg[0]} />}
+      <NavbarDashboard isAllowed={isAllowed.includes(user.role)} />
+      {element}
     </div>
   );
 }

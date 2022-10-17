@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
+import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userservice';
 import { User } from '../../../types';
 import './userOverview.css';
 
-type Props = {
-  changeTab: (index: number, ...args) => void;
-};
-
-function UserOverview({ changeTab }: Props) {
+function UserOverview() {
   const [users, setusers] = useState<User[]>([]);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const getUsers = async () => {
     const res = await UserService.getUsers();
@@ -23,16 +21,13 @@ function UserOverview({ changeTab }: Props) {
   }, []);
 
   const updateUser = (user: User) => {
-    changeTab(3, user);
+    navigate('/users/update', { state: { user } });
   };
 
   const deleteUser = async (id: number) => {
-    // TODO: remove confirm
     // eslint-disable-next-line no-alert
     if (window.confirm('Delete user')) {
       const res = await UserService.deleteUser(id);
-      // TODO: remove alert
-      // eslint-disable-next-line no-alert
       alert.show(res.data.message);
       getUsers();
     }
@@ -83,7 +78,7 @@ function UserOverview({ changeTab }: Props) {
       </table>
       <div className="button">
         <p>
-          <a onClick={() => changeTab(2)}>Add User</a>
+          <a onClick={() => navigate('/users/create')}>Add User</a>
         </p>
       </div>
     </div>
