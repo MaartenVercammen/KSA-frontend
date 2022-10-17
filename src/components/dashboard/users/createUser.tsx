@@ -71,6 +71,9 @@ function CreateUser() {
             name="password"
             className="form-control"
             required
+            minLength={8}
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            title="Password moet 1 hoofdldetter en 1 kleine letter bevatten, minstens 8 karakters lang zijn en 1 getal bevatten"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
