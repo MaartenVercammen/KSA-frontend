@@ -20,10 +20,10 @@ function Locatie() {
       <div className="map">
         <GoogleMap
           zoom={15}
-          center={{ lat: 50.985687650951384, lng: 4.84617028489699 }}
+          center={{ lat: 50.98597085607057, lng: 4.844754649000939 }}
           mapContainerClassName="map-container"
         >
-          <Marker position={{ lat: 50.985687650951384, lng: 4.84617028489699 }} />
+          <Marker position={{ lat: 50.98597085607057, lng: 4.844754649000939 }} title="KSA aarschot BekafLaan 65 3200 Aarschot" />
         </GoogleMap>
       </div>
       )}
