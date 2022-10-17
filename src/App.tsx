@@ -259,9 +259,9 @@ function App() {
             <Route path="/users" element={<Dashboard element={<UserOverview />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
             <Route path="/users/update" element={<Dashboard element={<UpdateUser />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
             <Route path="/users/create" element={<Dashboard element={<CreateUser />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
-            <Route path="/nieuws" element={<Dashboard element={<Posts />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
-            <Route path="/nieuws/update" element={<Dashboard element={<UpdatePost />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
-            <Route path="/nieuws/create" element={<Dashboard element={<AddPosts />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
+            <Route path="/nieuws" element={<Dashboard element={<Posts />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
+            <Route path="/nieuws/update" element={<Dashboard element={<UpdatePost />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
+            <Route path="/nieuws/create" element={<Dashboard element={<AddPosts />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
           </Route>
         </Routes>
       </main>

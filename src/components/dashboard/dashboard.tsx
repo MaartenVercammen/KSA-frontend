@@ -19,7 +19,7 @@ function Dashboard({ element, isAllowed, redirect } : Props) {
 
   return (
     <div>
-      <NavbarDashboard isAllowed={isAllowed.includes(user.role)} />
+      <NavbarDashboard isAllowed={user.role} />
       {element}
     </div>
   );

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Roles } from '../../types';
 import NavbarLink from './navbarLink';
 
 type Props = {
-  isAllowed: boolean;
+  isAllowed: Roles;
 };
 
 function NavbarDashboard({ isAllowed }: Props) {
@@ -24,13 +25,13 @@ function NavbarDashboard({ isAllowed }: Props) {
           onChange={() => setnavdropdown(true)}
         />
         <ul>
-          {isAllowed && (
-            <NavbarLink name="Braggel" url="/users" setnav={setnavdropdown} />
+          {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
+            <NavbarLink name="Braggel" url="/braggel" setnav={setnavdropdown} />
           )}
-          {isAllowed && (
+          {[Roles.ADMIN].includes(isAllowed) && (
             <NavbarLink name="Users" url="/users" setnav={setnavdropdown} />
           )}
-          {isAllowed && (
+          {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
             <NavbarLink name="Nieuws" url="/Nieuws" setnav={setnavdropdown} />
           )}
           <li>
