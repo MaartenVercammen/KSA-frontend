@@ -1,7 +1,13 @@
-.create-user {
-  margin: auto;
-  padding: 5rem;
-  width: 350px;
+.container {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 
   & .form-group {
     margin-bottom: 1rem;
@@ -40,17 +46,6 @@
       border-radius: 0.25rem;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       appearance: none;
-    }
-  }
-
-  & .btn {
-    background-color: rgb(var(--color-dark-blue));
-    color: var(color-white);
-    height: 2rem;
-
-    &:hover {
-      background-color: var(--color-four);
-      color: black;
     }
   }
 }

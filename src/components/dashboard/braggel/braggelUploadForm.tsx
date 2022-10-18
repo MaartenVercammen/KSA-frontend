@@ -8,15 +8,17 @@ type Props = {
   path: string;
   deleteBraggel: Function;
 };
-function BraggelUploadForm({ uploadbraggel, braggels, path, deleteBraggel }: Props) {
+function BraggelUploadForm({
+  uploadbraggel, braggels, path, deleteBraggel,
+}: Props) {
   return (
-    <div className={styles.braggelsUploadArea}>
+    <div className={styles.container}>
       <form onSubmit={uploadbraggel}>
         <input type="file" name="file" />
-        <input type="submit" />
+        <button type="submit">Uploaden</button>
       </form>
-      {braggels &&
-        braggels.map((b) => (
+      {braggels
+        && braggels.map((b) => (
           <p key={b}>
             <a href={`${process.env.API_URL}/pdf/${path}/${b}`}>{b}</a>
             <button type="button" className={styles.delete} onClick={() => deleteBraggel(b, path)}>

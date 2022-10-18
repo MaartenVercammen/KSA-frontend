@@ -32,7 +32,7 @@ function CreateUser({ changeTab }: Props) {
   };
 
   return (
-    <div className={styles['create-user']}>
+    <div className={styles.container}>
       <h1>Add User</h1>
       <form className={styles['form-horizontal']} onSubmit={createUser}>
         <div className={styles['form-group']}>
@@ -92,7 +92,7 @@ function CreateUser({ changeTab }: Props) {
           </select>
         </div>
 
-        <input type="submit" value="create" className={`${styles.btn} ${styles['btn-default']}`} />
+        <button type="submit">Toevoegen</button>
       </form>
     </div>
   );

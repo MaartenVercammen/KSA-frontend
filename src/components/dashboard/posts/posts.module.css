@@ -1,4 +1,10 @@
-.posts-dashboard {
+.container {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
   & .button-container {
     display: flex;
     flex-flow: column nowrap;
@@ -17,16 +23,5 @@
     margin: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-  }
-
-  & button {
-    background-color: rgb(var(--color-dark-blue));
-    padding: 0.5rem;
-    color: white;
-    width: 100%;
-
-    &:hover {
-      color: var(--color-darker-orange);
-    }
   }
 }

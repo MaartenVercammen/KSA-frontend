@@ -22,7 +22,7 @@ function AddPosts({ changeTab }: Props) {
       id: -1,
       title,
       content,
-      date: new Date(Date.now())
+      date: new Date(Date.now()),
     };
     const res = await PostService.uploadPost(post);
     alert.show(res.data.message);
@@ -30,7 +30,7 @@ function AddPosts({ changeTab }: Props) {
   };
 
   return (
-    <div className={styles['add-post']}>
+    <div className={styles.container}>
       <h1>Voeg nieuws item toe</h1>
       <form onSubmit={addpost}>
         <label htmlFor="title">Title</label>
@@ -45,7 +45,7 @@ function AddPosts({ changeTab }: Props) {
         <label htmlFor="content">bericht</label>
         <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
 
-        <input type="submit" value="add Post" />
+        <button type="submit">Nieuwsbericht toevoegen</button>
       </form>
     </div>
   );

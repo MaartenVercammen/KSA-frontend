@@ -40,7 +40,7 @@ function UserOverview({ changeTab }: Props) {
   };
 
   return (
-    <div className={styles.useroverview}>
+    <div className={styles.container}>
       <h1>Users</h1>
       <table>
         <thead>
@@ -82,11 +82,7 @@ function UserOverview({ changeTab }: Props) {
                         ))}
         </tbody>
       </table>
-      <div className={styles.button}>
-        <p>
-          <a onClick={() => changeTab(2)}>Add User</a>
-        </p>
-      </div>
+      <button type="button" role="link" onClick={() => changeTab(2)}>Add User</button>
     </div>
   );
 }
