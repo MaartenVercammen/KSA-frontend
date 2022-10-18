@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 
 import styles from './navbar.module.css';
 
 function NavBar() {
-  const [checked, setChecked] = useState(false);
   const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;

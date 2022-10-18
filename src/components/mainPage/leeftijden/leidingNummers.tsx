@@ -15,8 +15,6 @@ function LeidingNummers({ nummers, groep }: Props) {
     window.scroll(0, 0);
   }, []);
 
-  console.log({ backgroundImage: `url(${groep.logo});` });
-
   return (
     <>
       <header className={styles.header} style={{ backgroundImage: `url(${groep.logo})` }}>
