@@ -1,8 +1,9 @@
-import React from 'react';
-import Braggel from './braggel/braggel';
-import Contact from './contact/contact';
-import Leeftijden from './leeftijden/leeftijden';
-import News from './news/news';
+import React, { lazy } from 'react';
+
+const Braggel = lazy(() => import('./braggel/braggel'));
+const Contact = lazy(() => import('./contact/contact'));
+const Leeftijden = lazy(() => import('./leeftijden/leeftijden'));
+const News = lazy(() => import('./news/news'));
 
 function Body() {
   return (

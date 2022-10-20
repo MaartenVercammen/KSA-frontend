@@ -1,9 +1,10 @@
-import React from 'react';
-import ContactInfo from './contactInfo';
-import GeneralInfo from './generalInfo';
-import Locatie from './locatie';
+import React, { lazy } from 'react';
 
 import styles from './contact.module.css';
+
+const ContactInfo = lazy(() => import('./contactInfo'));
+const GeneralInfo = lazy(() => import('./generalInfo'));
+const Locatie = lazy(() => import('./locatie'));
 
 function Contact() {
   return (

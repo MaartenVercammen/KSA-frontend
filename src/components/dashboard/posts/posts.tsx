@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
-import NewsItem from '../../mainPage/news/newsItem';
+
 import styles from './posts.module.css';
+
+const NewsItem = lazy(() => import('../../mainPage/news/newsItem'));
 
 function Posts() {
   const [news, setNews] = useState<Post[]>([]);

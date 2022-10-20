@@ -1,7 +1,8 @@
-import React from 'react';
-import Body from './mainPage/body';
-import Header from './header/header';
-import NavBar from './header/navbar';
+import React, { lazy } from 'react';
+
+const Body = lazy(() => import('./mainPage/body'));
+const Header = lazy(() => import('./header/header'));
+const NavBar = lazy(() => import('./header/navbar'));
 
 function Index() {
   return (

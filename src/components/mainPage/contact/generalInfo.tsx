@@ -1,8 +1,8 @@
-import React from 'react';
-
-import Socials from './socials';
+import React, { lazy } from 'react';
 
 import styles from './generalInfo.module.css';
+
+const Socials = lazy(() => import('./socials'));
 
 function GeneralInfo() {
   return (

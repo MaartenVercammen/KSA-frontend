@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import NewsItem from './newsItem';
+import React, { useState, useEffect, lazy } from 'react';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
 import styles from './news.module.css';
+
+const NewsItem = lazy(() => import('./newsItem'));
 
 function News() {
   const [news, setnews] = useState<Post[]>([]);

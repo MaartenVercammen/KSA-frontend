@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Groep, LeidingNummer } from '../../../types';
-import NavBar from '../../header/navbar';
-import Card from '../../helper/card/card';
 
 import styles from './leidingNummers.module.css';
+
+const NavBar = lazy(() => import('../../header/navbar'));
+const Card = lazy(() => import('../../helper/card/card'));
 
 type Props = {
   nummers: Array<LeidingNummer>;

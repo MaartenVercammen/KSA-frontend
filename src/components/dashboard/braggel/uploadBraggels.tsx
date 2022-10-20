@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
 import FileService from '../../../service/fileService';
-import BraggelUploadForm from './braggelUploadForm';
 
 import styles from './uploadBraggels.module.css';
+
+const BraggelUploadForm = lazy(() => import('./braggelUploadForm'));
 
 function UploadBraggels() {
   const [braggels, setbraggels] = useState<string[]>([]);

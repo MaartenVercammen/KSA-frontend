@@ -1,7 +1,8 @@
-import React from 'react';
-import Card from '../../helper/card/card';
+import React, { lazy } from 'react';
 
 import styles from './contactInfo.module.css';
+
+const Card = lazy(() => import('../../helper/card/card'));
 
 function ContactInfo() {
   return (
