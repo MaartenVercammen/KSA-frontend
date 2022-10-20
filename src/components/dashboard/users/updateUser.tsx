@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import { useLocation, useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userservice';
 import { Roles, User } from '../../../types';
-
 import styles from './createUser.module.css';
 
-type Props = {
-  changeTab: (index: number) => void;
-  userToUpdate: User;
-};
+function UpdateUser() {
+  const location = useLocation();
+  const userToUpdate = location.state.user;
 
-function UpdateUser({ changeTab, userToUpdate }: Props) {
   const [name, setname] = useState<string>(userToUpdate.name);
   const [email, setemail] = useState<string>(userToUpdate.email);
   const [password, setpassword] = useState<string>(userToUpdate.password);
   const [role, setrole] = useState<Roles>(userToUpdate.role);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const updateUser = async (e) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
     };
     const res = await UserService.updateUser(user);
     alert.show(res.data.message);
-    changeTab(1);
+    navigate('/users');
   };
 
   return (
@@ -76,6 +75,9 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
             type="password"
             name="password"
             className={styles['form-control']}
+            placeholder="Hou leeg voor bestaand passwoord te bebouden"
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$|^$"
+            title="Password moet 1 hoofdldetter en 1 kleine letter bevatten, minstens 8 karakters lang zijn en 1 getal bevatten"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />

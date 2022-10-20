@@ -9,6 +9,13 @@ import Dashboard from './components/dashboard/dashboard';
 import { Groep, Roles } from './types';
 import Logout from './components/helper/logout';
 import Footer from './components/footer/footer';
+import UploadBraggels from './components/dashboard/braggel/uploadBraggels';
+import UserOverview from './components/dashboard/users/userOverview';
+import UpdateUser from './components/dashboard/users/updateUser';
+import CreateUser from './components/dashboard/users/createUser';
+import Posts from './components/dashboard/posts/posts';
+import AddPosts from './components/dashboard/posts/addPosts';
+import UpdatePost from './components/dashboard/posts/updatePost';
 
 function App() {
   const setToken = (userToken: object) => {
@@ -248,7 +255,13 @@ function App() {
               />
             )}
           >
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/braggel" element={<Dashboard element={<UploadBraggels />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/login" />} />
+            <Route path="/users" element={<Dashboard element={<UserOverview />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
+            <Route path="/users/update" element={<Dashboard element={<UpdateUser />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
+            <Route path="/users/create" element={<Dashboard element={<CreateUser />} isAllowed={[Roles.ADMIN]} redirect="/braggel" />} />
+            <Route path="/nieuws" element={<Dashboard element={<Posts />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
+            <Route path="/nieuws/update" element={<Dashboard element={<UpdatePost />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
+            <Route path="/nieuws/create" element={<Dashboard element={<AddPosts />} isAllowed={[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL]} redirect="/braggel" />} />
           </Route>
         </Routes>
       </main>

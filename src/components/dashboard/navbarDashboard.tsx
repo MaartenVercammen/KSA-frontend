@@ -1,59 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import authTab from './tabAuth';
+import { Roles } from '../../types';
+import NavbarLink from './navbarLink';
 
 import styles from './navbarDashboard.module.css';
 
 type Props = {
-  setactivetab: (index: number) => void;
+  isAllowed: Roles;
 };
 
-function NavbarDashboard({ setactivetab }: Props) {
-  const changetab = (index: number) => {
-    setactivetab(index);
-  };
+function NavbarDashboard({ isAllowed }: Props) {
+  const [navdropdown, setnavdropdown] = useState<boolean>(false);
 
   return (
     <div className={styles.navbar}>
       <span>
         Dashboard
       </span>
-      <input type="checkbox" id="navbar-toggle" />
+      <input type="checkbox" id="navbar-toggle" checked={navdropdown}/>
       <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
       <nav className={styles.menu}>
         <ul>
-          {authTab(0) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(0);
-                }}
-              >
-                Braggels
-              </a>
-            </li>
+          {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
+            <NavbarLink name="Braggel" url="/braggel" setnav={setnavdropdown} />
           )}
-          {authTab(1) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(1);
-                }}
-              >
-                Users
-              </a>
-            </li>
+          {[Roles.ADMIN].includes(isAllowed) && (
+            <NavbarLink name="Users" url="/users" setnav={setnavdropdown} />
           )}
-          {authTab(4) && (
-            <li>
-              <a
-                onClick={() => {
-                  changetab(4);
-                }}
-              >
-                Nieuws
-              </a>
-            </li>
+          {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
+            <NavbarLink name="Nieuws" url="/Nieuws" setnav={setnavdropdown} />
           )}
           <li>
             <Link to="/">Site</Link>

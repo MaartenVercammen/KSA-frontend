@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
 import styles from './addPost.module.css';
 
-type Props = {
-  post: Post;
-  changeTab: (index: number) => void;
-};
-
-function UpdatePost({ post, changeTab }: Props) {
+function UpdatePost() {
+  const location = useLocation();
+  const { post } = location.state;
   const [title, settitle] = useState(post.title);
   const [content, setcontent] = useState(post.content);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const updatePost = async (e) => {
     e.preventDefault();
@@ -27,7 +26,7 @@ function UpdatePost({ post, changeTab }: Props) {
     };
     const res = await PostService.updatePost(newpost);
     alert.show(res.data.message);
-    changeTab(4);
+    navigate('/nieuws');
   };
 
   return (

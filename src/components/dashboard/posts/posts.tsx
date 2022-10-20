@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
+import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
@@ -14,6 +15,7 @@ function Posts({ changeTab }: Props) {
   const [news, setNews] = useState<Post[]>([]);
 
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const getPosts = async () => {
     const res = await PostService.getPosts();
@@ -25,7 +27,6 @@ function Posts({ changeTab }: Props) {
   }, []);
 
   const deletePost = async (index: number) => {
-    // TODO: remove confirm
     // eslint-disable-next-line no-alert
     if (window.confirm('Delete post')) {
       const res = await PostService.deletePost(index);
@@ -35,7 +36,7 @@ function Posts({ changeTab }: Props) {
   };
 
   const updatePost = (post: Post) => {
-    changeTab(6, post);
+    navigate('/nieuws/update', { state: { post } });
   };
 
   return (
@@ -95,7 +96,7 @@ function Posts({ changeTab }: Props) {
           ))}
       </div>
       <div className={styles['button-container']}>
-        <button type="button" onClick={() => changeTab(5)}>Add Nieuwsbericht</button>
+        <button type="button" onClick={() => navigate('/nieuws/create')}>Add Nieuwsbericht</button>
       </div>
     </div>
   );

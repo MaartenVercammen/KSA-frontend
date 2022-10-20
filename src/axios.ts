@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { Service } from 'axios-middleware';
 
-export const instanceLogin = axios.create({
-  baseURL: process.env.API_URL,
-  headers: { 'Content-type': 'application/json' },
-  withCredentials: true
-});
-
 export const instance = axios.create({
   baseURL: process.env.API_URL,
   headers: { 'Content-type': 'application/json' },
