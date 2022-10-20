@@ -5,11 +5,11 @@ import NavBar from './header/navbar';
 
 function Index() {
   return (
-    <div className="page">
+    <>
       <Header />
       <NavBar />
       <Body />
-    </div>
+    </>
   );
 }
 

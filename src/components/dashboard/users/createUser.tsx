@@ -3,6 +3,8 @@ import { useAlert } from 'react-alert';
 import UserService from '../../../service/userservice';
 import { Roles, User } from '../../../types';
 
+import styles from './createUser.module.css';
+
 type Props = {
   changeTab: (index: number) => void;
 };
@@ -22,7 +24,7 @@ function CreateUser({ changeTab }: Props) {
       name,
       email,
       role,
-      password
+      password,
     };
     const res = await UserService.createUser(user);
     alert.show(res.data.message);
@@ -30,57 +32,57 @@ function CreateUser({ changeTab }: Props) {
   };
 
   return (
-    <div className="create-user">
+    <div className={styles.container}>
       <h1>Add User</h1>
-      <form className="form-horizontal" onSubmit={createUser}>
-        <div className="form-group">
-          <label className="control-label" htmlFor="name">
-            Naam{' '}
+      <form className={styles['form-horizontal']} onSubmit={createUser}>
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="name">
+            Naam
+            {' '}
           </label>
           <input
             type="text"
             name="name"
-            className="form-control"
-            required
+            className={styles['form-control']}
             value={name}
             onChange={(e) => setname(e.target.value)}
           />
         </div>
 
-        <div className="form-group">
-          <label className="control-label" htmlFor="email">
-            Email{' '}
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="email">
+            Email
+            {' '}
           </label>
           <input
             type="email"
             name="email"
-            required
-            className="form-control"
+            className={styles['form-control']}
             value={email}
             onChange={(e) => setemail(e.target.value)}
           />
         </div>
 
-        <div className="form-group">
-          <label className="control-label" htmlFor="password">
-            Password{' '}
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="password">
+            Password
+            {' '}
           </label>
           <input
             type="password"
             name="password"
-            className="form-control"
-            required
+            className={styles['form-control']}
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
         </div>
-        <div className="form-group">
-          <label className="control-label" htmlFor="role">
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="role">
             Role
           </label>
           <select
             name="role"
-            className="form-control form-select"
+            className={`${styles['form-control']} ${styles['form-select']}`}
             defaultValue={Roles.BRAGGEL}
             onChange={(e) => setrole(Roles[e.target.value])}
           >
@@ -90,7 +92,7 @@ function CreateUser({ changeTab }: Props) {
           </select>
         </div>
 
-        <input type="submit" value="create" className="btn btn-default" />
+        <button type="submit">Toevoegen</button>
       </form>
     </div>
   );

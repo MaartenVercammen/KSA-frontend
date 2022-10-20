@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  & *:not(.map) {
+    align-self: center;
+  }
+
+  & .map {
+    height: 40vh;
+  }
+
+  & *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

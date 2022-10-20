@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import authTab from './tabAuth';
+
+import styles from './navbarDashboard.module.css';
 
 type Props = {
   setactivetab: (index: number) => void;
 };
 
 function NavbarDashboard({ setactivetab }: Props) {
-  const [navdropdown, setnavdropdown] = useState<boolean>(false);
-
   const changetab = (index: number) => {
     setactivetab(index);
   };
 
   return (
-    <div className="dashboard-nav">
-      <nav>
-        <p>DashBoard</p>
-        <label htmlFor="burger" className="hamburger">
-          ☰
-        </label>
-        <input
-          type="checkbox"
-          name="burger"
-          id="burger"
-          checked={navdropdown}
-          onChange={() => setnavdropdown(true)}
-        />
+    <div className={styles.navbar}>
+      <span>
+        Dashboard
+      </span>
+      <input type="checkbox" id="navbar-toggle" />
+      <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
+      <nav className={styles.menu}>
         <ul>
           {authTab(0) && (
             <li>
               <a
                 onClick={() => {
                   changetab(0);
-                  setnavdropdown(false);
                 }}
               >
                 Braggels
@@ -45,7 +38,6 @@ function NavbarDashboard({ setactivetab }: Props) {
               <a
                 onClick={() => {
                   changetab(1);
-                  setnavdropdown(false);
                 }}
               >
                 Users
@@ -57,7 +49,6 @@ function NavbarDashboard({ setactivetab }: Props) {
               <a
                 onClick={() => {
                   changetab(4);
-                  setnavdropdown(false);
                 }}
               >
                 Nieuws

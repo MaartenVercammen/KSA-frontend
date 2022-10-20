@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavbarDashboard from './navbarDashboard';
 import UploadBraggels from './braggel/uploadBraggels';
-import './dashboard.css';
 import UserOverview from './users/userOverview';
 import CreateUser from './users/createUser';
 import UpdateUser from './users/updateUser';
@@ -34,7 +33,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div>
+    <>
       <NavbarDashboard setactivetab={changeTab} />
       {activeTab === 0 && <UploadBraggels />}
       {activeTab === 1 && <UserOverview changeTab={changeTab} />}
@@ -43,7 +42,7 @@ function Dashboard() {
       {activeTab === 4 && <Posts changeTab={changeTab} />}
       {activeTab === 5 && <AddPosts changeTab={changeTab} />}
       {activeTab === 6 && <UpdatePost changeTab={changeTab} post={arg[0]} />}
-    </div>
+    </>
   );
 }
 

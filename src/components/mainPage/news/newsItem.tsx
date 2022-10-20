@@ -1,6 +1,8 @@
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
 
+import styles from './newsItem.module.css';
+
 type Props = {
   title: string;
   text: string;
@@ -9,25 +11,11 @@ type Props = {
 
 function NewsItem({ date, title, text }: Props) {
   return (
-    <div className="newsItem">
+    <article className={styles.item}>
       <h2>{title}</h2>
-      <div className="newsItemBody">
-        <MDEditor.Markdown
-          source={text}
-          style={{
-            whiteSpace: 'pre-wrap',
-            backgroundColor: '#f4901d',
-            color: 'white',
-          }}
-        />
-      </div>
-      <p className="publishedOn">
-        <i>
-          published on:
-          {date}
-        </i>
-      </p>
-    </div>
+      <MDEditor.Markdown source={text} />
+      <time>{date}</time>
+    </article>
   );
 }
 

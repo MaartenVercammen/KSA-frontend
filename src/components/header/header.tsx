@@ -1,11 +1,17 @@
 import React from 'react';
-import './header.css';
+
+import styles from './header.module.css';
+
+import logo from '../../images/logo.png';
 
 function Header() {
   return (
     <header>
-      <img src="/images/groepsfoto.webp" className="headerImg" alt="groepsfoto bij de formatie" />
-      <img src="/images/logo.png" className="logo" alt="logo van KSA aarschot" />
+      <img
+        src={logo}
+        className={styles.logo}
+        alt="logo van KSA aarschot"
+      />
     </header>
   );
 }

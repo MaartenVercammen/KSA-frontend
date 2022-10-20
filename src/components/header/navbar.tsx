@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashLink } from 'react-router-hash-link';
-import './header.css';
+
+import styles from './navbar.module.css';
 
 function NavBar() {
-  const [checkboxstate, setcheckboxstate] = useState<boolean>(false);
   const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -60;
@@ -11,65 +11,53 @@ function NavBar() {
   };
 
   return (
-    <nav>
-      <p>
-        <HashLink smooth to="/#top">
-          KSA Aarschot
-        </HashLink>
-      </p>
-      <label htmlFor="burger" className="hamburger">
-        ☰
-      </label>
-      <input
-        type="checkbox"
-        name="burger"
-        id="burger"
-        onChange={() => setcheckboxstate(!checkboxstate)}
-        checked={checkboxstate}
-      />
-      <ul>
-        <li>
-          <HashLink
-            smooth
-            to="/#news"
-            scroll={scrollWithOffset}
-            onClick={() => setcheckboxstate(false)}
-          >
-            News
-          </HashLink>
-        </li>
-        <li>
-          <HashLink
-            smooth
-            to="/#braggel"
-            scroll={scrollWithOffset}
-            onClick={() => setcheckboxstate(false)}
-          >
-            Braggel
-          </HashLink>
-        </li>
-        <li>
-          <HashLink
-            smooth
-            to="/#leeftijden"
-            scroll={scrollWithOffset}
-            onClick={() => setcheckboxstate(false)}
-          >
-            Leeftijden
-          </HashLink>
-        </li>
-        <li>
-          <HashLink
-            smooth
-            to="/#contact"
-            scroll={scrollWithOffset}
-            onClick={() => setcheckboxstate(false)}
-          >
-            Contact
-          </HashLink>
-        </li>
-      </ul>
-    </nav>
+    <div className={styles.navbar}>
+      <HashLink smooth to="/#top">
+        KSA Aarschot
+      </HashLink>
+      <input type="checkbox" id="navbar-toggle" />
+      <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
+      <nav className={styles.menu}>
+        <ul>
+          <li>
+            <HashLink
+              smooth
+              to="/#news"
+              scroll={scrollWithOffset}
+            >
+              News
+            </HashLink>
+          </li>
+          <li>
+            <HashLink
+              smooth
+              to="/#braggel"
+              scroll={scrollWithOffset}
+            >
+              Braggel
+            </HashLink>
+          </li>
+          <li>
+            <HashLink
+              smooth
+              to="/#leeftijden"
+              scroll={scrollWithOffset}
+            >
+              Leeftijden
+            </HashLink>
+          </li>
+          <li>
+            <HashLink
+              smooth
+              to="/#contact"
+              scroll={scrollWithOffset}
+            >
+              Contact
+            </HashLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 }
 

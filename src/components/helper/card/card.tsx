@@ -1,5 +1,6 @@
 import React from 'react';
-import './card.css';
+
+import styles from './card.module.css';
 
 type Props = {
   img: string;
@@ -15,19 +16,13 @@ function Card({
   nummer,
 }: Props) {
   return (
-    <div className="card">
+    <div className={styles.card}>
       <img src={img} alt="Avatar" />
-      <div className="card-container">
-        <h3>
-          <b>{voornaam}</b>
-          <br />
-          <b>{achternaam}</b>
-        </h3>
-        <p>
-          tel:
-          <a href={`tel:${nummer}`}>{nummer}</a>
-        </p>
-      </div>
+      <h3>{`${voornaam} ${achternaam}`}</h3>
+      <p>
+        tel:
+        <a href={`tel:${nummer}`}>{nummer}</a>
+      </p>
     </div>
   );
 }
