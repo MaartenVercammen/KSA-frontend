@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import FileService from '../../../service/fileService';
-
 import styles from './braggel.module.css';
 
 function Braggel() {
@@ -48,6 +47,7 @@ function Braggel() {
       {braggels
         && braggels.map((braggel) => (
           <a
+            key={braggel}
             target="_blank"
             href={`${process.env.API_URL}/pdf/braggels/${braggel}`}
             rel="noreferrer"

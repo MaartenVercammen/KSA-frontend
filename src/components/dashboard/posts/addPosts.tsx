@@ -4,14 +4,9 @@ import MDEditor from '@uiw/react-md-editor';
 import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
-
 import styles from './addPost.module.css';
 
-type Props = {
-  changeTab: (index: number) => void;
-};
-
-function AddPosts({ changeTab }: Props) {
+function AddPosts() {
   const [title, settitle] = useState('');
   const [content, setcontent] = useState('');
 

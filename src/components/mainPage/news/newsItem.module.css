@@ -7,6 +7,11 @@
   border-radius: 2rem;
   color: var(--news-item-color);
 
+  & > h2 {
+    text-align: center;
+    margin: 1rem;
+  }
+
   & > *:nth-last-child(2) {
     margin-bottom: 2rem;
   }

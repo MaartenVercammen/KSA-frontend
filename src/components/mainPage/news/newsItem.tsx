@@ -1,6 +1,5 @@
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
-
 import styles from './newsItem.module.css';
 
 type Props = {
