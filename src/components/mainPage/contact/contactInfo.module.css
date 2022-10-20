@@ -8,10 +8,12 @@
 
   & .grid {
     margin: 1rem;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    & > div {
+      width: 250px;
+    }
   }
+
 }

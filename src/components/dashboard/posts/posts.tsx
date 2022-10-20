@@ -4,14 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
-
 import styles from './posts.module.css';
 
-type Props = {
-  changeTab: (index: number, ...args) => void;
-};
-
-function Posts({ changeTab }: Props) {
+function Posts() {
   const [news, setNews] = useState<Post[]>([]);
 
   const alert = useAlert();

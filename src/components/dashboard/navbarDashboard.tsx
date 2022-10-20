@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Roles } from '../../types';
 import NavbarLink from './navbarLink';
-
 import styles from './navbarDashboard.module.css';
 
 type Props = {
@@ -17,7 +16,7 @@ function NavbarDashboard({ isAllowed }: Props) {
       <span>
         Dashboard
       </span>
-      <input type="checkbox" id="navbar-toggle" checked={navdropdown}/>
+      <input type="checkbox" id="navbar-toggle" checked={navdropdown} />
       <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
       <nav className={styles.menu}>
         <ul>

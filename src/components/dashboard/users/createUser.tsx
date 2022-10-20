@@ -6,11 +6,7 @@ import { Roles, User } from '../../../types';
 
 import styles from './createUser.module.css';
 
-type Props = {
-  changeTab: (index: number) => void;
-};
-
-function CreateUser({ changeTab }: Props) {
+function CreateUser() {
   const [name, setname] = useState<string>('');
   const [email, setemail] = useState<string>('');
   const [password, setpassword] = useState<string>('');
