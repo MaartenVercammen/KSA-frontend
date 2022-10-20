@@ -2,7 +2,6 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import NavbarDashboard from './navbarDashboard';
 import { Roles } from '../../types';
-import './dashboard.css';
 
 type Props = {
   element: React.ReactNode,
