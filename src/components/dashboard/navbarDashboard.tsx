@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Roles } from '../../types';
-import NavbarLink from './navbarLink';
+
 import styles from './navbarDashboard.module.css';
+
+const NavbarLink = lazy(() => import('./navbarLink'));
 
 type Props = {
   isAllowed: Roles;

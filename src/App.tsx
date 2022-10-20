@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/index.css';
-import Index from './components/index';
-import LeidingNummers from './components/mainPage/leeftijden/leidingNummers';
-import Login from './components/helper/login/login';
-import ProtectedRoutes from './components/helper/protectedRoutes';
-import Dashboard from './components/dashboard/dashboard';
 import { Groep, Roles } from './types';
-import Logout from './components/helper/logout';
-import Footer from './components/footer/footer';
-import UploadBraggels from './components/dashboard/braggel/uploadBraggels';
-import UserOverview from './components/dashboard/users/userOverview';
-import UpdateUser from './components/dashboard/users/updateUser';
-import CreateUser from './components/dashboard/users/createUser';
-import Posts from './components/dashboard/posts/posts';
-import AddPosts from './components/dashboard/posts/addPosts';
-import UpdatePost from './components/dashboard/posts/updatePost';
+
+const Dashboard = lazy(() => import('./components/dashboard/dashboard'));
+const Logout = lazy(() => import('./components/helper/logout'));
+const Index = lazy(() => import('./components/index'));
+const LeidingNummers = lazy(() => import('./components/mainPage/leeftijden/leidingNummers'));
+const Login = lazy(() => import('./components/helper/login/login'));
+const ProtectedRoutes = lazy(() => import('./components/helper/protectedRoutes'));
+const Footer = lazy(() => import('./components/footer/footer'));
+const UploadBraggels = lazy(() => import('./components/dashboard/braggel/uploadBraggels'));
+const UserOverview = lazy(() => import('./components/dashboard/users/userOverview'));
+const UpdateUser = lazy(() => import('./components/dashboard/users/updateUser'));
+const CreateUser = lazy(() => import('./components/dashboard/users/createUser'));
+const Posts = lazy(() => import('./components/dashboard/posts/posts'));
+const AddPosts = lazy(() => import('./components/dashboard/posts/addPosts'));
+const UpdatePost = lazy(() => import('./components/dashboard/posts/updatePost'));
 
 function App() {
   const setToken = (userToken: object) => {

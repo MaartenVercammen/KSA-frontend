@@ -1,7 +1,8 @@
-import React from 'react';
-import LeeftijdBox from './leeftijdBox';
+import React, { lazy } from 'react';
 
 import styles from './leeftijden.module.css';
+
+const LeeftijdBox = lazy(() => import('./leeftijdBox'));
 
 function Leeftijden() {
   return (

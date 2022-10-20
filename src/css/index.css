@@ -47,6 +47,7 @@
   --news-item-color: rgb(var(--color-white));
   --news-item-link-hover-color: rgb(var(--color-dark-blue));
   --colour-four: rgb(var(--color-lighter-orange));
+  --spinner-color: rgb(var(--color-darker-orange));
 
   /* metrics */
   --button-padding: 0.5rem 1rem;

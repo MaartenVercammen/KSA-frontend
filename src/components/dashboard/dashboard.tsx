@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import NavbarDashboard from './navbarDashboard';
 import { Roles } from '../../types';
+
+const NavbarDashboard = lazy(() => import('./navbarDashboard'));
 
 type Props = {
   element: React.ReactNode,
