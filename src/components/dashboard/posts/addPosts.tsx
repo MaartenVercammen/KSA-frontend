@@ -22,7 +22,7 @@ function AddPosts({ changeTab }: Props) {
       id: -1,
       title,
       content,
-      date: new Date(Date.now())
+      date: new Date(Date.now()),
     };
     const res = await PostService.uploadPost(post);
     alert.show(res.data.message);

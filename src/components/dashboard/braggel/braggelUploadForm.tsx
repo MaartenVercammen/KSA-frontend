@@ -8,7 +8,9 @@ type Props = {
   path: string;
   deleteBraggel: Function;
 };
-function BraggelUploadForm({ uploadbraggel, braggels, path, deleteBraggel }: Props) {
+function BraggelUploadForm({
+  uploadbraggel, braggels, path, deleteBraggel,
+}: Props) {
   return (
     <div className={styles.braggelsUploadArea}>
       <form onSubmit={uploadbraggel}>

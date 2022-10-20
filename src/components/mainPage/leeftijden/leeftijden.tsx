@@ -3,13 +3,6 @@ import LeeftijdBox from './leeftijdBox';
 
 import styles from './leeftijden.module.css';
 
-import rubskesLogo from '../../../images/rubskesLogo.webp';
-import leeuwkesLogo from '../../../images/leeuwkesLogo.webp';
-import jongknapenLogo from '../../../images/jongknapenLogo.webp';
-import knapenLogo from '../../../images/knapenLogo.webp';
-import jonghernieuwersLogo from '../../../images/jonghernieuwersLogo.webp';
-import hernieuwersLogo from '../../../images/hernieuwersLogo.webp';
-
 function Leeftijden() {
   return (
     <div className={styles.container} id="leeftijden">
@@ -17,37 +10,37 @@ function Leeftijden() {
       <div className={styles.grid}>
         <LeeftijdBox
           name="Rubskes"
-          img={rubskesLogo}
+          img="./images/rubskesLogo.webp"
           startAge="3de kleuterklas"
           endAge="1ste leerjaar"
         />
         <LeeftijdBox
           name="Leeuwkes"
-          img={leeuwkesLogo}
+          img="./images/leeuwkesLogo.webp"
           startAge="2de leerjaar"
           endAge="3de leerjaar"
         />
         <LeeftijdBox
           name="Jonknapen"
-          img={jongknapenLogo}
+          img="./images/jongknapenLogo.webp"
           startAge="4de leerjaar"
           endAge="6de leerjaar"
         />
         <LeeftijdBox
           name="Knapen"
-          img={knapenLogo}
+          img="./images/knapenLogo.webp"
           startAge="1ste middelbaar"
           endAge="2de middelbaar"
         />
         <LeeftijdBox
           name="Jonghernieuwers"
-          img={jonghernieuwersLogo}
+          img="./images/jonghernieuwersLogo.webp"
           startAge="3ste middelbaar"
           endAge="4de middelbaar"
         />
         <LeeftijdBox
           name="Hernieuwers"
-          img={hernieuwersLogo}
+          img="./images/hernieuwersLogo.webp"
           startAge="5ste middelbaar"
           endAge="6de middelbaar"
         />
