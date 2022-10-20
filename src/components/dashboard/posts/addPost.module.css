@@ -1,4 +1,10 @@
-.add-post {
+.container {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
   & form {
     display: flex;
     flex-flow: column nowrap;
@@ -8,27 +14,5 @@
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-
-    & input {
-      outline: none;
-      border: none;
-      border-bottom: 2px solid rgb(var(--color-dark-blue));
-
-      &:focus {
-        border-bottom: 2px solid var(--color-darker-orange);
-      }
-    }
-
-    & input[type="submit"] {
-      background-color: var(--color-darker-orange);
-      border: none;
-      color: white;
-      padding: 1rem;
-
-      &:hover {
-        background-color: rgb(var(--color-dark-blue));
-        color: black;
-      }
-    }
   }
 }

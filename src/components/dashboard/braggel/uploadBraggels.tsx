@@ -73,9 +73,9 @@ function UploadBraggels() {
   };
 
   return (
-    <div className={styles.updateBraggels}>
+    <div className={styles.container}>
       <h1>Upload Braggels</h1>
-      <div className={styles.container}>
+      <div className={styles.card}>
         <h2>Maandelijkse braggels</h2>
         <BraggelUploadForm
           braggels={braggels}
@@ -84,7 +84,7 @@ function UploadBraggels() {
           path="braggels"
         />
       </div>
-      <div className={styles.container}>
+      <div className={styles.card}>
         <h2>Speciale braggels</h2>
         <BraggelUploadForm
           braggels={specialBraggels}

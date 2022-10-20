@@ -1,16 +1,16 @@
-.braggels-upload-area {
+.container {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-}
 
-.delete {
-  margin-left: 1rem;
-  border-radius: 0.2rem;
-  border: 1px solid rgb(var(--color-dark-blue));
-}
+  &.delete {
+    margin-left: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid rgb(var(--color-dark-blue));
 
-.delete:hover {
-  cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

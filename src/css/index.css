@@ -13,6 +13,10 @@
   --dark-functional-green: 2 207 50;
 
   /* element coloring */
+  --admin-braggel-upload-color: rgb(var(--color-white));
+  --admin-braggel-upload-button-hover-color: rgb(var(--color-darker-orange));
+  --admin-user-overview-table-background: rgb(var(--color-darker-orange));
+  --admin-user-overview-table-border-color: rgb(var(--color-darker-orange));
   --braggel-link-color: rgb(var(--color-white));
   --braggel-link-hover-color: rgb(var(--color-darker-orange));
   --button-primary-background: rgb(var(--color-dark-blue));
@@ -59,7 +63,6 @@
   --braggel-background: rgb(var(--color-dark-blue));
 
   /* Markdown editor */
-
 }
 
 @font-face {
@@ -129,6 +132,12 @@ html {
   font-family: Montserrat, sans-serif;
   font-size: calc(16px + 0.25vmax);
   font-weight: 400;
+
+  & div#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 }
 
 a {

@@ -12,15 +12,14 @@ const createUser = (user: User) => instance.post<{ type: string; message: string
 
 const updateUser = (user: User) => instance.put<{ type: string; message: string }>('/user', user);
 
-const deleteUser = (id: number) =>
-  instance.delete<{ type: string; message: string }>(`/user?id=${id}`);
+const deleteUser = (id: number) => instance.delete<{ type: string; message: string }>(`/user?id=${id}`);
 
 const UserService = {
   getUsers,
   login,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
 };
 
 export default UserService;

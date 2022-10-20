@@ -33,7 +33,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
   };
 
   return (
-    <div className={styles['create-user']}>
+    <div className={styles.container}>
       <h1>
         Update
         {userToUpdate.name}
@@ -96,7 +96,7 @@ function UpdateUser({ changeTab, userToUpdate }: Props) {
           </select>
         </div>
 
-        <input type="submit" value="create" className={`${styles.btn} ${styles['btn-default']}`} />
+        <button type="submit">Bijwerken</button>
       </form>
     </div>
   );
