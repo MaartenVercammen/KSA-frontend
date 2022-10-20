@@ -1,0 +1,15 @@
+header {
+  height: var(--header-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(var(--color-white) / 50%) url("../../images/groepsfoto.webp") no-repeat bottom;
+  background-blend-mode: color;
+  background-size: cover;
+
+  & .logo {
+    max-width: 30vw;
+    opacity: 1;
+  }
+}

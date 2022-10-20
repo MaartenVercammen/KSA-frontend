@@ -1,0 +1,16 @@
+.header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  margin: 1rem 0.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}

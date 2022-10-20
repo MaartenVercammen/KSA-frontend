@@ -1,12 +1,13 @@
 import React from 'react';
 import LeeftijdBox from './leeftijdBox';
-import './leeftijden.css';
+
+import styles from './leeftijden.module.css';
 
 function Leeftijden() {
   return (
-    <div className="leeftijden" id="leeftijden">
+    <div className={styles.container} id="leeftijden">
       <h1>Leeftijden</h1>
-      <div className="leeftijden-container">
+      <div className={styles.grid}>
         <LeeftijdBox
           name="Rubskes"
           img="./images/rubskesLogo.webp"

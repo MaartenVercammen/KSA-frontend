@@ -3,7 +3,8 @@ import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userservice';
 import { User } from '../../../types';
-import './userOverview.css';
+
+import styles from './userOverview.module.css';
 
 function UserOverview() {
   const [users, setusers] = useState<User[]>([]);
@@ -34,7 +35,7 @@ function UserOverview() {
   };
 
   return (
-    <div className="useroveriew">
+    <div className={styles.container}>
       <h1>Users</h1>
       <table>
         <thead>

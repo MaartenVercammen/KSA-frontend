@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
-function AddPosts() {
+import styles from './addPost.module.css';
+
+type Props = {
+  changeTab: (index: number) => void;
+};
+
+function AddPosts({ changeTab }: Props) {
   const [title, settitle] = useState('');
   const [content, setcontent] = useState('');
 
@@ -26,7 +32,7 @@ function AddPosts() {
   };
 
   return (
-    <div className="addPost">
+    <div className={styles.container}>
       <h1>Voeg nieuws item toe</h1>
       <form onSubmit={addpost}>
         <label htmlFor="title">Title</label>
@@ -41,7 +47,7 @@ function AddPosts() {
         <label htmlFor="content">bericht</label>
         <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
 
-        <input type="submit" value="add Post" />
+        <button type="submit">Nieuwsbericht toevoegen</button>
       </form>
     </div>
   );

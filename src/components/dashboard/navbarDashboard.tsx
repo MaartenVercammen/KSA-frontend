@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Roles } from '../../types';
 import NavbarLink from './navbarLink';
 
+import styles from './navbarDashboard.module.css';
+
 type Props = {
   isAllowed: Roles;
 };
@@ -11,19 +13,13 @@ function NavbarDashboard({ isAllowed }: Props) {
   const [navdropdown, setnavdropdown] = useState<boolean>(false);
 
   return (
-    <div className="dashboard-nav">
-      <nav>
-        <p>DashBoard</p>
-        <label htmlFor="burger" className="hamburger">
-          ☰
-        </label>
-        <input
-          type="checkbox"
-          name="burger"
-          id="burger"
-          checked={navdropdown}
-          onChange={() => setnavdropdown(true)}
-        />
+    <div className={styles.navbar}>
+      <span>
+        Dashboard
+      </span>
+      <input type="checkbox" id="navbar-toggle" checked={navdropdown}/>
+      <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
+      <nav className={styles.menu}>
         <ul>
           {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
             <NavbarLink name="Braggel" url="/braggel" setnav={setnavdropdown} />

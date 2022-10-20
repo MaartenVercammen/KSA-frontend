@@ -1,0 +1,48 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  & table {
+    border-collapse: collapse;
+    background: var(--admin-user-overview-table-background);
+  }
+
+  & tr {
+    border-bottom: 1px solid  var(--admin-user-overview-table-border-color);
+  }
+
+  & tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  & td,
+  & th {
+    padding: 1rem;
+    color: white;
+  }
+
+  & p {
+    width: 100%;
+    text-align: center;
+  }
+
+  & a {
+    background-color: rgb(var(--color-dark-blue));
+    padding: 0.5rem;
+    color: white;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  & a:hover {
+    color: orange;
+    cursor: pointer;
+  }
+}

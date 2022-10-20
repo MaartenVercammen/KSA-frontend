@@ -4,17 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 import NewsItem from '../../mainPage/news/newsItem';
-import './post.css';
 
-function Posts() {
-  const [posts, setposts] = useState<Post[]>([]);
+import styles from './posts.module.css';
+
+type Props = {
+  changeTab: (index: number, ...args) => void;
+};
+
+function Posts({ changeTab }: Props) {
+  const [news, setNews] = useState<Post[]>([]);
 
   const alert = useAlert();
   const navigate = useNavigate();
 
   const getPosts = async () => {
     const res = await PostService.getPosts();
-    setposts(res.data);
+    setNews(res.data);
   };
 
   useEffect(() => {
@@ -35,41 +40,62 @@ function Posts() {
   };
 
   return (
-    <div className="posts-dashboard">
+    <div className={styles.container}>
       <h1>Nieuwsberichten</h1>
-      <div className="news" id="news">
-        <ul>
-          {posts
-                        && posts.map(({
-                          id, title, content, date,
-                        }: Post) => (
-                          <li key={id} className="posts-conatainer">
-                            <NewsItem
-                              title={title}
-                              date={new Date(date).toLocaleDateString()}
-                              text={content}
-                            />
-                            <div className="news-control-container">
-                              <button type="button" onClick={() => deletePost(id)}>
-                                Delete Nieuwsbericht
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => updatePost({
-                                  id,
-                                  title,
-                                  content,
-                                  date,
-                                })}
-                              >
-                                Update Nieuwsbericht
-                              </button>
-                            </div>
-                          </li>
-                        ))}
-        </ul>
+      <div className={styles.grid}>
+        <NewsItem
+          key="id"
+          title="title"
+          date={new Date().toLocaleDateString()}
+          text="content"
+        />
+        <div className={styles['news-control-container']}>
+          <button type="button" onClick={() => deletePost(1)}>
+            Delete Nieuwsbericht
+          </button>
+          <button
+            type="button"
+            onClick={() => updatePost({
+              id: 1,
+              title: 'title',
+              content: '',
+              date: new Date(),
+            })}
+          >
+            Update Nieuwsbericht
+          </button>
+        </div>
+        {news
+          && news.map(({
+            id, title, content, date,
+          }) => (
+            <>
+              <NewsItem
+                key={id}
+                title={title}
+                date={new Date(date).toLocaleDateString()}
+                text={content}
+              />
+              <div className={styles['news-control-container']}>
+                <button type="button" onClick={() => deletePost(id)}>
+                  Delete Nieuwsbericht
+                </button>
+                <button
+                  type="button"
+                  onClick={() => updatePost({
+                    id,
+                    title,
+                    content,
+                    date,
+                  })}
+                >
+                  Update Nieuwsbericht
+                </button>
+              </div>
+            </>
+          ))}
       </div>
-      <div className="button-container">
+      <div className={styles['button-container']}>
         <button type="button" onClick={() => navigate('/nieuws/create')}>Add Nieuwsbericht</button>
       </div>
     </div>

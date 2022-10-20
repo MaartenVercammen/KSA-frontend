@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { LeidingNummer, Groep } from '../../../types';
+import { Groep, LeidingNummer } from '../../../types';
 import NavBar from '../../header/navbar';
 import Card from '../../helper/card/card';
+
+import styles from './leidingNummers.module.css';
 
 type Props = {
   nummers: Array<LeidingNummer>;
@@ -14,28 +16,23 @@ function LeidingNummers({ nummers, groep }: Props) {
   }, []);
 
   return (
-    <div className="leidingnummers">
-      <div className="groep-container">
-        <h1 className="groep">{groep.naam}</h1>
-        <img src={groep.logo} alt={`logo van groep ${groep.naam}`} />
-      </div>
+    <>
+      <header className={styles.header} style={{ backgroundImage: `url(${groep.logo})` }}>
+        <h1>{groep.naam}</h1>
+      </header>
       <NavBar />
-      <div className="groep-data">
-        <ul>
-          {nummers
-            && nummers.map((value: LeidingNummer) => (
-              <li>
-                <Card
-                  nummer={value.number}
-                  img={value.img}
-                  voornaam={value.voornaam}
-                  achternaam={value.achternaam}
-                />
-              </li>
-            ))}
-        </ul>
+      <div className={styles.grid}>
+        {nummers
+          && nummers.map((value: LeidingNummer) => (
+            <Card
+              nummer={value.number}
+              img={value.img}
+              voornaam={value.voornaam}
+              achternaam={value.achternaam}
+            />
+          ))}
       </div>
-    </div>
+    </>
   );
 }
 

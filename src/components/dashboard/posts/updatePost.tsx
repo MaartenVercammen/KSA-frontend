@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
-import './post.css';
+
+import styles from './addPost.module.css';
 
 function UpdatePost() {
   const location = useLocation();
@@ -29,7 +30,7 @@ function UpdatePost() {
   };
 
   return (
-    <div className="addPost">
+    <div className={styles.container}>
       <h1>
         Update Nieuwsbericht:
         {post.title}
@@ -46,7 +47,7 @@ function UpdatePost() {
         <label htmlFor="content">bericht</label>
         <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
 
-        <input type="submit" value="update Nieuwsbericht" />
+        <button type="submit" value="update Nieuwsbericht">Update nieuwsbericht</button>
       </form>
     </div>
   );

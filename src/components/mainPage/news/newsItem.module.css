@@ -1,0 +1,37 @@
+.item {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem;
+  padding: 0.7rem;
+  background: var(--news-item-background);
+  border-radius: 2rem;
+  color: var(--news-item-color);
+
+  & > *:nth-last-child(2) {
+    margin-bottom: 2rem;
+  }
+
+  & a {
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--news-item-link-hover-color);
+    }
+  }
+
+  & > time {
+    font-size: 0.8em;
+    margin-top: auto;
+    margin-left: auto;
+  }
+}
+
+:global {
+  & .wmde-markdown {
+    --color-canvas-default: transparent !important;
+    --color-fg-default: inherit !important;
+    --color-accent-fg: inherit !important;
+
+    font: inherit;
+  }
+}
