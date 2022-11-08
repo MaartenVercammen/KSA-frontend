@@ -4,8 +4,6 @@ module.exports = {
   rules: {
     // Disable unless prop-types are used.
     'react/prop-types': 'off',
-    // see axios.ts
-    'prefer-promise-reject-errors': 'off',
     // TODO: enhance accessibility
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-import UserService from '../../../service/userservice';
-import { User } from '../../../types';
+import AuthService from '../../../service/authService';
 
 import styles from './login.module.css';
 
@@ -11,6 +10,7 @@ type Props = {
 };
 
 function Login({ setToken }: Props) {
+  const form = useRef<HTMLFormElement>(null);
   const [email, setemail] = useState<string>('');
   const [password, setpassword] = useState<string>('');
   const navigate = useNavigate();
@@ -22,11 +22,12 @@ function Login({ setToken }: Props) {
 
   const login = async () => {
     try {
-      const res = await UserService.login(email, password);
-      if (res.data.type === 'valid') {
-        const data = res.data as { type: string; user: User };
-        setToken(data.user);
-        navigate('/braggel');
+      if (form.current) {
+        const { type, user } = await AuthService.login(new FormData(form.current));
+        if (type === 'valid') {
+          setToken(user);
+          navigate('/braggel');
+        }
       }
     } catch (err) {
       alert.show('Invalid input');
@@ -42,7 +43,7 @@ function Login({ setToken }: Props) {
     <div className={styles.login}>
       <div className={styles['login-container']}>
         <h1>login</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={form}>
           <div>
             <label htmlFor="email">email</label>
             <input
@@ -62,7 +63,7 @@ function Login({ setToken }: Props) {
             />
           </div>
           <div className={styles['login-submit-container']}>
-            <input type="submit" value="login" />
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>

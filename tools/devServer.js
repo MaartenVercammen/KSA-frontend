@@ -17,7 +17,7 @@ const server = new WebpackDevServer({
   proxy: {
     '/images': `${process.env.DEV_SERVER_URL}`,
     '/pdf': `${process.env.DEV_SERVER_URL}/uploads`,
-    '/file': `${process.env.DEV_SERVER_URL}`,
+    '/magazine': `${process.env.DEV_SERVER_URL}`,
     '/user': `${process.env.DEV_SERVER_URL}`,
     '/auth': `${process.env.DEV_SERVER_URL}`,
     '/post': `${process.env.DEV_SERVER_URL}`,

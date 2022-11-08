@@ -1,73 +1,77 @@
-import React, { lazy, useEffect, useState } from 'react';
+import React, {
+  lazy, useEffect, useRef, useState,
+} from 'react';
 import { useAlert } from 'react-alert';
-import FileService from '../../../service/fileService';
+import MagazineService from '../../../service/magazineService';
 
 import styles from './uploadBraggels.module.css';
+import { Magazine as IMagazine, MagazineTypes } from '../../../types';
 
 const BraggelUploadForm = lazy(() => import('./braggelUploadForm'));
 
 function UploadBraggels() {
-  const [braggels, setbraggels] = useState<string[]>([]);
-  const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
+  const monthlyMagazineForm = useRef<HTMLFormElement>(null);
+  const specialMagazineForm = useRef<HTMLFormElement>(null);
+  const [monthlies, setMonthlies] = useState<IMagazine[]>([]);
+  const [specials, setSpecials] = useState<IMagazine[]>([]);
 
   const alert = useAlert();
 
-  const getActiveBraggels = async () => {
-    const res = await FileService.getBraggels('braggels');
-    const { data } = res;
-    setbraggels(data);
+  const fetchMonthlies = async () => {
+    const res = await MagazineService.getAll(MagazineTypes.MONTHLY);
+    setMonthlies(res);
   };
-  const getSpecialBraggels = async () => {
-    const res = await FileService.getBraggels('specialebraggels');
-    const { data } = res;
-    setspecialBraggels(data);
+
+  const fetchSpecials = async () => {
+    const res = await MagazineService.getAll(MagazineTypes.SPECIAL);
+    setSpecials(res);
   };
-  const getBragels = () => {
-    getActiveBraggels();
-    getSpecialBraggels();
+
+  const fetchMagazines = () => {
+    fetchMonthlies();
+    fetchSpecials();
   };
 
   useEffect(() => {
-    getBragels();
+    fetchMagazines();
   }, []);
 
-  const deleteBraggel = async (filename: string, type: string) => {
+  const removeMagazine = async (magazine: IMagazine) => {
     try {
-      const res = await FileService.deletebraggel(filename, type);
-      alert.show(`${res.data.message} ${filename}`);
-      getBragels();
+      console.log(magazine);
+      const res = await MagazineService.remove(magazine);
+      alert.show(`${res.message} ${magazine.title}`);
+      fetchMagazines();
     } catch (error: any) {
       alert.error(error.message);
     }
   };
 
-  const uploadMaandelijksebraggel = async (e) => {
+  const uploadMonthlyMagazine = async (e) => {
     e.preventDefault();
     try {
-      if (!e.target.file.value.endsWith('.pdf')) {
-        alert.show('Upload PDF file');
-        return;
+      if (monthlyMagazineForm.current) {
+        // TODO rework file validation
+        const formData = new FormData(monthlyMagazineForm.current);
+        const res = await MagazineService.upload(formData);
+        alert.show(`${res.message} ${monthlyMagazineForm.current.file.value.slice(12)}`);
+        fetchMagazines();
       }
-      const formData = new FormData(e.target);
-      const res = await FileService.uploadFile(formData, 'braggels');
-      alert.show(`${res.data.message} ${e.target.file.value.slice(12)}`);
-      getBragels();
     } catch (error: any) {
       alert.error(error.message);
     }
   };
 
-  const uploadSpecialebraggel = async (e) => {
+  const uploadSpecialMagazine = async (e) => {
     e.preventDefault();
     try {
-      if (!e.target.file.value.endsWith('.pdf')) {
-        alert.show('Upload PDF file');
-        return;
+      if (specialMagazineForm.current) {
+        // TODO rework file validation
+        const formData = new FormData(specialMagazineForm.current);
+        const res = await MagazineService.upload(formData);
+        alert.show(`${res.message} ${specialMagazineForm.current.file.value.slice(12)}`);
+        fetchSpecials();
       }
-      const formData = new FormData(e.target);
-      const res = await FileService.uploadFile(formData, 'specialebraggels');
-      alert.show(`${res.data.message} ${e.target.file.value.slice(12)}`);
-      getSpecialBraggels();
     } catch (error: any) {
       alert.error(error.message);
     }
@@ -79,19 +83,21 @@ function UploadBraggels() {
       <div className={styles.card}>
         <h2>Maandelijkse braggels</h2>
         <BraggelUploadForm
-          braggels={braggels}
-          uploadbraggel={uploadMaandelijksebraggel}
-          deleteBraggel={deleteBraggel}
-          path="braggels"
+          magazines={monthlies}
+          uploadHandler={uploadMonthlyMagazine}
+          removeMagazine={removeMagazine}
+          type={MagazineTypes.MONTHLY}
+          ref={monthlyMagazineForm}
         />
       </div>
       <div className={styles.card}>
         <h2>Speciale braggels</h2>
         <BraggelUploadForm
-          braggels={specialBraggels}
-          uploadbraggel={uploadSpecialebraggel}
-          deleteBraggel={deleteBraggel}
-          path="specialebraggels"
+          magazines={specials}
+          uploadHandler={uploadSpecialMagazine}
+          removeMagazine={removeMagazine}
+          type={MagazineTypes.SPECIAL}
+          ref={specialMagazineForm}
         />
       </div>
     </div>

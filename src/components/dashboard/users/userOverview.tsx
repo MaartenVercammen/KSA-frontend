@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
-import UserService from '../../../service/userservice';
+import UserService from '../../../service/userService';
 import { User } from '../../../types';
 
 import styles from './userOverview.module.css';
 
 function UserOverview() {
-  const [users, setusers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   const alert = useAlert();
   const navigate = useNavigate();
 
   const getUsers = async () => {
-    const res = await UserService.getUsers();
-    setusers(res.data);
+    const res = await UserService.getAll();
+    setUsers(res);
   };
 
   useEffect(() => {
@@ -25,11 +25,11 @@ function UserOverview() {
     navigate('/users/update', { state: { user } });
   };
 
-  const deleteUser = async (id: number) => {
+  const deleteUser = async (user: User) => {
     // eslint-disable-next-line no-alert
     if (window.confirm('Delete user')) {
-      const res = await UserService.deleteUser(id);
-      alert.show(res.data.message);
+      const res = await UserService.remove(user);
+      alert.show(res.message);
       getUsers();
     }
   };
@@ -49,29 +49,21 @@ function UserOverview() {
         </thead>
         <tbody>
           {users
-                        && users.map(({
-                          id, name, email, role, password,
-                        }: User) => (
-                          <tr key={id}>
-                            <td>{name}</td>
-                            <td>{email}</td>
-                            <td>{role}</td>
+                        && users.map((user: User) => (
+                          <tr key={user.id}>
+                            <td>{`${user.firstName} ${user.lastName}`}</td>
+                            <td>{user.email}</td>
+                            <td>{user.role}</td>
                             <td>
                               <button
                                 type="button"
-                                onClick={() => updateUser({
-                                  id,
-                                  name,
-                                  password,
-                                  email,
-                                  role,
-                                })}
+                                onClick={() => updateUser(user)}
                               >
                                 Update
                               </button>
                             </td>
                             <td>
-                              <button type="button" onClick={() => deleteUser(id)}>X</button>
+                              <button type="button" onClick={() => deleteUser(user)}>X</button>
                             </td>
                           </tr>
                         ))}

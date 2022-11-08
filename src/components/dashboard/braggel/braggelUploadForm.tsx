@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { ForwardedRef } from 'react';
 
 import styles from './braggelUploadForm.module.css';
+import { Magazine as IMagazine, MagazineTypes } from '../../../types';
 
 type Props = {
-  uploadbraggel: React.FormEventHandler;
-  braggels: string[];
-  path: string;
-  deleteBraggel: Function;
+  uploadHandler: React.FormEventHandler;
+  magazines: IMagazine[];
+  type: MagazineTypes,
+  removeMagazine: Function;
 };
-function BraggelUploadForm({
-  uploadbraggel, braggels, path, deleteBraggel,
-}: Props) {
-  return (
-    <div className={styles.container}>
-      <form onSubmit={uploadbraggel}>
-        <input type="file" name="file" />
-        <button type="submit">Uploaden</button>
-      </form>
-      {braggels
-        && braggels.map((b) => (
-          <p key={b}>
-            <a href={`${process.env.API_URL}/pdf/${path}/${b}`}>{b}</a>
-            <button type="button" className={styles.delete} onClick={() => deleteBraggel(b, path)}>
+const BraggelUploadForm = React.forwardRef(({
+  type, magazines, uploadHandler, removeMagazine,
+} : Props, ref : ForwardedRef<HTMLFormElement>) => (
+  <div className={styles.container}>
+    <form onSubmit={uploadHandler} ref={ref}>
+      <input type="hidden" name="type" value={type} />
+      <input type="file" name="file" />
+      <button type="submit">Uploaden</button>
+    </form>
+    {magazines
+        && magazines.map((magazine) => (
+          <p key={magazine.id}>
+            <a href={`${process.env.BASE_URL}${magazine.path}`}>{magazine.title}</a>
+            <button type="button" className={styles.delete} onClick={() => removeMagazine(magazine)}>
               X
             </button>
           </p>
         ))}
-    </div>
-  );
-}
+  </div>
+));
 
 export default BraggelUploadForm;

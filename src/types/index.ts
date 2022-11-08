@@ -1,6 +1,7 @@
 export interface User {
-  id: number;
-  name: string;
+  id?: string;
+  firstName: string;
+  lastName: string,
   password: string;
   email: string;
   role: Roles;
@@ -25,8 +26,19 @@ export enum Roles {
 }
 
 export interface Post {
-  id: number;
+  id?: string;
   title: string;
   content: string;
-  date: Date;
+  date?: Date;
+}
+
+export interface Magazine {
+  id?: string,
+  title: string,
+  path: string,
+}
+
+export enum MagazineTypes {
+  SPECIAL = 'special',
+  MONTHLY = 'monthly',
 }

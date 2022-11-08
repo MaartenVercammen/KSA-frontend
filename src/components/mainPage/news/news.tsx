@@ -7,11 +7,11 @@ import styles from './news.module.css';
 const NewsItem = lazy(() => import('./newsItem'));
 
 function News() {
-  const [news, setnews] = useState<Post[]>([]);
+  const [news, setNews] = useState<Post[]>([]);
 
   const getPosts = async () => {
-    const res = await PostService.getPosts();
-    setnews(res.data);
+    const res = await PostService.getAll();
+    setNews(res);
   };
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function News() {
             <NewsItem
               key={id}
               title={title}
-              date={new Date(date).toLocaleDateString()}
+              date={new Date(date!).toLocaleDateString()}
               text={content}
             />
           ))}

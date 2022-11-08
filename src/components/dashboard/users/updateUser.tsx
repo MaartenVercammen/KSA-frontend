@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import { useLocation, useNavigate } from 'react-router-dom';
-import UserService from '../../../service/userservice';
+import UserService from '../../../service/userService';
 import { Roles, User } from '../../../types';
 import styles from './createUser.module.css';
 
 function UpdateUser() {
   const location = useLocation();
-  const userToUpdate = location.state.user;
+  const userToUpdate : User = location.state.user;
 
-  const [name, setname] = useState<string>(userToUpdate.name);
+  // TODO switch to formData
+  const [firstName, setFirstName] = useState<string>(userToUpdate.firstName);
+  const [lastName, setLastName] = useState<string>(userToUpdate.lastName);
   const [email, setemail] = useState<string>(userToUpdate.email);
   const [password, setpassword] = useState<string>(userToUpdate.password);
   const [role, setrole] = useState<Roles>(userToUpdate.role);
@@ -21,13 +23,14 @@ function UpdateUser() {
     e.preventDefault();
     const user: User = {
       id: userToUpdate.id,
-      name,
+      firstName,
+      lastName,
       email,
       role,
       password,
     };
-    const res = await UserService.updateUser(user);
-    alert.show(res.data.message);
+    const res = await UserService.update(user);
+    alert.show(res.message);
     navigate('/users');
   };
 
@@ -35,20 +38,34 @@ function UpdateUser() {
     <div className={styles.container}>
       <h1>
         Update
-        {userToUpdate.name}
+        {`${userToUpdate.firstName} ${userToUpdate.lastName}`}
       </h1>
       <form className={styles['form-horizontal']} onSubmit={updateUser}>
         <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="name">
+          <label className={styles['control-label']} htmlFor="firstName">
+            Voornaam
+            {' '}
+          </label>
+          <input
+            type="text"
+            name="firstName"
+            className={styles['form-control']}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="lastName">
             Naam
             {' '}
           </label>
           <input
             type="text"
-            name="name"
+            name="lastName"
             className={styles['form-control']}
-            value={name}
-            onChange={(e) => setname(e.target.value)}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
 

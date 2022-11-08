@@ -18,14 +18,15 @@ function UpdatePost() {
 
   const updatePost = async (e) => {
     e.preventDefault();
-    const newpost: Post = {
+    const updatedPost: Post = {
       id: post.id,
       title,
       content,
-      date: new Date(Date.now()),
+      // TODO review format - use default for now
+      // date: new Date(Date.now()),
     };
-    const res = await PostService.updatePost(newpost);
-    alert.show(res.data.message);
+    const res = await PostService.update(updatedPost);
+    alert.show(res.message);
     navigate('/nieuws');
   };
 

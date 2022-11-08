@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
-import UserService from '../../../service/userservice';
+import UserService from '../../../service/userService';
 import { Roles, User } from '../../../types';
 
 import styles from './createUser.module.css';
 
 function CreateUser() {
-  const [name, setname] = useState<string>('');
+  // TODO switch to formData
+  const [firstName, setFristName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
   const [email, setemail] = useState<string>('');
   const [password, setpassword] = useState<string>('');
   const [role, setrole] = useState<Roles>(Roles.BRAGGEL);
@@ -18,14 +20,14 @@ function CreateUser() {
   const createUser = async (e) => {
     e.preventDefault();
     const user: User = {
-      id: -1,
-      name,
+      firstName,
+      lastName,
       email,
       role,
       password,
     };
-    const res = await UserService.createUser(user);
-    alert.show(res.data.message);
+    const res = await UserService.create(user);
+    alert.show(res.message);
     navigate('/users');
   };
 
@@ -34,16 +36,30 @@ function CreateUser() {
       <h1>Add User</h1>
       <form className={styles['form-horizontal']} onSubmit={createUser}>
         <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="name">
+          <label className={styles['control-label']} htmlFor="firstName">
             Naam
             {' '}
           </label>
           <input
             type="text"
-            name="name"
+            name="firstName"
             className={styles['form-control']}
-            value={name}
-            onChange={(e) => setname(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFristName(e.target.value)}
+          />
+        </div>
+
+        <div className={styles['form-group']}>
+          <label className={styles['control-label']} htmlFor="lastName">
+            Achternaam
+            {' '}
+          </label>
+          <input
+            type="text"
+            name="lastName"
+            className={styles['form-control']}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
 

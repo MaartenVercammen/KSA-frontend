@@ -15,20 +15,20 @@ function Posts() {
   const navigate = useNavigate();
 
   const getPosts = async () => {
-    const res = await PostService.getPosts();
-    setNews(res.data);
+    const res = await PostService.getAll();
+    setNews(res);
   };
 
   useEffect(() => {
     getPosts();
   }, []);
 
-  const deletePost = async (index: number) => {
+  const deletePost = async (post: Post) => {
     // eslint-disable-next-line no-alert
     if (window.confirm('Delete post')) {
-      const res = await PostService.deletePost(index);
+      const res = await PostService.remove(post);
       getPosts();
-      alert.show(res.data.message);
+      alert.show(res.message);
     }
   };
 
@@ -40,51 +40,22 @@ function Posts() {
     <div className={styles.container}>
       <h1>Nieuwsberichten</h1>
       <div className={styles.grid}>
-        <NewsItem
-          key="id"
-          title="title"
-          date={new Date().toLocaleDateString()}
-          text="content"
-        />
-        <div className={styles['news-control-container']}>
-          <button type="button" onClick={() => deletePost(1)}>
-            Delete Nieuwsbericht
-          </button>
-          <button
-            type="button"
-            onClick={() => updatePost({
-              id: 1,
-              title: 'title',
-              content: '',
-              date: new Date(),
-            })}
-          >
-            Update Nieuwsbericht
-          </button>
-        </div>
         {news
-          && news.map(({
-            id, title, content, date,
-          }) => (
+          && news.map((post) => (
             <>
               <NewsItem
-                key={id}
-                title={title}
-                date={new Date(date).toLocaleDateString()}
-                text={content}
+                key={post.id}
+                title={post.title}
+                date={new Date(post.date!).toLocaleDateString()}
+                text={post.content}
               />
               <div className={styles['news-control-container']}>
-                <button type="button" onClick={() => deletePost(id)}>
+                <button type="button" onClick={() => deletePost(post)}>
                   Delete Nieuwsbericht
                 </button>
                 <button
                   type="button"
-                  onClick={() => updatePost({
-                    id,
-                    title,
-                    content,
-                    date,
-                  })}
+                  onClick={() => updatePost(post)}
                 >
                   Update Nieuwsbericht
                 </button>

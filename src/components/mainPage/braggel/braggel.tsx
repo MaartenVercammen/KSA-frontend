@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import FileService from '../../../service/fileService';
+import React, { useEffect, useState } from 'react';
+import { Magazine as IMagazine, MagazineTypes } from '../../../types';
+import MagazineService from '../../../service/magazineService';
 import styles from './braggel.module.css';
 
 function Braggel() {
-  const [braggels, setbraggels] = useState<string[]>([]);
-  const [specialBraggels, setspecialBraggels] = useState<string[]>([]);
+  const [monthlies, setMonthlies] = useState<IMagazine[]>([]);
+  const [specials, setSpecials] = useState<IMagazine[]>([]);
 
   const getActiveBraggels = async () => {
-    const res = await FileService.getBraggels('braggels');
-    const { data } = res;
-    setbraggels(data);
+    const res = await MagazineService.getAll(MagazineTypes.MONTHLY);
+    setMonthlies(res);
   };
 
   const getSpecialBraggels = async () => {
-    const res = await FileService.getBraggels('specialebraggels');
-    const { data } = res;
-    setspecialBraggels(data);
+    const res = await MagazineService.getAll(MagazineTypes.SPECIAL);
+    setSpecials(res);
   };
 
   const getBragels = () => {
@@ -44,32 +43,32 @@ function Braggel() {
         onze Kampbraggel terugvinden. Alvast veel leesplezier!
       </p>
       <h2>Maandelijkse edities</h2>
-      {braggels
-        && braggels.map((braggel) => (
+      {monthlies
+        && monthlies.map(({ id, title, path }) => (
           <a
-            key={braggel}
+            key={id}
             target="_blank"
-            href={`${process.env.API_URL}/pdf/braggels/${braggel}`}
+            href={`${process.env.BASE_URL}${path}`}
             rel="noreferrer"
           >
-            {braggel}
+            {title}
           </a>
         ))}
-      {!braggels && <p>er zijn op dit moment geen braggels</p>}
+      {monthlies.length === 0 && <p>er zijn op dit moment geen braggels</p>}
 
       <h3>Speciale edities</h3>
-      {specialBraggels
-        && specialBraggels.map((braggel) => (
+      {specials
+        && specials.map(({ id, title, path }) => (
           <a
-            key={braggel}
+            key={id}
             target="_blank"
-            href={`${process.env.API_URL}/pdf/specialebraggels/${braggel}`}
+            href={`${process.env.BASE_URL}${path}`}
             rel="noreferrer"
           >
-            {braggel}
+            {title}
           </a>
         ))}
-      {!specialBraggels && <p>er zijn op dit moment geen braggels</p>}
+      {specials.length === 0 && <p>er zijn op dit moment geen braggels</p>}
     </div>
   );
 }

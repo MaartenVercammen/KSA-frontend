@@ -13,23 +13,23 @@ function AddPosts() {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const addpost = async (e) => {
+  const addPost = async (e) => {
     e.preventDefault();
     const post: Post = {
-      id: -1,
       title,
       content,
-      date: new Date(Date.now()),
+      // TODO review format - use default for now
+      // date: new Date(Date.now()),
     };
-    const res = await PostService.uploadPost(post);
-    alert.show(res.data.message);
+    const res = await PostService.create(post);
+    alert.show(res.message);
     navigate('/nieuws');
   };
 
   return (
     <div className={styles.container}>
       <h1>Voeg nieuws item toe</h1>
-      <form onSubmit={addpost}>
+      <form onSubmit={addPost}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
