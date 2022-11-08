@@ -17,9 +17,7 @@ module.exports = {
       template: 'src/index.html',
       favicon: 'src/favicon.png',
     }),
-    new Dotenv({
-      path: '.env.dev', // Path to .env file (this is the default)
-    }),
+    new Dotenv(),
   ],
   optimization: {
     // Readable IDs are better for debugging

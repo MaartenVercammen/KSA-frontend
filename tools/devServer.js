@@ -1,15 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
-const dotenv = require('dotenv');
 const path = require('path');
 const config = require('../webpack.dev');
 
 const bundler = webpack(config);
-
-dotenv.config({
-  path: '.env',
-});
 
 const server = new WebpackDevServer({
   historyApiFallback: true,
@@ -20,7 +15,12 @@ const server = new WebpackDevServer({
     directory: path.join(__dirname, '/public'),
   },
   proxy: {
-    '/images': 'http://localhost:3005',
+    '/images': `${process.env.DEV_SERVER_URL}`,
+    '/pdf': `${process.env.DEV_SERVER_URL}/uploads`,
+    '/file': `${process.env.DEV_SERVER_URL}`,
+    '/user': `${process.env.DEV_SERVER_URL}`,
+    '/auth': `${process.env.DEV_SERVER_URL}`,
+    '/post': `${process.env.DEV_SERVER_URL}`,
   },
 }, bundler);
 

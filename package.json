@@ -4,7 +4,7 @@
   "description": "ksa frontend",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "node tools/devServer.js",
+    "start": "node --require dotenv/config tools/devServer.js",
     "prebuild": "shx rm -rf dist && mkdir dist",
     "build": "node tools/build.js",
     "lint:css": "stylelint **/*.css",
