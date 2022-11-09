@@ -13,7 +13,7 @@ function Socials() {
         <a href="https://www.facebook.com/KSA.Aarschot">
           <Facebook className={`${styles.fa} ${styles['fa-facebook']}`} />
         </a>
-        <a href="https://www.instagram.com/ksa_aarschot/">
+        <a href="src/scenes/mainPage/contact/socials">
           <Instagram className={`${styles.fa} ${styles['fa-instagram']}`} />
         </a>
       </div>

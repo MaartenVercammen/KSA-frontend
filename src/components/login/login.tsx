@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
-import AuthService from '../../../service/authService';
+import AuthService from '../../service/authService';
 
 import styles from './login.module.css';
 

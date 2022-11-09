@@ -5,9 +5,9 @@ import {
   transitions, positions, types, Provider as AlertProvider,
 } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
-import Spinner from './components/helper/spinner/spinner';
+import Spinner from './components/spinner/spinner';
 
-import './css/index.css';
+import './index.css';
 
 const App = lazy(() => import('./App'));
 

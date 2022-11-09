@@ -68,7 +68,7 @@
 
 @font-face {
   font-family: "KG Second Chances Sketch";
-  src: url("/fonts/KGSecondChancesSketch.ttf");
+  src: url("./fonts/KGSecondChancesSketch.ttf");
 }
 
 @font-face {
@@ -76,7 +76,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/Montserrat.woff2") format("woff2");
+  src: url("./fonts/Montserrat.woff2") format("woff2");
   unicode-range:
     U+0000-00FF,
     U+0131,
@@ -102,7 +102,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/Montserrat.woff2") format("woff2");
+  src: url("./fonts/Montserrat.woff2") format("woff2");
   unicode-range:
     U+0000-00FF,
     U+0131,

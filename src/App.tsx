@@ -1,22 +1,22 @@
 import React, { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './css/index.css';
+import './index.css';
 import { Groep, Roles } from './types';
 
-const Dashboard = lazy(() => import('./components/dashboard/dashboard'));
+const Dashboard = lazy(() => import('./scenes/dashboard/dashboard'));
 const Logout = lazy(() => import('./components/helper/logout'));
-const Index = lazy(() => import('./components/index'));
-const LeidingNummers = lazy(() => import('./components/mainPage/leeftijden/leidingNummers'));
-const Login = lazy(() => import('./components/helper/login/login'));
+const Index = lazy(() => import('./scenes'));
+const LeidingNummers = lazy(() => import('./scenes/mainPage/leeftijden/leidingNummers'));
+const Login = lazy(() => import('./components/login/login'));
 const ProtectedRoutes = lazy(() => import('./components/helper/protectedRoutes'));
 const Footer = lazy(() => import('./components/footer/footer'));
-const UploadBraggels = lazy(() => import('./components/dashboard/braggel/uploadBraggels'));
-const UserOverview = lazy(() => import('./components/dashboard/users/userOverview'));
-const UpdateUser = lazy(() => import('./components/dashboard/users/updateUser'));
-const CreateUser = lazy(() => import('./components/dashboard/users/createUser'));
-const Posts = lazy(() => import('./components/dashboard/posts/posts'));
-const AddPosts = lazy(() => import('./components/dashboard/posts/addPosts'));
-const UpdatePost = lazy(() => import('./components/dashboard/posts/updatePost'));
+const UploadBraggels = lazy(() => import('./scenes/dashboard/braggel/uploadBraggels'));
+const UserOverview = lazy(() => import('./scenes/dashboard/users/userOverview'));
+const UpdateUser = lazy(() => import('./scenes/dashboard/users/updateUser'));
+const CreateUser = lazy(() => import('./scenes/dashboard/users/createUser'));
+const Posts = lazy(() => import('./scenes/dashboard/posts/posts'));
+const AddPosts = lazy(() => import('./scenes/dashboard/posts/addPosts'));
+const UpdatePost = lazy(() => import('./scenes/dashboard/posts/updatePost'));
 
 function App() {
   const setToken = (userToken: object) => {
