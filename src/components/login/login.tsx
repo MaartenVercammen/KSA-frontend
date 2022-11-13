@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { lazy, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AuthService from '../../service/authService';
 import ToastManager from '../toast/ToastManager';
@@ -9,10 +9,10 @@ type Props = {
   setToken: (user: object) => void;
 };
 
+const Input = lazy(() => import('../form/input'));
+
 function Login({ setToken }: Props) {
   const form = useRef<HTMLFormElement>(null);
-  const [email, setemail] = useState<string>('');
-  const [password, setpassword] = useState<string>('');
   const navigate = useNavigate();
 
   if (sessionStorage.getItem('user') != null) {
@@ -21,14 +21,12 @@ function Login({ setToken }: Props) {
 
   const login = async () => {
     try {
-      if (form.current) {
-        const { type, user } = await AuthService.login(new FormData(form.current));
-        if (type === 'valid') {
-          setToken(user);
-          navigate('/braggel');
-        }
+      const { type, user } = await AuthService.login(new FormData(form.current!));
+      if (type === 'valid') {
+        setToken(user);
+        navigate('/braggel');
       }
-    } catch (err) {
+    } catch (err: unknown) {
       ToastManager.showToast({ label: 'Invalid input', variant: 'error' });
     }
   };
@@ -43,27 +41,9 @@ function Login({ setToken }: Props) {
       <div className={styles['login-container']}>
         <h1>login</h1>
         <form onSubmit={handleSubmit} ref={form}>
-          <div>
-            <label htmlFor="email">email</label>
-            <input
-              name="email"
-              type="email"
-              value={email}
-              onChange={(e) => setemail(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">password</label>
-            <input
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setpassword(e.target.value)}
-            />
-          </div>
-          <div className={styles['login-submit-container']}>
-            <button type="submit">Login</button>
-          </div>
+          <Input label="e-mail" name="email" required />
+          <Input label="wachtwoord" name="password" type="password" required />
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
