@@ -46,6 +46,10 @@
   --news-item-background: rgb(var(--color-lighter-orange));
   --news-item-color: rgb(var(--color-white));
   --news-item-link-hover-color: rgb(var(--color-dark-blue));
+  --notification-error-background: rgb(var(--dark-functional-red));
+  --notification-error-color: rgb(var(--color-white));
+  --notification-success-background: rgb(var(--dark-functional-green));
+  --notification-success-color: rgb(var(--color-white));
   --colour-four: rgb(var(--color-lighter-orange));
   --spinner-color: rgb(var(--color-darker-orange));
 

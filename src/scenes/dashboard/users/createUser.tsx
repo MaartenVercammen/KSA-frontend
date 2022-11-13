@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
 import { Roles, User } from '../../../types';
 
 import styles from './createUser.module.css';
+import ToastManager from '../../../components/toast/ToastManager';
 
 function CreateUser() {
   // TODO switch to formData
@@ -14,21 +14,28 @@ function CreateUser() {
   const [password, setpassword] = useState<string>('');
   const [role, setrole] = useState<Roles>(Roles.BRAGGEL);
 
-  const alert = useAlert();
   const navigate = useNavigate();
 
   const createUser = async (e) => {
-    e.preventDefault();
-    const user: User = {
-      firstName,
-      lastName,
-      email,
-      role,
-      password,
-    };
-    const res = await UserService.create(user);
-    alert.show(res.message);
-    navigate('/users');
+    try {
+      e.preventDefault();
+      const user: User = {
+        firstName,
+        lastName,
+        email,
+        role,
+        password,
+      };
+      const res = await UserService.create(user);
+      ToastManager.showToast({ label: res.message, variant: res.type });
+      navigate('/users');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   return (

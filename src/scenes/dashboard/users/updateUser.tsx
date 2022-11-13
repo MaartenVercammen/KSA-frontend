@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAlert } from 'react-alert';
 import { useLocation, useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
 import { Roles, User } from '../../../types';
 import styles from './createUser.module.css';
+import ToastManager from '../../../components/toast/ToastManager';
 
 function UpdateUser() {
   const location = useLocation();
@@ -16,22 +16,29 @@ function UpdateUser() {
   const [password, setpassword] = useState<string>(userToUpdate.password);
   const [role, setrole] = useState<Roles>(userToUpdate.role);
 
-  const alert = useAlert();
   const navigate = useNavigate();
 
   const updateUser = async (e) => {
-    e.preventDefault();
-    const user: User = {
-      id: userToUpdate.id,
-      firstName,
-      lastName,
-      email,
-      role,
-      password,
-    };
-    const res = await UserService.update(user);
-    alert.show(res.message);
-    navigate('/users');
+    try {
+      e.preventDefault();
+      const user: User = {
+        id: userToUpdate.id,
+        firstName,
+        lastName,
+        email,
+        role,
+        password,
+      };
+      const res = await UserService.update(user);
+      ToastManager.showToast({ label: res.message, variant: res.type });
+      navigate('/users');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   return (

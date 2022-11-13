@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
+import ToastManager from '../../../components/toast/ToastManager';
 import { User } from '../../../types';
 
 import styles from './userOverview.module.css';
@@ -9,12 +9,19 @@ import styles from './userOverview.module.css';
 function UserOverview() {
   const [users, setUsers] = useState<User[]>([]);
 
-  const alert = useAlert();
   const navigate = useNavigate();
 
   const getUsers = async () => {
-    const res = await UserService.getAll();
-    setUsers(res);
+    try {
+      const res = await UserService.getAll();
+      setUsers(res);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   useEffect(() => {
@@ -26,11 +33,19 @@ function UserOverview() {
   };
 
   const deleteUser = async (user: User) => {
-    // eslint-disable-next-line no-alert
-    if (window.confirm('Delete user')) {
-      const res = await UserService.remove(user);
-      alert.show(res.message);
-      getUsers();
+    try {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Delete user')) {
+        const res = await UserService.remove(user);
+        ToastManager.showToast({ label: res.message, variant: res.type });
+        getUsers();
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
     }
   };
 

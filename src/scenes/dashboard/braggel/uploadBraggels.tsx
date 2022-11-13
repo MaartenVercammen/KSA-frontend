@@ -1,11 +1,11 @@
 import React, {
   lazy, useEffect, useRef, useState,
 } from 'react';
-import { useAlert } from 'react-alert';
 import MagazineService from '../../../service/magazineService';
 
 import styles from './uploadBraggels.module.css';
 import { Magazine as IMagazine, MagazineTypes } from '../../../types';
+import ToastManager from '../../../components/toast/ToastManager';
 
 const BraggelUploadForm = lazy(() => import('./braggelUploadForm'));
 
@@ -14,8 +14,6 @@ function UploadBraggels() {
   const specialMagazineForm = useRef<HTMLFormElement>(null);
   const [monthlies, setMonthlies] = useState<IMagazine[]>([]);
   const [specials, setSpecials] = useState<IMagazine[]>([]);
-
-  const alert = useAlert();
 
   const fetchMonthlies = async () => {
     const res = await MagazineService.getAll(MagazineTypes.MONTHLY);
@@ -28,8 +26,16 @@ function UploadBraggels() {
   };
 
   const fetchMagazines = () => {
-    fetchMonthlies();
-    fetchSpecials();
+    try {
+      fetchMonthlies();
+      fetchSpecials();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   useEffect(() => {
@@ -38,12 +44,15 @@ function UploadBraggels() {
 
   const removeMagazine = async (magazine: IMagazine) => {
     try {
-      console.log(magazine);
       const res = await MagazineService.remove(magazine);
-      alert.show(`${res.message} ${magazine.title}`);
+      ToastManager.showToast({ label: res.message, variant: res.type });
       fetchMagazines();
-    } catch (error: any) {
-      alert.error(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
     }
   };
 
@@ -54,11 +63,18 @@ function UploadBraggels() {
         // TODO rework file validation
         const formData = new FormData(monthlyMagazineForm.current);
         const res = await MagazineService.upload(formData);
-        alert.show(`${res.message} ${monthlyMagazineForm.current.file.value.slice(12)}`);
+        ToastManager.showToast({
+          label: `${res.message} ${monthlyMagazineForm.current.file.value.slice(12)}`,
+          variant: res.type,
+        });
         fetchMagazines();
       }
-    } catch (error: any) {
-      alert.error(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
     }
   };
 
@@ -69,11 +85,18 @@ function UploadBraggels() {
         // TODO rework file validation
         const formData = new FormData(specialMagazineForm.current);
         const res = await MagazineService.upload(formData);
-        alert.show(`${res.message} ${specialMagazineForm.current.file.value.slice(12)}`);
+        ToastManager.showToast({
+          label: `${res.message} ${specialMagazineForm.current.file.value.slice(12)}`,
+          variant: res.type,
+        });
         fetchSpecials();
       }
-    } catch (error: any) {
-      alert.error(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
     }
   };
 

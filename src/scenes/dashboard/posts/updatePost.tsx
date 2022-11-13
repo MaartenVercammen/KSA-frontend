@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useAlert } from 'react-alert';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MDEditor from '@uiw/react-md-editor';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
 import styles from './addPost.module.css';
+import ToastManager from '../../../components/toast/ToastManager';
 
 function UpdatePost() {
   const location = useLocation();
@@ -13,21 +13,28 @@ function UpdatePost() {
   const [title, settitle] = useState(post.title);
   const [content, setcontent] = useState(post.content);
 
-  const alert = useAlert();
   const navigate = useNavigate();
 
   const updatePost = async (e) => {
-    e.preventDefault();
-    const updatedPost: Post = {
-      id: post.id,
-      title,
-      content,
-      // TODO review format - use default for now
-      // date: new Date(Date.now()),
-    };
-    const res = await PostService.update(updatedPost);
-    alert.show(res.message);
-    navigate('/nieuws');
+    try {
+      e.preventDefault();
+      const updatedPost: Post = {
+        id: post.id,
+        title,
+        content,
+        // TODO review format - use default for now
+        // date: new Date(Date.now()),
+      };
+      const res = await PostService.update(updatedPost);
+      ToastManager.showToast({ label: res.message, variant: res.type });
+      navigate('/nieuws');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   return (

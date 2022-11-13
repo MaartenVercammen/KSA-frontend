@@ -1,22 +1,29 @@
 import React, { useState, useEffect, lazy } from 'react';
-import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import { Post } from '../../../types';
 
 import styles from './posts.module.css';
+import ToastManager from '../../../components/toast/ToastManager';
 
 const NewsItem = lazy(() => import('../../mainPage/news/newsItem'));
 
 function Posts() {
   const [news, setNews] = useState<Post[]>([]);
 
-  const alert = useAlert();
   const navigate = useNavigate();
 
   const getPosts = async () => {
-    const res = await PostService.getAll();
-    setNews(res);
+    try {
+      const res = await PostService.getAll();
+      setNews(res);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        ToastManager.showToast({ label: err.message, variant: 'error' });
+      } else {
+        ToastManager.showToast({ label: 'Unknown error occurred!', variant: 'error' });
+      }
+    }
   };
 
   useEffect(() => {
@@ -28,7 +35,7 @@ function Posts() {
     if (window.confirm('Delete post')) {
       const res = await PostService.remove(post);
       getPosts();
-      alert.show(res.message);
+      ToastManager.showToast({ label: res.message, variant: res.type });
     }
   };
 

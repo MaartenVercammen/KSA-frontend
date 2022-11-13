@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { useAlert } from 'react-alert';
 import AuthService from '../../service/authService';
+import ToastManager from '../toast/ToastManager';
 
 import styles from './login.module.css';
 
@@ -14,7 +14,6 @@ function Login({ setToken }: Props) {
   const [email, setemail] = useState<string>('');
   const [password, setpassword] = useState<string>('');
   const navigate = useNavigate();
-  const alert = useAlert();
 
   if (sessionStorage.getItem('user') != null) {
     return <Navigate to="/dashboard" />;
@@ -30,7 +29,7 @@ function Login({ setToken }: Props) {
         }
       }
     } catch (err) {
-      alert.show('Invalid input');
+      ToastManager.showToast({ label: 'Invalid input', variant: 'error' });
     }
   };
 
