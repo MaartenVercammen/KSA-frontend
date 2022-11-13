@@ -1,32 +1,20 @@
-import React, { useState } from 'react';
+import React, { lazy, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
-import { Roles, User } from '../../../types';
 
 import styles from './createUser.module.css';
 import ToastManager from '../../../components/toast/ToastManager';
 
-function CreateUser() {
-  // TODO switch to formData
-  const [firstName, setFristName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
-  const [email, setemail] = useState<string>('');
-  const [password, setpassword] = useState<string>('');
-  const [role, setrole] = useState<Roles>(Roles.BRAGGEL);
+const UserForm = lazy(() => import('../../../components/forms/userForm'));
 
+function CreateUser() {
+  const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
 
   const createUser = async (e) => {
     try {
       e.preventDefault();
-      const user: User = {
-        firstName,
-        lastName,
-        email,
-        role,
-        password,
-      };
-      const res = await UserService.create(user);
+      const res = await UserService.create(new FormData(form.current!));
       ToastManager.showToast({ label: res.message, variant: res.type });
       navigate('/users');
     } catch (err: unknown) {
@@ -41,84 +29,11 @@ function CreateUser() {
   return (
     <div className={styles.container}>
       <h1>Add User</h1>
-      <form className={styles['form-horizontal']} onSubmit={createUser}>
-        <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="firstName">
-            Naam
-            {' '}
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            className={styles['form-control']}
-            value={firstName}
-            onChange={(e) => setFristName(e.target.value)}
-          />
-        </div>
-
-        <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="lastName">
-            Achternaam
-            {' '}
-          </label>
-          <input
-            type="text"
-            name="lastName"
-            className={styles['form-control']}
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-
-        <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="email">
-            Email
-            {' '}
-          </label>
-          <input
-            type="email"
-            name="email"
-            className={styles['form-control']}
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-          />
-        </div>
-
-        <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="password">
-            Password
-            {' '}
-          </label>
-          <input
-            type="password"
-            name="password"
-            className={styles['form-control']}
-            required
-            minLength={8}
-            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-            title="Password moet 1 hoofdldetter en 1 kleine letter bevatten, minstens 8 karakters lang zijn en 1 getal bevatten"
-            value={password}
-            onChange={(e) => setpassword(e.target.value)}
-          />
-        </div>
-        <div className={styles['form-group']}>
-          <label className={styles['control-label']} htmlFor="role">
-            Role
-          </label>
-          <select
-            name="role"
-            className={`${styles['form-control']} ${styles['form-select']}`}
-            defaultValue={Roles.BRAGGEL}
-            onChange={(e) => setrole(Roles[e.target.value])}
-          >
-            <option value={Roles.ADMIN}>Admin</option>
-            <option value={Roles.BONDS}>Bonds</option>
-            <option value={Roles.BRAGGEL}>BraggelTeam</option>
-          </select>
-        </div>
-
-        <button type="submit">Toevoegen</button>
-      </form>
+      <UserForm
+        buttonLabel="Toevoegen"
+        onSubmit={createUser}
+        ref={form}
+      />
     </div>
   );
 }

@@ -18,7 +18,7 @@ function NavbarDashboard({ isAllowed }: Props) {
       <span>
         Dashboard
       </span>
-      <input type="checkbox" id="navbar-toggle" checked={navdropdown} />
+      <input type="checkbox" id="navbar-toggle" checked={navdropdown} readOnly/>
       <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
       <nav className={styles.menu}>
         <ul>
