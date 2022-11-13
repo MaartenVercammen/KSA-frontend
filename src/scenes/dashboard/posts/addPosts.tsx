@@ -1,27 +1,20 @@
-import React, { useState } from 'react';
-import MDEditor from '@uiw/react-md-editor';
+import React, { lazy, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import ToastManager from '../../../components/toast/ToastManager';
-import { Post } from '../../../types';
+
 import styles from './addPost.module.css';
 
-function AddPosts() {
-  const [title, settitle] = useState('');
-  const [content, setcontent] = useState('');
+const PostForm = lazy(() => import('../../../components/forms/postForm'));
 
+function AddPosts() {
   const navigate = useNavigate();
+  const form = useRef<HTMLFormElement>(null);
 
   const addPost = async (e) => {
     try {
       e.preventDefault();
-      const post: Post = {
-        title,
-        content,
-        // TODO review format - use default for now
-        // date: new Date(Date.now()),
-      };
-      const res = await PostService.create(post);
+      const res = await PostService.create(new FormData(form.current!));
       ToastManager.showToast({ label: res.message, variant: res.type });
       navigate('/nieuws');
     } catch (err: unknown) {
@@ -36,21 +29,11 @@ function AddPosts() {
   return (
     <div className={styles.container}>
       <h1>Voeg nieuws item toe</h1>
-      <form onSubmit={addPost}>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          name="title"
-          required
-          value={title}
-          onChange={(e) => settitle(e.target.value)}
-        />
-
-        <label htmlFor="content">bericht</label>
-        <MDEditor value={content} onChange={(e) => setcontent(e || '')} />
-
-        <button type="submit">Nieuwsbericht toevoegen</button>
-      </form>
+      <PostForm
+        buttonLabel="Toevoegen"
+        onSubmit={addPost}
+        ref={form}
+      />
     </div>
   );
 }

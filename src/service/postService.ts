@@ -12,14 +12,11 @@ async function getAll() {
   throw Error(`Error performing fetch, status was ${response.status}`);
 }
 
-async function create(post: Post) {
+async function create(formData: FormData) {
   const response = await fetch(SERVICE_URL, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
     method: 'post',
     credentials: 'include',
-    body: JSON.stringify({ post }),
+    body: formData,
   });
 
   if (response.status === 200) {
@@ -34,14 +31,11 @@ async function create(post: Post) {
   throw Error(`Error performing fetch, status was ${response.status}`);
 }
 
-async function update(post: Post) {
+async function update(formData: FormData) {
   const response = await fetch(SERVICE_URL, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
     method: 'put',
     credentials: 'include',
-    body: JSON.stringify({ post }),
+    body: formData,
   });
 
   if (response.status === 200) {
