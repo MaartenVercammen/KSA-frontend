@@ -10,7 +10,7 @@ module.exports = {
   },
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, './dist/build/'),
+    path: path.resolve(__dirname, './dist/'),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -31,9 +31,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-    new Dotenv({
-      path: '.env.production', // Path to .env file (this is the default)
-    }),
+    new Dotenv(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
