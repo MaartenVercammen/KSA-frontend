@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type Props = {
   setMobileMenuOpen : (bool) => void,
@@ -8,17 +8,14 @@ type Props = {
 };
 
 function NavbarLink({ setMobileMenuOpen, name, url } : Props) {
-  const navigate = useNavigate();
   return (
     <li>
-      <a
-        onClick={() => {
-          setMobileMenuOpen(false);
-          navigate(url);
-        }}
+      <Link
+        to={url}
+        onClick={() => { setMobileMenuOpen(false); }}
       >
         {name}
-      </a>
+      </Link>
     </li>
   );
 }

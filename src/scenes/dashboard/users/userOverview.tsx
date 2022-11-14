@@ -84,11 +84,9 @@ function UserOverview() {
                         ))}
         </tbody>
       </table>
-      <div className="button">
-        <p>
-          <a onClick={() => navigate('/users/create')}>Add User</a>
-        </p>
-      </div>
+      <button type="button" role="link" onClick={() => navigate('/user/create')}>
+        Gebruiker toevoegen
+      </button>
     </div>
   );
 }

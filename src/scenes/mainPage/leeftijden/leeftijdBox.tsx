@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { KeyboardEventHandler, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './leeftijdsBox.module.css';
@@ -17,12 +17,22 @@ function LeeftijdBox({
   endAge,
 }: Props) {
   const navigate = useNavigate();
+
+  const onKeyDown : KeyboardEventHandler<HTMLDivElement> = (
+    event: KeyboardEvent<HTMLDivElement>,
+  ) => {
+    if (event.key === 'Enter') {
+      navigate(`/leiders/${name}`);
+    }
+  };
+
   return (
     <div
       className={styles.box}
       style={{ backgroundImage: `url(${img})` }}
       role="link"
       onClick={() => navigate(`/leiders/${name}`)}
+      onKeyDown={onKeyDown}
       tabIndex={0}
     >
       <h4>{name}</h4>
