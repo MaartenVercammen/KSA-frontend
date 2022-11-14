@@ -58,7 +58,7 @@
   --input-label-margin-left: 8px;
   --input-margin: 8px 0 4px 0;
   --input-padding: 8px 12px;
-  --input-height: 40px;
+  --input-height: 53px;
   --input-border-radius: 5px;
 
   /* site specific */
@@ -66,8 +66,6 @@
   --navbar-height: 70px;
   --navbar-padding: 0 1rem;
   --braggel-background: rgb(var(--color-dark-blue));
-
-  /* Markdown editor */
 }
 
 @font-face {
@@ -204,17 +202,6 @@ button {
   }
 }
 
-.error {
-  color: red;
-}
-
-.ok {
-  color: greenyellow;
-  background-color: rgb(var(--color-dark-blue));
-  border-radius: 0.5rem;
-  padding: 1rem;
-}
-
 h1,
 h2,
 h3,
@@ -226,6 +213,9 @@ h6 {
 
 input,
 select {
+  box-sizing: border-box;
+
+  /* TODO: extract border */
   border: 2px solid var(--input-border-inactive);
   border-radius: var(--input-border-radius);
   color: inherit;
@@ -268,28 +258,26 @@ select {
   }
 }
 
-form {
-  & > label {
-    display: flex;
-    flex-direction: column;
+label {
+  display: flex;
+  flex-direction: column;
 
-    & > span {
-      margin-left: var(--input-label-margin-left);
+  & > span {
+    margin-left: var(--input-label-margin-left);
 
-      &.label-text {
-        font-variation-settings: "wght" 600;
-        font-weight: 600;
-      }
+    &.label-text {
+      font-variation-settings: "wght" 600;
+      font-weight: 600;
+    }
 
-      &.helper-text {
-        color: var(--form-input-helper-text);
-      }
+    &.helper-text {
+      color: var(--form-input-helper-text);
+    }
 
-      &.hint {
-        font-size: 0.8rem;
-        color: var(--form-input-helper-text);
-        margin-left: auto;
-      }
+    &.hint {
+      font-size: 0.8rem;
+      color: var(--form-input-helper-text);
+      margin-left: auto;
     }
   }
 }
