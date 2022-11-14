@@ -1,24 +1,29 @@
 .row {
+  align-items: center;
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
+  margin: 1rem 0;
+
+  & > a {
+    display: flex;
+
+    & svg {
+      width: 4rem;
+    }
+
+    &:hover {
+      & svg {
+        fill-opacity: 0.7;
+      }
+    }
+  }
 }
 
-.fa {
-  padding: 20px;
-  font-size: 40px;
-  width: 60px;
-  text-decoration: none;
-  margin: 5px 80px;
-}
-
-.fa:hover {
-  opacity: 0.7;
-}
-
-.fa-facebook {
+.facebook {
   fill: #3b5998;
 }
 
-.fa-instagram {
+.instagram {
   fill: #125688;
 }

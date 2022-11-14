@@ -11,10 +11,10 @@ function Socials() {
       <h2>Volg ons op onze socials</h2>
       <div className={styles.row}>
         <a href="https://www.facebook.com/KSA.Aarschot">
-          <Facebook className={`${styles.fa} ${styles['fa-facebook']}`} />
+          <Facebook className={styles.facebook} />
         </a>
         <a href="src/scenes/mainPage/contact/socials">
-          <Instagram className={`${styles.fa} ${styles['fa-instagram']}`} />
+          <Instagram className={styles.instagram} />
         </a>
       </div>
     </>
