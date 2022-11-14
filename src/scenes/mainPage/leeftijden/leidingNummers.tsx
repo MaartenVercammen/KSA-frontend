@@ -3,7 +3,7 @@ import { Groep, LeidingNummer } from '../../../types';
 
 import styles from './leidingNummers.module.css';
 
-const NavBar = lazy(() => import('../../../components/header/navbar'));
+const NavBar = lazy(() => import('../../../components/navbar/navbar'));
 const Card = lazy(() => import('../../../components/card/card'));
 
 type Props = {

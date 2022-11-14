@@ -57,6 +57,34 @@
     }
   }
 
+  & label > input[type="checkbox"] {
+    display: none;
+  }
+
+  &:has(> label > input[type="checkbox"]:checked) {
+    & .menu {
+      visibility: visible;
+      opacity: 1;
+      background: var(--navbar-background);
+    }
+
+    & label {
+      & i {
+        background: transparent;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
   & .toggle-button {
     margin-left: auto;
     z-index: 3;
@@ -94,34 +122,6 @@
 
     @media (min-width: 768px) {
       display: none;
-    }
-  }
-
-  & > input[type="checkbox"] {
-    display: none;
-
-    &:checked {
-      & ~ .menu {
-        visibility: visible;
-        opacity: 1;
-        background: var(--navbar-background);
-      }
-
-      & ~ label {
-        & i {
-          background: transparent;
-
-          &::before {
-            top: 0;
-            transform: rotate(45deg);
-          }
-
-          &::after {
-            top: 0;
-            transform: rotate(-45deg);
-          }
-        }
-      }
     }
   }
 }

@@ -2,7 +2,7 @@ import React, { lazy } from 'react';
 
 const Body = lazy(() => import('./mainPage/body'));
 const Header = lazy(() => import('../components/header/header'));
-const NavBar = lazy(() => import('../components/header/navbar'));
+const NavBar = lazy(() => import('../components/navbar/navbar'));
 
 function Index() {
   return (

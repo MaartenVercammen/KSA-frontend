@@ -2,7 +2,7 @@ import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Roles } from '../../types';
 
-const NavbarDashboard = lazy(() => import('./navbarDashboard'));
+const NavbarDashboard = lazy(() => import('../../components/navbar/navbarDashboard'));
 
 type Props = {
   element: React.ReactNode,

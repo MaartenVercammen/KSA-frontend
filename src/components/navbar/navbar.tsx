@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 
 import styles from './navbar.module.css';
@@ -9,14 +9,21 @@ function NavBar() {
     const yOffset = -60;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
   };
-
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   return (
     <div className={styles.navbar}>
       <HashLink smooth to="/#top">
         KSA Aarschot
       </HashLink>
-      <input type="checkbox" id="navbar-toggle" />
-      <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
+      <label className={styles['toggle-button']} htmlFor="navbar-toggle">
+        <input
+          type="checkbox"
+          id="navbar-toggle"
+          checked={isMobileMenuOpen}
+          onChange={() => setMobileMenuOpen(!isMobileMenuOpen)}
+        />
+        <i />
+      </label>
       <nav className={styles.menu}>
         <ul>
           <li>
@@ -24,6 +31,7 @@ function NavBar() {
               smooth
               to="/#news"
               scroll={scrollWithOffset}
+              onClick={() => setMobileMenuOpen(false)}
             >
               News
             </HashLink>
@@ -33,6 +41,7 @@ function NavBar() {
               smooth
               to="/#braggel"
               scroll={scrollWithOffset}
+              onClick={() => setMobileMenuOpen(false)}
             >
               Braggel
             </HashLink>
@@ -42,6 +51,7 @@ function NavBar() {
               smooth
               to="/#leeftijden"
               scroll={scrollWithOffset}
+              onClick={() => setMobileMenuOpen(false)}
             >
               Leeftijden
             </HashLink>
@@ -51,6 +61,7 @@ function NavBar() {
               smooth
               to="/#contact"
               scroll={scrollWithOffset}
+              onClick={() => setMobileMenuOpen(false)}
             >
               Contact
             </HashLink>

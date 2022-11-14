@@ -2,18 +2,18 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  setnav : (bool) => void,
+  setMobileMenuOpen : (bool) => void,
   name : string,
   url: string,
 };
 
-function NavbarLink({ setnav, name, url } : Props) {
+function NavbarLink({ setMobileMenuOpen, name, url } : Props) {
   const navigate = useNavigate();
   return (
     <li>
       <a
         onClick={() => {
-          setnav(false);
+          setMobileMenuOpen(false);
           navigate(url);
         }}
       >

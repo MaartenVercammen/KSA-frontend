@@ -2,7 +2,7 @@ import React, { lazy, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Roles } from '../../types';
 
-import styles from './navbarDashboard.module.css';
+import styles from './navbar.module.css';
 
 const NavbarLink = lazy(() => import('./navbarLink'));
 
@@ -11,25 +11,32 @@ type Props = {
 };
 
 function NavbarDashboard({ isAllowed }: Props) {
-  const [navdropdown, setnavdropdown] = useState<boolean>(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (
     <div className={styles.navbar}>
       <span>
         Dashboard
       </span>
-      <input type="checkbox" id="navbar-toggle" checked={navdropdown} readOnly/>
-      <label className={styles['toggle-button']} htmlFor="navbar-toggle"><i /></label>
+      <label className={styles['toggle-button']} htmlFor="navbar-toggle">
+        <input
+          type="checkbox"
+          id="navbar-toggle"
+          checked={isMobileMenuOpen}
+          onChange={() => setMobileMenuOpen(!isMobileMenuOpen)}
+        />
+        <i />
+      </label>
       <nav className={styles.menu}>
         <ul>
           {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
-            <NavbarLink name="Braggel" url="/braggel" setnav={setnavdropdown} />
+            <NavbarLink name="Braggel" url="/braggel" setMobileMenuOpen={setMobileMenuOpen} />
           )}
           {[Roles.ADMIN].includes(isAllowed) && (
-            <NavbarLink name="Users" url="/users" setnav={setnavdropdown} />
+            <NavbarLink name="Users" url="/users" setMobileMenuOpen={setMobileMenuOpen} />
           )}
           {[Roles.ADMIN, Roles.BONDS, Roles.BRAGGEL].includes(isAllowed) && (
-            <NavbarLink name="Nieuws" url="/Nieuws" setnav={setnavdropdown} />
+            <NavbarLink name="Nieuws" url="/Nieuws" setMobileMenuOpen={setMobileMenuOpen} />
           )}
           <li>
             <Link to="/">Site</Link>
