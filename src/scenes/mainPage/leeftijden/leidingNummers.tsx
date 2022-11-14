@@ -26,6 +26,7 @@ function LeidingNummers({ nummers, groep }: Props) {
         {nummers
           && nummers.map((value: LeidingNummer) => (
             <Card
+              key={value.number}
               nummer={value.number}
               img={value.img}
               voornaam={value.voornaam}
