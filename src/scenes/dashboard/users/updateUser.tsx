@@ -1,4 +1,6 @@
-import React, { lazy, useRef } from 'react';
+import React, {
+  FormEvent, FormEventHandler, lazy, useRef,
+} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
 import ToastManager from '../../../components/toast/ToastManager';
@@ -13,7 +15,7 @@ function UpdateUser() {
   const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
 
-  const updateUser = async (e) => {
+  const updateUser: FormEventHandler = async (e: FormEvent) => {
     try {
       e.preventDefault();
       const res = await UserService.update(new FormData(form.current!));

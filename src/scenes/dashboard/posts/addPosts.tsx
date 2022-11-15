@@ -1,4 +1,6 @@
-import React, { lazy, useRef } from 'react';
+import React, {
+  FormEvent, FormEventHandler, lazy, useRef,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PostService from '../../../service/postService';
 import ToastManager from '../../../components/toast/ToastManager';
@@ -11,7 +13,7 @@ function AddPosts() {
   const navigate = useNavigate();
   const form = useRef<HTMLFormElement>(null);
 
-  const addPost = async (e) => {
+  const addPost: FormEventHandler = async (e: FormEvent) => {
     try {
       e.preventDefault();
       const res = await PostService.create(new FormData(form.current!));

@@ -1,4 +1,6 @@
-import React, { lazy, useRef } from 'react';
+import React, {
+  FormEvent, FormEventHandler, lazy, useRef,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../../service/userService';
 
@@ -11,7 +13,7 @@ function CreateUser() {
   const form = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
 
-  const createUser = async (e) => {
+  const createUser: FormEventHandler = async (e: FormEvent) => {
     try {
       e.preventDefault();
       const res = await UserService.create(new FormData(form.current!));

@@ -1,4 +1,5 @@
 import React, {
+  FormEvent, FormEventHandler,
   lazy, useEffect, useRef, useState,
 } from 'react';
 import MagazineService from '../../../service/magazineService';
@@ -56,7 +57,7 @@ function UploadBraggels() {
     }
   };
 
-  const uploadMonthlyMagazine = async (e) => {
+  const uploadMonthlyMagazine: FormEventHandler = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (monthlyMagazineForm.current) {
@@ -78,7 +79,7 @@ function UploadBraggels() {
     }
   };
 
-  const uploadSpecialMagazine = async (e) => {
+  const uploadSpecialMagazine: FormEventHandler = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (specialMagazineForm.current) {

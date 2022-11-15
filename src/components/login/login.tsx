@@ -1,4 +1,6 @@
-import React, { lazy, useRef } from 'react';
+import React, {
+  FormEvent, FormEventHandler, lazy, useRef,
+} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AuthService from '../../service/authService';
 import ToastManager from '../toast/ToastManager';
@@ -31,7 +33,7 @@ function Login({ setToken }: Props) {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit: FormEventHandler = async (e : FormEvent) => {
     e.preventDefault();
     await login();
   };
