@@ -1,6 +1,6 @@
 import { Magazine as IMagazine, MagazineTypes } from '../types';
 
-const SERVICE_URL = `${process.env.BASE_URL}/magazine`;
+const SERVICE_URL = `${process.env.BASE_URL}/api/magazine`;
 
 async function upload(formData: FormData) {
   const response = await fetch(`${SERVICE_URL}`, {

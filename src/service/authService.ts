@@ -1,4 +1,4 @@
-const SERVICE_URL = `${process.env.BASE_URL}/auth`;
+const SERVICE_URL = `${process.env.BASE_URL}/api/auth`;
 
 async function login(formData: FormData) {
   const response = await fetch(`${SERVICE_URL}/login`, {

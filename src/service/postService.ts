@@ -1,6 +1,6 @@
 import { Post } from '../types';
 
-const SERVICE_URL = `${process.env.BASE_URL}/post`;
+const SERVICE_URL = `${process.env.BASE_URL}/api/post`;
 
 async function getAll() {
   const response = await fetch(SERVICE_URL);

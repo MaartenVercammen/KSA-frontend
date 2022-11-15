@@ -1,6 +1,6 @@
 import { User } from '../types';
 
-const SERVICE_URL = `${process.env.BASE_URL}/user`;
+const SERVICE_URL = `${process.env.BASE_URL}/api/user`;
 
 async function getAll() {
   const response = await fetch(SERVICE_URL, {
