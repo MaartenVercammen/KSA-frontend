@@ -1,16 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
-  & *:not(.map) {
-    align-self: center;
-  }
-
-  & .map {
-    height: 40vh;
-  }
-
-  & *:not(:last-child) {
+  & * {
     margin-bottom: 1rem;
   }
 }

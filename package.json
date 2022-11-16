@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/MaartenVercammen/KSA-frontend#readme",
   "dependencies": {
-    "@react-google-maps/api": "^2.12.2",
     "@uiw/react-md-editor": "^3.18.1",
     "html-react-parser": "^3.0.4",
     "react": "^17.0.2",
