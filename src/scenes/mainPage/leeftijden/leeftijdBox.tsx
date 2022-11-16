@@ -34,6 +34,7 @@ function LeeftijdBox({
       onClick={() => navigate(`/leiders/${name}`)}
       onKeyDown={onKeyDown}
       tabIndex={0}
+      aria-label={`informatie over ${name}`}
     >
       <h4>{name}</h4>
       <p>{`${startAge}-${endAge}`}</p>
