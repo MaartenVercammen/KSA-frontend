@@ -13,7 +13,6 @@ header {
   }
 
   & .logo {
-    max-width: 30vw;
     left: 50%;
     position: absolute;
     top: 50%;

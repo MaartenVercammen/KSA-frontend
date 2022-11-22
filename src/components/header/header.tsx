@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './header.module.css';
 
 import backgroundImage from '../../images/groepsfoto.webp';
-import logo from '../../images/logo.png';
+import logo from '../../images/logo.webp';
 
 function Header() {
   return (
