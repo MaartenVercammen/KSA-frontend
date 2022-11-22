@@ -70,7 +70,7 @@
 
 @font-face {
   font-family: "KG Second Chances Sketch";
-  src: url("./fonts/KGSecondChancesSketch.ttf");
+  src: url("./fonts/KGSecondChancesSketch.woff2") format("woff2");
   font-display: swap;
 }
 
