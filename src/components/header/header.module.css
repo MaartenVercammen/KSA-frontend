@@ -2,7 +2,8 @@ header {
   height: var(--header-height);
   position: relative;
 
-  & .background {
+  & .background img,
+  & .background source {
     position: relative;
     filter: opacity(0.7);
     height: 100%;
